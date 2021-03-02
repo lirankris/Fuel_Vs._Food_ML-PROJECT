@@ -1,31 +1,43 @@
-import MainAPI as MAPI
 import os
-import json
 import pandas as pd
 
 
 def main():
 
     DataBasePath = r"C:\Users\liran\OneDrive\Desktop\School\data scientist\Jhon Bryce\DataBase"
-    OcedFile = []
-    YfFIle = []
+    dictOced = {}
+    dictYf = {}
 
     for file in os.listdir(DataBasePath):
-        if os.path.isfile(os.path.join(DataBasePath, file)) and 'Data_Set' in file:
-            DataSetName = os.path.join(DataBasePath, file)
-            Filelist = os.listdir(DataSetName)
-            if 'OECD' in Filelist:
-                for Osubfile in Filelist:
-                    if 'json_get_all' in Osubfile:
-                        print(Osubfile)
-                        OcedFile.append([jsonfile for jsonfile in os.listdir(
-                            Osubfile) if jsonfile.endswith('.json')])
+        if 'Data_Set' in file:
+            DataSetPath = os.path.join(DataBasePath, file)
+            date = file.split(' ')
+            for sub1file in os.listdir(DataSetPath):
+                if f'OECD {date[1]}' in sub1file:
+                    OECDPath = os.path.join(DataSetPath, sub1file)
+                    for sub2file in os.listdir(OECDPath):
+                        if 'json_get_all' in sub2file:
+                            json_get_allPath = os.path.join(OECDPath, sub2file)
+                            if os.path.getsize(json_get_allPath) == 0:
+                                pass
+                            else:
+                                for jsonfile in os.listdir(json_get_allPath):
+                                    dictOced[date[1]] = jsonfile
 
-            elif 'yahoo finance' in Filelist:
-                for Ysubfile in Filelist:
-                    print(Ysubfile)
-                    YfFIle.append([jsonfile for jsonfile in os.listdir(
-                        Ysubfile) if jsonfile.endswith('.json')])
+                elif f'yahoo finance {date[1]}' in sub1file:
+                    YfPath = os.path.join(DataSetPath, sub1file)
+                    if os.path.getsize(YfPath) == 0:
+                        pass
+                    else:
+                        for jsonfile in os.listdir(YfPath):
+                            if jsonfile.endswith('.json'):
+                                dictYf[date[1]] = jsonfile
+
+    dfOced =
+    dfYf =
+
+    #dfOced = pd.DataFrame.from_dict(many_jsons[0])
+    #dfYf = pd.DataFrame.from_dict(many_jsons[0])
 
 
 if __name__ == '__main__':
