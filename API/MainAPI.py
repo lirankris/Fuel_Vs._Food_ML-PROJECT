@@ -9,7 +9,7 @@ import time
 import os
 
 
-def main():
+def main_api():
     # directorys :
     # [0]MainDir.
     # [1]yahoo_finance_File_path.
@@ -77,48 +77,34 @@ def main():
 
     OecdFilepath = [NewsubDirList1[0], NewsubDirList2[0], NewsubDirList2[1], NewsubDirList2[2]]
 
-    #User_input = input("Type Y for YahooFinanceAPI or O to OecdAPI...")
-    User_input = 'o'
+    MainLogger.debug("Opening Chrome browser\n")
+    browser = webdriver.Chrome(
+        r'C:\Users\liran\OneDrive\Desktop\School\data scientist\Jhon Bryce\chromedriver.exe')
 
-    while User_input.lower() != "o" or User_input.lower() != "y":
-        if User_input.lower() == "y":
-            MainLogger.debug("Opening Chrome browser\n")
-            browser = webdriver.Chrome(
-                r'C:\Users\liran\OneDrive\Desktop\School\data scientist\Jhon Bryce\chromedriver.exe')
+    MainLogger.debug("**Starting YahooFinanceAPI function\n")
+    MainLogger.info(
+        f"The Yahoo Finance Main file directory path is: {NewsubDirList1[1]} \n")
 
-            MainLogger.debug("**Starting YahooFinanceAPI function\n")
-            MainLogger.info(
-                f"The Yahoo Finance Main file directory path is: {NewsubDirList1[1]} \n")
+    # call the yahoo finance API
+    YahooFinanceAPI.YahooFinanceAPI(NewsubDirList1[1], browser,
+                                    YFLogger)
 
-            # call the yahoo finance API
-            YahooFinanceAPI.YahooFinanceAPI(NewsubDirList1[1], browser,
-                                            YFLogger)
+    MainLogger.debug("closing browser")
+    # MainLogger.info(f'\nTotal {len(dfTotal)} set of sector data in the system!')
+    browser.close()
 
-            MainLogger.debug("closing browser")
-            # MainLogger.info(f'\nTotal {len(dfTotal)} set of sector data in the system!')
-            browser.close()
+    time.sleep(10)
 
-            time.sleep(10)
+    MainLogger.debug("**Starting OecdAPI function\n")
+    MainLogger.info(f"The Oecd Main file directory path is: {NewsubDirList1[0]} \n")
 
-        elif User_input.lower() == "o":
+    OecdAPI.OecdAPI(OecdFilepath, ToDay, OecdLogger)
 
-            MainLogger.debug("**Starting OecdAPI function\n")
-            MainLogger.info(f"The Oecd Main file directory path is: {NewsubDirList1[0]} \n")
+    # schedule.every(1).day.at('01:30').do(job_that_executes_multi())
 
-            OecdAPI.OecdAPI(OecdFilepath, ToDay, OecdLogger)
-
-            # schedule.every(1).day.at('01:30').do(job_that_executes_multi())
-
-            # schedule.every().day.at('01:30').do(job_that_executes_once())
-
-        elif User_input.lower() == "stop":
-            break
-        else:
-            print("Wrong input, try again...")
+    # schedule.every().day.at('01:30').do(job_that_executes_once())
 
     MainLogger.debug("Log ended at %s", str(
         datetime.datetime.now().strftime("%d_%m_%Y %H:%M:%S %p")))
 
-
-if __name__ == '__main__':
-    main()
+    return
