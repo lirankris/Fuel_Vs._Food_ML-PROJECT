@@ -1,7 +1,7 @@
 import logging
 
 
-def Log(LogName, LogPath, ToDay):
+def Log(LogName, LogPath):
 
     logger = logging.getLogger(LogName)
     logger.setLevel(logging.DEBUG)  # the level should be the lowest level set in handlers

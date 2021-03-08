@@ -1,7 +1,10 @@
+from pathlib import Path
+import sys
 import os
+import os
+import json
 import pandas as pd
 import CreateText as ct
-from OECD_data_mining import OECD_json_get_all as OJGA
 
 
 def standardize_data(dset_id, df, FilePath):
@@ -12,7 +15,7 @@ def standardize_data(dset_id, df, FilePath):
                    'Measure': 'MEASURE',
                    'Country': 'NATION'}
 
-    cols = df.columns.values.tolist()
+    cols = df.columns.values.tolist()  # get's the df columns and turn them to list.
     print(dset_id, cols)
 
     # for test
@@ -24,13 +27,12 @@ def standardize_data(dset_id, df, FilePath):
     if tuple_col in cols:  # 'Country - distribution' in the data frame column.
         split_list = tuple_col.split(' - ')  # [Country, distribution]
 
-        for n, col in enumerate(split_list):
-            # df[col] = df['Country - distribution'].apply(lambda x: x.split('-')[0,1,2...])
+        for n, col in enumerate(split_list):  # 0 col1, 1 col2, 2 col3, 3 col4 ....
             df[col] = df[tuple_col].apply(lambda x: x.split('-')[n])
-        df = df.drop(tuple_col, axis=1)
+            # example: df['Country'](values) = df['Country - distribution'](values).split('-')[0]
+        df = df.drop(tuple_col, axis=1)  # delete column 'Country - distribution'
 
     df2text = ct.data2text(df.values, 'standardize_data_df')
-    print(df2text)
     # rename common occurrence column names
     # 'Time Period' to 'YEAR', 'Observation' to 'series'
     # 'Industry' to 'INDUSTRY', 'Country' to 'NATION'
@@ -52,7 +54,7 @@ def standardize_data(dset_id, df, FilePath):
     country_renames = ['Declaring country', 'Partner country', 'Reporting country']
     for cname in country_renames:
         if cname in cols:
-            df.rename({cname: 'NATION'}, axis='columns', inplace=True)
+            df.rename({cname: 'NATION'}, axis=1, inplace=True)
             break
     cols = df.columns.values.tolist()
     print(f'dset_id is : {dset_id}', cols)
@@ -87,42 +89,83 @@ def standardize_data(dset_id, df, FilePath):
 
 '/////////////////////////////////////////////////////////////////////////////'
 
-# STAGE 1: OECD data set JSON analysis for data sets covering industries
 
-
-def OECD_criteria_merge(FilePath, Logger):
+def OECD_criteria_merge(Logger, path, FilePath):
     # criteria
     criteria = ['Industry', 'Activity', 'ISIC3', 'Sector']
     candidates = []
     column_name = []
-    count, jsonDir = OJGA()
+    jsonDir = path
+    StructureNames = []
+
+    count = 0
+    countCan = 0
+    countCan = 0
+    countCol = 0
+    interLength = 0
     # iterate through each JSON file in the directory and analyse it
     for filename in os.listdir(jsonDir):
         if filename.endswith(".json"):
             dsetid = os.path.splitext(filename)[0]
-            fromfile = os.path.join(jsonDir, filename)  # full JSON file path.
-            print(dsetid)
+            fromfile = os.path.join(jsonDir, filename)
+            # example: C:\Users\liran\OneDrive\Desktop\School\data scientist\
+            # Jhon Bryce\DataBase\Data_Set 27_02_2021\OECD 27_02_2021\
+            # json_get_all 27_02_2021\AFA_IN3
+            # oecd_dataset_df = pd.read_json(fromfile)
+            try:
+                oecd_dataset = json.load(open(fromfile))  # from json to dict.
+            except json.decoder.JSONDecodeError:
+                count += 1
+                pass
 
-            oecd_dataset_df = pd.read_json(fromfile)
+            oecd_dataset_df = pd.json_normalize(oecd_dataset, max_level=1)
             oecd_cols = oecd_dataset_df.columns.values.tolist()  # create a list of columns names.
 
             if any(k in criteria for k in oecd_cols):
+                # looks for evidence of a column matching one of the column criteria
+                # any() returns True if any of the (oecd column in criteria) == True.
                 intersection = list(set(criteria) & set(oecd_cols))
-                candidates.append(dsetid)
+                interLength += 1
+                # get a list only of string in both variables.
+                candidates.append(dsetid)  # get file name and add to candidates.
+                countCan += 1
                 occurrence = next((x for x in intersection if x == criteria[0]), None)
-                if occurrence is None:
+
+                # if criteria[0]='Industry' equals to intersection[i] get intersection[i+1].
+                if occurrence is None:  # there is no next item.
                     column_name.append(intersection[0])
+                    countCol += 1
+                    # intersection[0]= criteria[0] = 'Industry' | 'Activity' | 'ISIC3' | 'Sector'
                 else:
                     column_name.append(occurrence)
-                print(dsetid, intersection, occurrence)
+                    countCol += 1
+                    # column_name = occurrence, candidates = file names.
+
+    write2file = FilePath + '\StructureNames.txt'
+    with open(write2file, 'w', encoding='utf-8') as f:
+        for strc in StructureNames:
+            f.writelines(f'{strc}\n')
+
+    print(
+        f'oecd_dataset: {count} of {len(os.listdir(jsonDir))}, Total {len(os.listdir(jsonDir)) - count} succeeded')
+    Logger.debug(
+        f'oecd_dataset: {count} of {len(os.listdir(jsonDir))}, Total {len(os.listdir(jsonDir)) - count} succeeded')
+    print(
+        f'candidates: {countCan} of {len(os.listdir(jsonDir))}, Total {len(os.listdir(jsonDir)) - countCan} Failed')
+    Logger.debug(
+        f'candidates: {countCan} of {len(os.listdir(jsonDir))}, Total {len(os.listdir(jsonDir)) - countCan} Failed')
+    print(
+        f'column_name: {countCol} of {len(interLength)}, Total {len(interLength) - countCol} Failed')
+    Logger.debug(
+        f'column_name: {countCol} of {len(interLength)}, Total {len(interLength) - countCol} Failed')
 
     # create candidate DataFrame
     candidates_df = pd.DataFrame({'KeyFamilyId': candidates, 'ColumnName': column_name})
+    candidates_df.to_excel(excel_writer=f"{FilePath}\{fromfile}.xlsx", header=[
+                           'KeyFamilyId', 'ColumnName'])
 
     # diagnostic info
-    print(len(candidates), 'industry candidates found')
-
-    # STAGE 2 : analysis of OECD industry related data set for specific industry criteria
+    print(len(candidates), 'Industry candidates found')
 
     # criteria
     industryTypeKey = 'ELECTRICITY'
@@ -131,22 +174,26 @@ def OECD_criteria_merge(FilePath, Logger):
     # find which have data on target industry type
     for row in candidates_df.iterrows():
         datasetId = row[1]['KeyFamilyId']
+        print(f'this is the candidates row KeyFamilyId: {datasetId}')
+        Logger.debug(f'this is the candidates row KeyFamilyId: {datasetId}')
         colName = row[1]['ColumnName']
+        print(f'this is the candidates cloumn name: {colName}')
+        Logger.debug(f'this is the candidates cloumn name: {colName}')
 
         dataset_df = pd.read_json(os.path.join(jsonDir, datasetId + '.json'))
         print('checking', datasetId)
 
         try:
             filtered_df = dataset_df[dataset_df[colName].str.startswith(industryTypeKey)]
+            # if  dataset_df[cloumn name] don't start with ELECTRICITY raise error.
         except ValueError:
             # all NaNs in target column, nothing to see here - move on
             pass
         else:
-            if len(filtered_df.index):
-                # non-empty DataFrame
-                hasTarget.append(datasetId)
+            if len(filtered_df.index):  # non-empty DataFrame
+                hasTarget.append(datasetId)  # add KeyFamilyId from json file.
                 # call stage 3
-                ProcDir = standardize_data(datasetId, filtered_df, FilePath)
+                ProcDir = standardize_data(datasetId, filtered_df, jsonDir)
 
     # diagnostic info
     print(len(hasTarget), 'beginning with', industryTypeKey)
