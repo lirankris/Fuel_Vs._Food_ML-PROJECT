@@ -15,16 +15,16 @@ def OecdAPI(OecdFilepath, ToDay):
     # OECD_json_get_all_File_path = subDirList1[0] + f'\json_get_all {ToDay}'.
     # OECD_Schema_File_path = subDirList1[0] + f'\Schema {ToDay}'.
     # OECD_Criteria_merge_File_path = subDirList1[0] + f'\Oecd_merged {ToDay}'.
-    subDirList2 = [
+    sub2DirList = [
         OecdFilepath + '\Json_get_all',
         OecdFilepath + '\Schema',
         OecdFilepath + '\Oecd_merged'
     ]
 
-    NewsubDirList2 = []
+    Newsub2DirList = []
 
-    for sub2 in subDirList2:
-        NewsubDirList2.append(cf(FileDirPath=sub2, Pos='sub2'))
+    for sub2 in sub2DirList:
+        Newsub2DirList.append(cf(FileDirPath=sub2, Pos='sub2'))
 
     # Url for data structure schema with families key.
     # Data:
@@ -32,7 +32,7 @@ def OecdAPI(OecdFilepath, ToDay):
     # Data Structure:
     OecdStructureUrl = 'http://stats.oecd.org/RESTSDMX/sdmx.ashx/GetDataStructure/ALL/'
     # Schema:
-    OecdschemaUrl = 'http://stats.oecd.org/restsdmx/sdmx.ashx/GetSchema/'
+    # OecdschemaUrl = 'http://stats.oecd.org/restsdmx/sdmx.ashx/GetSchema/'
 
     # New json file OECD keys.
     Oecd_key_names = cf(FileDirPath=OecdFilepath,
@@ -41,7 +41,8 @@ def OecdAPI(OecdFilepath, ToDay):
 
     # create New json file OECD keys.
 
-    json_Key_File = ODM.OECD_Key_Familis(OecdStructureUrl, Oecd_key_names, OecdLogger, OecdFilepath)
+    json_Key_File = ODM.OECD_Key_Familis(
+        OecdStructureUrl, Oecd_key_names, OecdLogger, OecdFilepath)
 
     if json_Key_File:
         OecdLogger.debug('json_Key_File as succeeded')
@@ -60,10 +61,10 @@ def OecdAPI(OecdFilepath, ToDay):
     #    OecdschemaUrl, NewsubDirList2[1], keynames, OecdLogger)
 
     success_count1, FilepathDatasets = ODM.OECD_json_get_all(
-        OecdsourceUrl, NewsubDirList2[0], keynames, OecdLogger)
+        OecdsourceUrl, Newsub2DirList[0], keynames, OecdLogger)
 
     # ODM.OECD_json_get_timedout(path2, Logger)
-    OCM(NewsubDirList2[2], OecdLogger)
+    OCM(Newsub2DirList[2], OecdLogger)
 
     print("completed ...")
     print(len(keynames), " Dataset")

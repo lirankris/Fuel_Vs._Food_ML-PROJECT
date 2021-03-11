@@ -1,6 +1,9 @@
 import os
 import json
 import pandas as pd
+from itertools import zip_longest as zipLong
+import copy
+#import maya
 
 
 def standardize_data(dset_id, df, FilePath):
@@ -114,15 +117,79 @@ def OECD_criteria_merge(Logger, path, FilePath):
                 pass
 
             oecd_dataset_df = pd.json_normalize(oecd_dataset, max_level=1)
-            oecd_dataset_df.to_csv('out.csv', index=True)
-            break
+            for jname in oecd_dataset_df:
+                print(jname)
+                # print(jname['header.sender'][0]['name'])
+            # oecd_dataset_df.to_csv('out.csv', index=True, na_rep=)
             oecd_cols = oecd_dataset_df.columns.values.tolist()
-            for col in oecd_cols:
-                print(col)
-                break
+            # print(
+            #    f"Time of collecting dataset: {maya.parse(oecd_dataset_df['header.prepared'][0]).datetime()}")
+            dataSets = oecd_dataset_df['dataSets'][0]
+            Information = dataSets[0]['action']
+            DataSetsSer = dataSets[0]['series']
+            Sort_DataSetsSer = sorted(DataSetsSer)
+            count = 0
+            # for i in Sort_DataSetsSer:
+            #    print(i)
+            #    count += 1
+            #    DataSetsSerAtt = DataSetsSer[i]['observations']
+            #    print(DataSetsSerAtt)
+            # print(count)
+            description = oecd_dataset_df['structure.description'][0]
+            name = oecd_dataset_df['structure.name'][0]
+            dimensions = oecd_dataset_df['structure.dimensions'][0]
+            series1 = dimensions['series'][0]
+            series2 = dimensions['series'][1]
+            Strobservation = dimensions['observation'][0]
+            observation_id = dimensions['observation'][0]['id']
+            observation_name = dimensions['observation'][0]['name']
+            observation_val = dimensions['observation'][0]['values']
+
+            keyPosition1 = series1['keyPosition']
+            Serid1 = series1['id']
+            Sername1 = series1['name']
+            ServaluesSet1 = series1['values'][0]
+            ServaluesDic1 = series1['values']
+
+            keyPosition2 = series2['keyPosition']
+            Serid2 = series2['id']
+            Sername2 = series2['name']
+            ServaluesSet2 = series2['values'][0]
+            ServaluesDic2 = series2['values']
+
+            Strattributes = oecd_dataset_df['structure.attributes'][0]
             print(
-                f"oecd_dataset_df['structure.description']: {oecd_dataset_df['structure.description'][0]}")
+                f"From: {oecd_dataset_df['header.sender'][0]['name']} [{oecd_dataset_df['header.sender'][0]['id']}] ")
+            print(f"DateSet Name: {name}")
+            print(f"description: {description}")
+            print(
+                f"links: {oecd_dataset_df['header.links'][0][0]['rel']} = {oecd_dataset_df['header.links'][0][0]['href']}")
+            print(f"\t\tkey {keyPosition1}: Id: {Serid1} -  Name: {Sername1}")
+            print(f"\t\tkey {keyPosition2}: Id: {Serid2} - Name: {Sername2}")
+            print(f"\t\tDataType: {observation_id} ({observation_name})")
+            print(f"\t\tDataclass: {Information}")
+            print('\n')
+
+            count2 = 0
+            for val1, val2, val3 in zipLong(range(len(ServaluesDic1)), range(len(ServaluesDic2)), range(len(observation_val))):
+                try:
+                    print(
+                        f"\t\t\t{Sername1} = {ServaluesDic1[val1]['name']} [{ServaluesDic1[val1]['id']}]")
+                    print(
+                        f"\t\t\t{Sername2} = {ServaluesDic2[val2]['name']} [{ServaluesDic2[val2]['id']}]")
+                    print(
+                        f"\t\t\t{observation_name} = {observation_val[val3]['name']}")
+                    print('\n')
+                    count2 += 1
+                except TypeError:
+                    continue
+
+            print("count!!!! = ", count2)
+
+            # print(f"attributes: {attributes}")
+
             StructureNames.append(oecd_dataset_df['structure.description'][0])
+
             # create a list of columns names.
             if any(k in criteria for k in oecd_cols):
                 # looks for evidence of a column matching one of the column criteria

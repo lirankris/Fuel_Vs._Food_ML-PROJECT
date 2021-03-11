@@ -1,4 +1,4 @@
-from DataStandart import OECD_criteria_merge as OCM
+from DataStandart_test import OECD_criteria_merge as OCM
 from CreateLogger import Log
 
 

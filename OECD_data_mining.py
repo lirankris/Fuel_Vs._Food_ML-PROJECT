@@ -3,6 +3,7 @@ import pandas as pd
 import requests as req
 import xmltodict
 import lxml.etree as etree
+import datetime
 
 
 def OECD_Key_Familis(Url, KeynamesFILE, Logger, MainPath):
@@ -22,16 +23,12 @@ def OECD_Key_Familis(Url, KeynamesFILE, Logger, MainPath):
     try:
         GetRequest = req.get(Url, timeout=60)
     except req.exceptions.ReadTimeout:
-        print("Data request read timed out")
         Logger.debug('Data read timed out')
     except req.exceptions.Timeout:
-        print("Data request timed out")
         Logger.debug('Data request timed out')
     except req.exceptions.HTTPError:
-        print("HTTP error")
         Logger.debug('HTTP error')
     except req.exceptions.ConnectionError:
-        print("Connection error")
         Logger.debug('Connection error')
     else:
         if GetRequest.status_code == 200:
@@ -86,8 +83,6 @@ def OECD_Key_Familis(Url, KeynamesFILE, Logger, MainPath):
             keyFamdf = pd.DataFrame.from_dict(
                 {'KeyFId': keyFamIdList, 'KeyFName': keyFamNameList}, orient='index')
             keyFamdf.to_json(KeynamesFILE, orient="index")
-            keyFamdf.to_excel(excel_writer=f"{MainPath}\keyFamdf.xlsx", na_rep="0",
-                              header=["KeyFId", "KeyFName"])
             Logger.debug("finished creating key Family as a json file.")
             Logger.info(f"key Family file path is: {KeynamesFILE}")
             return True
@@ -103,7 +98,7 @@ def OECD_Key_Familis(Url, KeynamesFILE, Logger, MainPath):
 
 def OECD_Schema(Url, Path, keynames, Logger):
 
-    # Create a for loop with for a Session in the OECD Site to get xml schema files.
+    # Create a loop with for a Session in the OECD Site to get xml schema files.
 
     # Url = 'http://stats.oecd.org/restsdmx/sdmx.ashx/GetSchema/'
     # KeynamesFILE (read)= ....'\OECD_key_names {ToDay}.json'
@@ -125,16 +120,12 @@ def OECD_Schema(Url, Path, keynames, Logger):
                 # example request: http://stats.oecd.org/restsdmx/sdmx.ashx/GetSchema/QNA
 
             except req.exceptions.ReadTimeout:
-                print(keyname, ": Data request read timed out")
                 Logger.debug('%s: Data read timed out', keyname)
             except req.exceptions.Timeout:
-                print(keyname, ": Data request timed out")
                 Logger.debug('%s: Data request timed out', keyname)
             except req.exceptions.HTTPError:
-                print(keyname, ": HTTP error")
                 Logger.debug('%s: HTTP error', keyname)
             except req.exceptions.ConnectionError:
-                print(keyname, ": Connection error")
                 Logger.debug('%s: Connection error', keyname)
 
             else:
@@ -160,7 +151,7 @@ def OECD_Schema(Url, Path, keynames, Logger):
 
 def OECD_json_get_all(Url, Path, keynames, Logger):
 
-    # Create a for loop with for a Session in the OECD Site to get sdmx-json files.
+    # Create a loop with for a Session in the OECD Site to get sdmx-json files.
 
     # Url = 'http://stats.oecd.org/sdmx-json/data/'
     # KeynamesFILE (read)= ....'\OECD_key_names {ToDay}.json'
@@ -174,6 +165,7 @@ def OECD_json_get_all(Url, Path, keynames, Logger):
     Logger.warning('Starting to reach out Oecd Data source for json_get_all')
 
     success_count = 0  # Reset the count of success in attempts of requests.
+    ErrorList = []
 
     with req.Session() as ReqS:
         for dataset_id in keynames:
@@ -181,17 +173,17 @@ def OECD_json_get_all(Url, Path, keynames, Logger):
                 GetRequest = ReqS.get(Url + dataset_id + '/all/all', timeout=60)
                 # example request: http://stats.oecd.org/sdmx-json/data/QNA/all/all
             except req.exceptions.ReadTimeout:
-                print(dataset_id, ": OECD data request read timed out")
                 Logger.debug('%s: OECD data request read timed out', dataset_id)
+                ErrorList.append(dataset_id)
             except req.exceptions.Timeout:
-                print(dataset_id, ": OECD data request timed out")
                 Logger.debug('%s: OECD data request timed out', dataset_id)
+                ErrorList.append(dataset_id)
             except req.exceptions.HTTPError:
-                print(dataset_id, ": HTTP error")
                 Logger.debug('%s: HTTP error', dataset_id)
+                ErrorList.append(dataset_id)
             except req.exceptions.ConnectionError:
-                print(dataset_id, ": Connection error", )
                 Logger.debug('%s: Connection error', dataset_id)
+                ErrorList.append(dataset_id)
             else:
                 if GetRequest.status_code == 200:  # success to get dataset.
                     write2file = os.path.join(Path, dataset_id + ".json")
@@ -208,4 +200,65 @@ def OECD_json_get_all(Url, Path, keynames, Logger):
 
     print(f'{success_count} HTTP success out of {len(keynames)}, Total {len(keynames)-success_count} Failed')
 
+    if not ErrorList:
+        OECD_json_get_errors(Url, Path, ErrorList, Logger)
+
     return success_count, write2file
+
+
+'/////////////////////////////////////////////////////////////////////////////'
+
+
+def OECD_json_get_errors(Url, Path, ErrorList, Logger):
+
+    # Create a loop with for a Session in the OECD Site to get sdmx-json files.
+
+    # Url = 'http://stats.oecd.org/sdmx-json/data/'
+    # ErrorList (read)= 'QNA', 'SNA_TABLE11'...
+    # Path (write)= file directory of OECD_json_get_all path.
+    # keynames = List of 'Key Family Id' such as: 'QNA', 'SNA_TABLE11'.
+    # Logger = Oecd_log.
+
+    # In: data from OECD server; OECD_keys/OECD_key_names.json
+    # Out: OECD_json_datasets/dataset id.json
+    success_count = 0  # Reset the count of success in attempts of requests.
+    ReqCount = 0
+    ErrorListloop = []
+
+    with req.Session() as ReqS:
+        for dataset_id in ErrorList:
+            for i in range(3):
+                try:
+                    GetRequest = ReqS.get(Url + dataset_id + '/all/all', timeout=60)
+                    ReqCount += 1
+                    # example request: http://stats.oecd.org/sdmx-json/data/QNA/all/all
+                except req.exceptions.ReadTimeout:
+                    Logger.debug('%s: OECD data request read timed out', dataset_id)
+                    ErrorListloop.append(dataset_id)
+                except req.exceptions.Timeout:
+                    Logger.debug('%s: OECD data request timed out', dataset_id)
+                    ErrorListloop.append(dataset_id)
+                except req.exceptions.HTTPError:
+                    Logger.debug('%s: HTTP error', dataset_id)
+                    ErrorListloop.append(dataset_id)
+                except req.exceptions.ConnectionError:
+                    Logger.debug('%s: Connection error', dataset_id)
+                    ErrorListloop.append(dataset_id)
+
+                else:
+                    if GetRequest.status_code == 200:  # success to get dataset.
+                        write2file = os.path.join(Path, dataset_id + ".json")
+
+                        # write to a new text file of the source data.
+                        with open(write2file, 'w', encoding='utf-8') as file:
+                            file.write(GetRequest.text)
+                            success_count += 1
+                    else:
+                        print(dataset_id, 'HTTP Failed with code', GetRequest.status_code)
+                        Logger.debug('%s HTTP Failed with code %d',
+                                     dataset_id, GetRequest.status_code)
+                    break
+
+    print("completed ...")
+    print(f'{success_count} datasets retrieved out of {ReqCount}')
+    Logger.debug("OECD_json_get_errors ended at %s", str(datetime.datetime.now()))
