@@ -5,14 +5,14 @@ import requests as req
 import xmltodict
 import datetime
 import pandasdmx
+import time
+import streamlit as st
 
 cwd = os.getcwd()
 sys.path.append(f'{cwd}\DataFrames\CreateTools')
 from CreateLogger import Log
 
-
 # # ---------------------SDMX-JSON -----------------------------#
-
 
 def OECD_Key_Familis(Url, Logger):
     Logger.warning('Starting to reach OECD key Family names')
@@ -102,7 +102,7 @@ def OECD_Key_Familis(Url, Logger):
 '/////////////////////////////////////////////////////////////////////////////'
 
 
-def OECD_dataset_name(keynames, Logger):
+def OECD_dataset_name(keynames, Logger, db_list):
     GBARD_YEAR = ''
     GBARD = ''
     CUR_TABLE = ''
@@ -112,27 +112,33 @@ def OECD_dataset_name(keynames, Logger):
 
     Logger.debug('Starting to get datasets names..')
 
-    for dataset_id in keynames:
-        if 'GBARD' in dataset_id:
-            year = dataset_id.split('_')[1].split('S')[1]
-            if year > GBARD_YEAR:
-                GBARD_YEAR = year
-                GBARD = dataset_id
+    for name in db_list:
+        for dataset_id in keynames:
+            if 'GBARD' in dataset_id and 'GBARD' in name:
+                year = dataset_id.split('_')[1].split('S')[1]
+                if year > GBARD_YEAR:
+                    GBARD_YEAR = year
+                    GBARD = dataset_id
 
-        if 'HIGH_AGLINK' in dataset_id:
-            year = dataset_id.split('_')[2]
-            if year > HIGH_AGLINK_YEAR:
-                HIGH_AGLINK_YEAR = year
-                HIGH_AGLINK = dataset_id
+            if 'HIGH_AGLINK' in dataset_id and 'Agri' in name:
+                year = dataset_id.split('_')[2]
+                if year > HIGH_AGLINK_YEAR:
+                    HIGH_AGLINK_YEAR = year
+                    HIGH_AGLINK = dataset_id
+    if GBARD:
+        for dataset_id in keynames:
+            if dataset_id == 'SNA_TABLE4':
+                CUR_TABLE = dataset_id
 
-        if dataset_id == 'SNA_TABLE4':
-            CUR_TABLE = dataset_id
+        dataset_ids = []
 
-    dataset_ids = [GBARD, HIGH_AGLINK, CUR_TABLE]
+        for dataset in [GBARD, HIGH_AGLINK, CUR_TABLE]:
+            if dataset:
+                dataset_ids.append(dataset)
 
-    Logger.debug(f'Finished, Selected datasets are: {GBARD, HIGH_AGLINK, CUR_TABLE}')
+        Logger.debug(f'Finished, Selected datasets are: {dataset_ids}')
 
-    return dataset_ids
+        return dataset_ids
 
 
 '/////////////////////////////////////////////////////////////////////////////'
@@ -158,10 +164,13 @@ def OECD_dataset(dataset_ids, Logger):
                   endPeriod='2021-Q1',
                   dimensionAtObservation='TimeDimension',
                   detail='Full')
-    dfs = []
+    dfs = {}
+    st.text(f'Getting Datasets names..')
+    st.text(f'dataset ids: {dataset_ids}')
 
     for dataset in dataset_ids:
         if 'GBARD' in dataset:
+            st.text(f'Getting Dataset: {dataset}')
             try:
                 Logger.warning(f'Loading {dataset} from OECD database')
                 data_response = oecd.data(resource_id=dataset,
@@ -178,12 +187,15 @@ def OECD_dataset(dataset_ids, Logger):
                                           var_name="Date",
                                           value_name="Value")
 
+                dfs['gbard'] = sort_df
+
             except req.exceptions.ConnectionError as err:
                 Logger.warning(f'This {dataset} got this error: {err}')
                 print(f'This dataset: {dataset} as failed to response')
                 continue
 
         elif 'HIGH_AGLINK' in dataset:
+            st.text(f'Getting Dataset: {dataset}')
             try:
                 Logger.warning(f'Loading {dataset} from OECD database')
                 data_response = oecd.data(resource_id=dataset,
@@ -200,12 +212,15 @@ def OECD_dataset(dataset_ids, Logger):
                                           var_name="Date",
                                           value_name="Value")
 
+                dfs['agricultural'] = sort_df
+
             except req.exceptions.ConnectionError as err:
                 Logger.warning(f'This {dataset} got this error: {err}')
                 print(f'This dataset: {dataset} as failed to response')
                 continue
 
         elif 'SNA_TABLE4' in dataset:
+            st.text(f'Getting Dataset: {dataset}')
             try:
                 Logger.warning(f'Loading {dataset} from OECD database')
                 data_response = oecd.data(resource_id=dataset,
@@ -223,20 +238,21 @@ def OECD_dataset(dataset_ids, Logger):
                                           var_name="Date",
                                           value_name="Value")
 
+                dfs['currncy'] = sort_df
+
             except req.exceptions.ConnectionError as err:
                 Logger.warning(f'This {dataset} got this error: {err}')
                 print(f'This dataset: {dataset} as failed to response')
                 continue
 
-        dfs.append(sort_df)
-
-    if len(dfs) == 3:
+    if len(dfs) == len(dataset_ids):
+        st.text(f'Success of Getting Datasets')
         Logger.debug('Success')
         print('Success')
     else:
+        st.text(f'Only {len(dfs)} dataset were found: {list(dfs.keys())}')
         Logger.info(f'Only {len(dfs)} dataset were found')
         print(f'Only {len(dfs)} dataset were found')
-
     return dfs
 
 
@@ -351,36 +367,51 @@ def OECD_get_id_df(dataset_ids, Logger):
                             except KeyError as err:
                                 print(f'problem in {err}')
                                 continue
-
                 else:
                     print(keyname, Request.status_code)
                     logging.debug('%s HTTP Failed with code %d', keyname, Request.status_code)
 
-    GBARD_country_df = pd.DataFrame({"country_id": G_country_id,
-                                     "country_full_name": G_country_full_name})
-    GBARD_seo_df = pd.DataFrame({"seo_id": seo_id,
-                                 "seo_full_name": seo_full_name})
-    Agri_country_df = pd.DataFrame({"country_id": A_country_id,
-                                    "country_full_name": A_country_full_name})
-    Agri_commodity_df = pd.DataFrame({"commodity_id": commodity_id,
-                                      "commodity_full_name": commodity_full_name})
-    Agri_variable_df = pd.DataFrame({"variable_id": variable_id,
-                                     "variable_full_name": variable_full_name})
+    sector_dfs = {}
 
-    dfs = GBARD_country_df, \
-          GBARD_seo_df, \
-          Agri_country_df, \
-          Agri_commodity_df, \
-          Agri_variable_df
+    for dataset in dataset_ids:
+        if 'HIGH_AGLINK' in dataset:
+            sector_dfs['Agri_country'] = pd.DataFrame({"country_id": A_country_id,
+                                                       "country_full_name": A_country_full_name})
+            sector_dfs['commodity'] = pd.DataFrame({"commodity_id": commodity_id,
+                                                    "commodity_full_name": commodity_full_name})
+            sector_dfs['Agri_variable'] = pd.DataFrame({"variable_id": variable_id,
+                                                        "variable_full_name": variable_full_name})
 
-    return dfs
+            # Agri_country_df = pd.DataFrame({"country_id": A_country_id,
+            #                                 "country_full_name": A_country_full_name})
+            # Agri_commodity_df = pd.DataFrame({"commodity_id": commodity_id,
+            #                                   "commodity_full_name": commodity_full_name})
+            # Agri_variable_df = pd.DataFrame({"variable_id": variable_id,
+            #                                  "variable_full_name": variable_full_name})
+        if 'GBARD' in dataset:
+            sector_dfs['GBARD_country'] = pd.DataFrame({"country_id": G_country_id,
+                                                        "country_full_name": G_country_full_name})
+            sector_dfs['seo'] = pd.DataFrame({"seo_id": seo_id,
+                                              "seo_full_name": seo_full_name})
+
+            # GBARD_country_df = pd.DataFrame({"country_id": G_country_id,
+            #                                  "country_full_name": G_country_full_name})
+            # GBARD_seo_df = pd.DataFrame({"seo_id": seo_id,
+            #                              "seo_full_name": seo_full_name})
+    # dfs = []
+    # for df in [GBARD_country_df, GBARD_seo_df, Agri_country_df, Agri_commodity_df, Agri_variable_df]:
+    #     if df:
+    #         dfs.append(df)
+
+    return sector_dfs
 
 
 '////////////////////////////////////////////////////////////////////'
 
 
-def OecdAPI():
-    OecdLogger = Log('Oecd_log', cwd)
+def OecdAPI(db_list, progress):
+
+    OecdLogger = Log('Oecd_log')
     # Url for data structure schema with families key.
     OecdStructureUrl = 'http://stats.oecd.org/RESTSDMX/sdmx.ashx/GetDataStructure/ALL/'
 
@@ -396,29 +427,29 @@ def OecdAPI():
         keynames = key_name_df['KeyFId'].tolist()  # examples: 'QNA', 'SNA_TABLE11'....
         OecdLogger.info('json_Key_File as succeeded')
     else:
-        print("somthing got wrong!")
+        print("something got wrong!")
         OecdLogger.debug('End of the Road: got stuck in OECD_Key_Families')
         return None
 
-    dataset_ids = OECD_dataset_name(keynames, OecdLogger)
+    dataset_ids = OECD_dataset_name(keynames, OecdLogger, db_list)
+    time.sleep(0.1)
+    progress.progress(40)
+    st.text('Getting Datasets..')
+
     try:
-        GBARD_df, Agri_df, Usd2conv_df = OECD_dataset(dataset_ids, OecdLogger)
+        full_datasets = OECD_dataset(dataset_ids, OecdLogger)
     except ValueError as err:
         OecdLogger.debug(f"Not all of the Datasets got response, we get this error {err}")
         print(f"Not all of the Datasets got response, we get this error {err}")
         pass
 
-    GBARD_country_df, \
-    GBARD_seo_df, \
-    Agri_country_df, \
-    Agri_commodity_df, \
-    Agri_variable_df = OECD_get_id_df(dataset_ids, OecdLogger)
+    sector_dfs = OECD_get_id_df(dataset_ids, OecdLogger)
 
     print("completed ...")
     OecdLogger.debug("OECD API ended at:  %s", str(datetime.datetime.now()))
 
-    dfs = GBARD_df, Agri_df, Usd2conv_df, GBARD_country_df, \
-          GBARD_seo_df, Agri_country_df, Agri_commodity_df, \
-          Agri_variable_df
+    # Datasets:
+    # full_datasets: [gbard, agricultural, currncy]
+    # sector_dfs: [Agri_country, commodity, Agri_variable, GBARD_country, seo]
 
-    return dfs
+    return full_datasets, sector_dfs

@@ -1,6 +1,8 @@
 import sys
 import os
 import pandas as pd
+import time
+import streamlit as st
 from itertools import zip_longest as zl
 cwd = os.getcwd()
 sys.path.append(f'{cwd}\DataFrames')
@@ -10,7 +12,7 @@ from Convert2Currency import ConvertToUSD
 from CreateLogger import Log
 
 
-def sorted_dfs(df1, df2, df3, CleanLogger):
+def sorted_dfs(dfs, CleanLogger):
     CleanLogger.info('Starting 2 sort dfs by values...')
 
     seo = ['NABS06', 'NABS08', 'NABS124', 'NABS134']
@@ -18,10 +20,19 @@ def sorted_dfs(df1, df2, df3, CleanLogger):
                 'FO', 'OU', 'QP__MA', 'QP__SCA', 'QP__VL']
     commodity = ['WT', 'MA', 'BD', 'ET', 'VL', 'OCG', 'MOL', 'SBE', 'SCA']
 
-    G_df = df1[df1.SEO.isin(seo)].sort_values(
-        by=['YEAR', 'SEO', 'COUNTRY'], ignore_index=True)
-    A_df = df2[(df2.COMMODITY.isin(commodity)) & (df2.VARIABLE.isin(variable))].sort_values(
-        by=['YEAR', 'VARIABLE', 'COMMODITY', 'COUNTRY'], ignore_index=True)
+    sort_dfs = {}
+
+    for df in dfs:
+        if df == 'slim_gbard':
+            df1 = dfs['slim_gbard']
+            sort_dfs['sort_gbard'] = df1[df1.SEO.isin(seo)].sort_values(
+                by=['YEAR', 'SEO', 'COUNTRY'], ignore_index=True)
+        if df == 'slim_agricultural' and df:
+            df2 = dfs['slim_agricultural']
+            sort_dfs['sort_agricultural'] = df2[
+                (df2.COMMODITY.isin(commodity)) & (df2.VARIABLE.isin(variable))].sort_values(
+                by=['YEAR', 'VARIABLE', 'COMMODITY', 'COUNTRY'], ignore_index=True)
+
     CleanLogger.debug('Finished sort values by SEO & COMMODITY & VARIABLE')
 
     # GBARD
@@ -44,57 +55,83 @@ def sorted_dfs(df1, df2, df3, CleanLogger):
     #                 Biodiesel production from vegetable oil.
     #         Ratio = Human consumption per capita.
 
-    return G_df, A_df, df3
+    return sort_dfs
 
 
-def Clean_DataFrames(df1, df2, df3, CleanLogger):
+def Clean_DataFrames(full_datasets, CleanLogger):
     CleanLogger.info('Starting drop/rename...')
-    # ---------------------------------------------drop------------------------------------------------------ #
-    # df1:
-    for count, curr in enumerate(df1.MEASURE):
-        if curr != 'MIO_NAC':
-            df1.drop(count, inplace=True)
-    df1.drop(["MEASURE"], axis=1, inplace=True)
-    df1.dropna(axis=0, inplace=True)
-    CleanLogger.debug('drop rows that not contains MIO_NAC in column: MEASURE & \
-                      Drop the MEASURE column from GBARD df')
-    # df2:
-    # Drop from main df's all the rows which contain aggregation of contries.
-    df2.dropna(axis=0, inplace=True)
-    for c in ['OECD', 'EUN', 'NOA', 'EUR', 'OCD', 'AFR', 'LAC', 'WLD', 'BRICS']:
-        df2.drop(df2[df2.LOCATION == c].index, axis=0, inplace=True)
-    CleanLogger.debug("drop rows that not contains 'OECD', 'EUN', 'NOA', \
-     'EUR', 'OCD', 'AFR', 'LAC', 'WLD', 'BRICS' in column: LOCATION")
+    dfs = {}
+    for dataset in full_datasets:
+        if dataset == 'gbard' and not full_datasets[dataset].empty:
+            dfs['slim_gbard'] = ''
+            df1 = full_datasets[dataset]
+            # ----------------------------drop------------------------------- #
+            for count, curr in enumerate(df1.MEASURE):
+                if curr != 'MIO_NAC':
+                    df1.drop(count, inplace=True)
 
-    # df3:
-    df3.dropna(axis=0, inplace=True)
-    df3.reset_index(drop=True, inplace=True)
-    for count, ind in enumerate(df3.TRANSACT):
-        if ind != 'EXCH':
-            df3.drop(count, inplace=True)
-    df3.drop(["TRANSACT", "MEASURE"], axis=1, inplace=True)
-    CleanLogger.debug("drop rows that not contains 'EXCH' & columns: MEASURE, TRANSACT")
+            df1.drop(["MEASURE"], axis=1, inplace=True)
+            df1.dropna(axis=0, inplace=True)
 
-    # ----------------------------------rename & replace------------------------------------------------------ #
-    # Rename different columns in more suitable name.
-    df1.rename(columns={"Value": "GBARD_Values", "Date": "YEAR"}, inplace=True)
+            CleanLogger.debug('drop rows that not contains MIO_NAC in column: MEASURE & \
+                              Drop the MEASURE column from GBARD df')
+            # ------------------------rename & replace----------------------------- #
+            # Rename different columns in more suitable name.
+            df1.rename(columns={"Value": "GBARD_Values", "Date": "YEAR"}, inplace=True)
+            df1['YEAR'] = [pd.to_datetime(year).year for year in df1['YEAR']]
 
-    df2.rename(columns={"LOCATION": "COUNTRY", "Date": "YEAR",
-                        "Value": "Agri_Values"}, inplace=True)
+        if dataset == 'agricultural' and not full_datasets[dataset].empty:
+            dfs['slim_agricultural'] = ''
+            df2 = full_datasets[dataset]
+            # ----------------------------drop------------------------------- #
+            df2.dropna(axis=0, inplace=True)
+            for c in ['OECD', 'EUN', 'NOA', 'EUR', 'OCD', 'AFR', 'LAC', 'WLD', 'BRICS']:
+                df2.drop(df2[df2.LOCATION == c].index, axis=0, inplace=True)
+            CleanLogger.debug("drop rows that not contains 'OECD', 'EUN', 'NOA', \
+             'EUR', 'OCD', 'AFR', 'LAC', 'WLD', 'BRICS' in column: LOCATION")
+            # ------------------------rename & replace----------------------------- #
+            # Rename different columns in more suitable name.
+            df2.rename(columns={"LOCATION": "COUNTRY", "Date": "YEAR",
+                                "Value": "Agri_Values"}, inplace=True)
 
-    df3.rename(columns={"LOCATION": "COUNTRY", "Date": "YEAR",
-                        "Value": "Exchange_Values"}, inplace=True)
-    # ------------------------------------------------------------------------------------------ #
-    LT_index = df2.index[df2.COMMODITY.isin([
+            LT_index = df2.index[df2.COMMODITY.isin(['BD', 'ET'])].tolist()
+            df2.loc[LT_index, 'Agri_Values'] = df2.Agri_Values / (1143.25)
+            df2['YEAR'] = [pd.to_datetime(year).year for year in df2['YEAR']]
 
-    ])].tolist()
-    df2.loc[LT_index, 'Agri_Values'] = df2.Agri_Values / (1143.25)
+        if dataset == 'currncy' and not full_datasets[dataset].empty:
+            dfs['slim_currncy'] = ''
+            df3 = full_datasets[dataset]
+            # ----------------------------drop------------------------------- #
+            df3.dropna(axis=0, inplace=True)
+            df3.reset_index(drop=True, inplace=True)
+            for count, ind in enumerate(df3.TRANSACT):
+                if ind != 'EXCE':
+                    df3.drop(count, inplace=True)
+            df3.drop(["TRANSACT", "MEASURE"], axis=1, inplace=True)
+            CleanLogger.debug("drop rows that not contains 'EXCH' & columns: MEASURE, TRANSACT")
+            # ------------------------rename & replace----------------------------- #
+            # Rename different columns in more suitable name.
+            df3.rename(columns={"LOCATION": "COUNTRY", "Date": "YEAR",
+                                "Value": "Exchange_Values"}, inplace=True)
+            df3['YEAR'] = [pd.to_datetime(year).year for year in df3['YEAR']]
 
-    return df1, df2, df3
+    for dataset in dfs:
+        if dataset == 'slim_gbard':
+            dfs['slim_gbard'] = df1
+
+        if dataset == 'slim_agricultural':
+            dfs['slim_agricultural'] = df2
+
+        if dataset == 'slim_currncy':
+            dfs['slim_currncy'] = df3
+
+    CleanLogger.info(f'number dfs: {len(dfs)}, name of dfs: {list(dfs.keys())}')
+
+    return dfs
 
 
-def df2USA_currency(df, ExcRate, CleanLogger):
-    CleanLogger.info('Starting Converting currency 2 USD...')
+def df2USA_currency(df, ExcRate, Logger):
+    Logger.info('Starting Converting currency 2 USD...')
     #  //CURRENCY:
     #   UD - Australian Dollar        ILS - New Israeli Sheqel
     #   EUR - Euro                    RON - Romanian Leu
@@ -110,30 +147,32 @@ def df2USA_currency(df, ExcRate, CleanLogger):
     #   CHF - Swiss Franc             No CURRENCY
     #   ISK - Iceland Krona
 
-    yearList_datetime = sorted(list(df.YEAR.unique()))
-    yearList = [pd.to_datetime(year).year for year in yearList_datetime]
+    yearList = sorted(list(df.YEAR.unique()))
     countrylist = list(ExcRate.COUNTRY.unique())
     seoList = list(df.SEO.unique())
     count_contry = []
 
     new_df = pd.DataFrame(columns=['COUNTRY', 'SEO', 'YEAR', 'GBARD_Values'])
     # ------------------------------------------------------------------------------------------ #
+    st.write(df)
+
     for seo in seoList:
         # NABS06, NABS08, NABS124, NABS134
         for contry in df.COUNTRY.unique():
             try:
                 contry_df = df[(df.COUNTRY == contry) & (df.SEO == seo)]  # Single Country & seo Dataframe.
-                contry_years = [pd.to_datetime(year).year for year in list(contry_df.YEAR.unique())]
+                contry_years = list(contry_df.YEAR.unique())
                 first_year = contry_years[0]
                 last_year = contry_years[len(contry_years) - 1]
             except IndexError as err:
-                CleanLogger.warning(f'ContryD ataFrame: {contry}, is Empty')
-                CleanLogger.warning(f'Getting an error: {err}')
+                Logger.warning(f'ContryD ataFrame: {contry}, is Empty')
+                Logger.warning(f'Getting an error: {err}')
                 print(f'Contry DataFrame: {contry}, is Empty')
                 continue
             else:
                 # ------------------------------------------------------------------------------------------ #
                 for year in yearList:
+                    Logger.debug(f'converting seo: {seo}, country: {contry} in year: {year} to usa dollar')
                     # ----------------------------------df year empty row--------------------------------------- #
                     if (last_year < year or year < first_year) and contry in countrylist:
                         new_set = pd.DataFrame({'COUNTRY': contry,
@@ -149,16 +188,17 @@ def df2USA_currency(df, ExcRate, CleanLogger):
                             if year not in list(ExcRate.YEAR[ExcRate.COUNTRY == contry].unique()) \
                                     and contry != 'TWN':
                                 print("Can't convert this currency")
+                                pass
                             else:
                                 currValue = list(ExcRate.Exchange_Values[(ExcRate.COUNTRY == contry)
                                                                          & (ExcRate.YEAR == year)])[0]
-                            value2replace = df[(df.COUNTRY == contry) & (df.YEAR == year) & (df.SEO == seo)].GBARD_Values
-                            newValue = value2replace / currValue
-                            new_set = pd.DataFrame({'COUNTRY': contry,
-                                                    'SEO': seo,
-                                                    'YEAR': year,
-                                                    'GBARD_Values': newValue})
-                            new_df.append(new_set, ignore_index=True)
+                                value2replace = df[(df.COUNTRY == contry) & (df.YEAR == year) & (df.SEO == seo)].GBARD_Values
+                                newValue = value2replace / currValue
+                                new_set = pd.DataFrame({'COUNTRY': contry,
+                                                        'SEO': seo,
+                                                        'YEAR': year,
+                                                        'GBARD_Values': newValue})
+                                new_df.append(new_set, ignore_index=True)
 
                         except IndexError:
                             if contry not in count_contry:
@@ -196,12 +236,14 @@ def df2USA_currency(df, ExcRate, CleanLogger):
     # ------------------------------Try currency valu0e implamantion----------------------------- #
     new_df.reset_index(inplace=True, drop=True)
     new_df.sort_values(by=['COUNTRY', 'YEAR'], inplace=True)
-
+    st.write(new_df)
     return new_df
 
 
-def checkIfnull(df_list, df_names, CleanLogger):
-    CleanLogger.info('Starting Cleaning null values...')
+def checkIfnull(df_dict, Logger):
+    Logger.info('Starting Cleaning null values...')
+    df_list = [df_dict[df] for df in df_dict]
+    df_names = [df_dict for df in df_dict]
     for df, df_name in zip(df_list, df_names):
         col_names = list(df.keys())  # get the names of the columns Series.
         Cnull = df.isnull().sum()  # sum all the nan values per columns in df.
@@ -222,21 +264,47 @@ def checkIfnull(df_list, df_names, CleanLogger):
                         continue
 
 
-def adjusted_DataFrames(df1, df2, df3):
-    CleanLogger = Log('Clean_log', cwd)
+# def adjusted_DataFrames(df1, df2, df3):
+def adjusted_DataFrames(full_datasets, progress):
+
+    CleanLogger = Log('Clean_log')
 
     CleanLogger.info('Starting DataFrames Cleaning...')
+
     CleanLogger.debug('Going to Clean_DataFrames function')
-    sort_df1, sort_df2, sort_df3 = Clean_DataFrames(df1, df2, df3, CleanLogger)
+    # sort_df1, sort_df2, sort_df3 = Clean_DataFrames(df1, df2, df3, CleanLogger)
+    # full_datasets: [gbard, agricultural, currncy]
+    time.sleep(0.1)
+    progress.progress(60)
+    st.text('Cleaning Datasets..')
+    clean_full_datasets = Clean_DataFrames(full_datasets, CleanLogger)
+    # clean_full_datasets: [slim_gbard, slim_agricultural, slim_currncy]
 
     CleanLogger.debug('Going to sorted_dfs function')
-    G_df, A_df, D_df = sorted_dfs(sort_df1, sort_df2, sort_df3, CleanLogger)
+    # G_df, A_df, D_df = sorted_dfs(sort_df1, sort_df2, sort_df3, CleanLogger)
+    sort_full_datasets = sorted_dfs(clean_full_datasets, CleanLogger)
 
     CleanLogger.debug('Going to checkIfnull function')
-    checkIfnull([G_df, A_df, df3],
-                ['GBARD', 'Agricultural', 'curr2USD'], CleanLogger)
+    checkIfnull(df_dict=sort_full_datasets,
+                Logger=CleanLogger)
 
-    CleanLogger.debug('Going to df2USA_currency function')
-    G2usd_df = df2USA_currency(G_df, D_df, CleanLogger)
+    for ds in sort_full_datasets:
+        if ds == 'sort_gbard':
+            CleanLogger.debug('Going to df2USA_currency function')
+            G2usd_df = df2USA_currency(df=sort_full_datasets['sort_gbard'],
+                                       ExcRate=clean_full_datasets['slim_currncy'],
+                                       Logger=CleanLogger)
+    finit_datasets = {}
 
-    return G2usd_df, A_df
+    if not G2usd_df.empty:
+        finit_datasets['GBARD_final'] = G2usd_df
+
+    for fds in sort_full_datasets:
+        if fds == 'sort_agricultural':
+            finit_datasets['agricultural_final'] = sort_full_datasets['sort_agricultural']
+
+    time.sleep(0.1)
+    progress.progress(80)
+    st.text('Datasets are all Done')
+
+    return finit_datasets
