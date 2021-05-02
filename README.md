@@ -1,5 +1,5 @@
 
-![Image](http://rongoodlife.co.il/wp-content/uploads/2017/03/website-under-construction-1-300x150.jpg)
+![Image](http://troya.tv/UnderConstruction.png)
 
 # Fuel Vs. Food (Beta)
 
