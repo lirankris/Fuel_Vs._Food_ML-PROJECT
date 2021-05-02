@@ -25,7 +25,7 @@ Depend on API:
 />
 
 
-# check list:
+## check list:
 
 - [x] OECD API.
 - [x] yahoo finance API ().
@@ -45,10 +45,22 @@ Depend on API:
 - [ ] Django/Flask framework (optional).
 - [ ] plotly dash with react(.js) base UI a (optional).
 
+## liberies in use:
 
 ```python
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
+import sys
+import os
+import sqlite3 
+import streamlit
+import pandas 
+import time
+import datetime
+import plotly.graph_objects 
+import requests as req
+import xmltodict
+import pandasdmx
+import currency_converter
+import logging
+import pathlib 
 ```
 
