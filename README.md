@@ -3,21 +3,27 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-# Fuel Vs. Food (Beta)
+# Fuel Vs. Food (Beta)  :relieved:	
+
 
 Nikola tesla:
 
 >The present is theirs; the future, for which I really worked, is mine
 
-Project Target: 
+
+
+
+**Project Target:** :weight_lifting_man:
 
 Create a smart annual predictions algorithm to predict the diverting of crops (such as :Wheat, Maize, Other coarse grains, Vegetable oils, Molasses etc...) for biofuels production, Feed and food supply.
 
 Predictions will relay on the quantity of Export, Imports, Production, R&D budget investment and more.
 
 Depend on API:
-•	OECD.Stat database – Agricultural & Government funds datasets.
-•	yahoo finance API.
+•	OECD.Stat database – Agricultural & Government funds datasets. :globe_with_meridians:	
+
+•	yahoo finance API. :money_with_wings:
+
 •	More to come...
 
 
@@ -31,7 +37,7 @@ Depend on API:
 />
 
 
-## check list:
+## check list: :bookmark_tabs:
 
 - [x] OECD API.
 - [x] yahoo finance API ().
@@ -52,8 +58,8 @@ Depend on API:
 - [ ] plotly dash with react(.js) base UI a (optional).
 - [ ] Deploy.
 
-## liberies in use:
-
+## liberies in use:  :statue_of_liberty:	
+ 
 ```python
 import sys
 import os
@@ -72,5 +78,12 @@ import pathlib
 ```
 
 
+## liberies in use:
 
+useful datasets | unuseful datasets
+------------ | -------------
+OECD.stat | yahoo finance
+
+
+To be continued...
 
