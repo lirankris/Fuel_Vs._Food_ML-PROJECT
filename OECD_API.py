@@ -12,8 +12,8 @@ cwd = os.getcwd()
 sys.path.append(f'{cwd}\DataFrames\CreateTools')
 from CreateLogger import Log
 
-# # ---------------------SDMX-JSON -----------------------------#
 
+# # ---------------------SDMX-JSON -----------------------------#
 def OECD_Key_Familis(Url, Logger):
     Logger.warning('Starting to reach OECD key Family names')
 
@@ -382,27 +382,11 @@ def OECD_get_id_df(dataset_ids, Logger):
             sector_dfs['Agri_variable'] = pd.DataFrame({"variable_id": variable_id,
                                                         "variable_full_name": variable_full_name})
 
-            # Agri_country_df = pd.DataFrame({"country_id": A_country_id,
-            #                                 "country_full_name": A_country_full_name})
-            # Agri_commodity_df = pd.DataFrame({"commodity_id": commodity_id,
-            #                                   "commodity_full_name": commodity_full_name})
-            # Agri_variable_df = pd.DataFrame({"variable_id": variable_id,
-            #                                  "variable_full_name": variable_full_name})
         if 'GBARD' in dataset:
             sector_dfs['GBARD_country'] = pd.DataFrame({"country_id": G_country_id,
                                                         "country_full_name": G_country_full_name})
             sector_dfs['seo'] = pd.DataFrame({"seo_id": seo_id,
                                               "seo_full_name": seo_full_name})
-
-            # GBARD_country_df = pd.DataFrame({"country_id": G_country_id,
-            #                                  "country_full_name": G_country_full_name})
-            # GBARD_seo_df = pd.DataFrame({"seo_id": seo_id,
-            #                              "seo_full_name": seo_full_name})
-    # dfs = []
-    # for df in [GBARD_country_df, GBARD_seo_df, Agri_country_df, Agri_commodity_df, Agri_variable_df]:
-    #     if df:
-    #         dfs.append(df)
-
     return sector_dfs
 
 
@@ -419,18 +403,22 @@ def OecdAPI(db_list, progress):
     json_Key_File = OECD_Key_Familis(
         OecdStructureUrl, OecdLogger)
 
-    if not json_Key_File.empty:
-        OecdLogger.debug('json_Key_File as succeeded')
-        OecdLogger.info('Reading df')
+    counter = 1
+    while json_Key_File.empty:
+        OecdLogger.debug('json_Key_File as failed')
+        counter += 1
+        OecdLogger.debug(f'Trying again ({counter}/5)')
+        if counter == 5:
+            OecdLogger.debug(f"tried {counter} times, there is a bigger problem")
+            break
+            exit
 
-        key_name_df = json_Key_File
-        keynames = key_name_df['KeyFId'].tolist()  # examples: 'QNA', 'SNA_TABLE11'....
-        OecdLogger.info('json_Key_File as succeeded')
-    else:
-        print("something got wrong!")
-        OecdLogger.debug('End of the Road: got stuck in OECD_Key_Families')
-        return None
+    OecdLogger.debug('json_Key_File as succeeded')
+    OecdLogger.info('Reading df')
+    key_name_df = json_Key_File
+    keynames = key_name_df['KeyFId'].tolist()  # examples: 'QNA', 'SNA_TABLE11'....
 
+    OecdLogger.info('json_Key_File as succeeded')
     dataset_ids = OECD_dataset_name(keynames, OecdLogger, db_list)
     time.sleep(0.1)
     progress.progress(40)
