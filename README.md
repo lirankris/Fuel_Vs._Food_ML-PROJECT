@@ -39,6 +39,7 @@ Depend on API:
 - [ ] Line regression testing.
 - [ ] Decision tree testing.
 - [ ] Full Logging framework.
+- [ ] Full docstring.
 - [ ] Updated requirement.txt file.
 - [ ] Dockerized applications (optional).
 - [ ] Django/Flask framework (optional).
