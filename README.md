@@ -28,15 +28,18 @@ Depend on API:
 # check list:
 
 - [x] OECD API.
-- [x] yahoo finance API
+- [x] yahoo finance API ().
+- [ ] More data sources.
 - [x] initial Sqlite Database.
-- [ ] local web app (Streamlit).
+- [x] initial batch file (offline start-up).
+- [ ] local web app (Streamlit) (**beta**).
 - [ ] Gradient descent testing.
 - [ ] Line regression testing.
-- [ ] Decision tree learning testing.
+- [ ] Decision tree testing.
 - [ ] Full Logging framework.
 - [ ] Updated requirement.txt file.
-- [ ] Django/Flask framework.
-- [ ] plotly dash with react(.js) base UI a.
+- [ ] Dockerized applications (optional).
+- [ ] Django/Flask framework (optional).
+- [ ] plotly dash with react(.js) base UI a (optional).
 
 
