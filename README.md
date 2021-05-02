@@ -34,7 +34,7 @@ Depend on API:
 - [x] initial batch file (offline start-up).
 - [ ] Divide countries by continent.
 - [x] local web app (Streamlit) (**beta**).
-- [ ] Data preparation.
+- [ ] Data preparation (NumPy).
 - [ ] Gradient descent testing.
 - [ ] Line regression testing.
 - [ ] Decision tree testing.
@@ -44,6 +44,7 @@ Depend on API:
 - [ ] Dockerized applications (optional).
 - [ ] Django/Flask framework (optional).
 - [ ] plotly dash with react(.js) base UI a (optional).
+- [ ] Deploy.
 
 ## liberies in use:
 
@@ -56,7 +57,7 @@ import pandas
 import time
 import datetime
 import plotly.graph_objects 
-import requests as req
+import requests
 import xmltodict
 import pandasdmx
 import currency_converter
