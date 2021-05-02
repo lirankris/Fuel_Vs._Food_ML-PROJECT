@@ -1,5 +1,5 @@
 
-![Image](https://github.com/lirankris/Fuel_Vs._Food_ML-PROJECT/blob/main/Pic/Under%20Construction.jpg)
+![Image](http://rongoodlife.co.il/wp-content/uploads/2017/03/website-under-construction-1-300x150.jpg)
 
 # Fuel Vs. Food (Beta)
 
@@ -45,4 +45,10 @@ Depend on API:
 - [ ] Django/Flask framework (optional).
 - [ ] plotly dash with react(.js) base UI a (optional).
 
+
+```python
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
 
