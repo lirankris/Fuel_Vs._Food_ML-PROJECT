@@ -3,7 +3,6 @@ from currency_converter import CurrencyConverter
 
 
 def ConvertToUSD(currency, year):
-
     if currency == 'ARS':
         return 0.036  # ARS - Argentine Peso
     elif currency == 'TWN' or currency == 'TWD':

@@ -3,7 +3,7 @@ import os
 import pandas as pd
 import time
 import streamlit as st
-from itertools import zip_longest as zl
+
 cwd = os.getcwd()
 sys.path.append(f'{cwd}\DataFrames')
 sys.path.append(f'{cwd}\DataFrames\CreateTools')
@@ -69,10 +69,8 @@ def Clean_DataFrames(full_datasets, CleanLogger):
             for count, curr in enumerate(df1.MEASURE):
                 if curr != 'MIO_NAC':
                     df1.drop(count, inplace=True)
-
             df1.drop(["MEASURE"], axis=1, inplace=True)
             df1.dropna(axis=0, inplace=True)
-
             CleanLogger.debug('drop rows that not contains MIO_NAC in column: MEASURE & \
                               Drop the MEASURE column from GBARD df')
             # ------------------------rename & replace----------------------------- #
@@ -147,86 +145,81 @@ def df2USA_currency(df, ExcRate, Logger):
     #   CHF - Swiss Franc             No CURRENCY
     #   ISK - Iceland Krona
 
-    yearList = sorted(list(df.YEAR.unique()))
-    countrylist = list(ExcRate.COUNTRY.unique())
+    yearList = list(df.YEAR.unique())
+    Exc_countrylist = list(ExcRate.COUNTRY.unique())
     seoList = list(df.SEO.unique())
-    count_contry = []
-
-    new_df = pd.DataFrame(columns=['COUNTRY', 'SEO', 'YEAR', 'GBARD_Values'])
+    count_country = []
     # ------------------------------------------------------------------------------------------ #
-    st.write(df)
-
+    new_set = []
     for seo in seoList:
         # NABS06, NABS08, NABS124, NABS134
-        for contry in df.COUNTRY.unique():
+        Logger.info(f'Chosen SEO: {seo}')
+        for country in df.COUNTRY.unique():
+            Logger.info(f'Chosen country: {country}')
             try:
-                contry_df = df[(df.COUNTRY == contry) & (df.SEO == seo)]  # Single Country & seo Dataframe.
+                contry_df = df[(df.COUNTRY == country) & (df.SEO == seo)]  # Single Country & seo Dataframe.
                 contry_years = list(contry_df.YEAR.unique())
                 first_year = contry_years[0]
                 last_year = contry_years[len(contry_years) - 1]
+                Exc_contry_year_list = list(ExcRate.YEAR[ExcRate.COUNTRY == country].unique())
+                Logger.info(f'Chosen country years limits: {first_year} - {last_year}')
             except IndexError as err:
-                Logger.warning(f'ContryD ataFrame: {contry}, is Empty')
+                Logger.warning(f'country DataFrame: {country}, is Empty')
                 Logger.warning(f'Getting an error: {err}')
-                print(f'Contry DataFrame: {contry}, is Empty')
+                print(f'country DataFrame: {country}, is Empty')
                 continue
             else:
                 # ------------------------------------------------------------------------------------------ #
                 for year in yearList:
-                    Logger.debug(f'converting seo: {seo}, country: {contry} in year: {year} to usa dollar')
                     # ----------------------------------df year empty row--------------------------------------- #
-                    if (last_year < year or year < first_year) and contry in countrylist:
-                        new_set = pd.DataFrame({'COUNTRY': contry,
-                                                'SEO': seo,
-                                                'YEAR': year,
-                                                'GBARD_Values': [0]})
+                    if last_year < year or year < first_year:
+                        Logger.debug(f"In {year} there's an empty value for {country}")
+                        new_set.append({'COUNTRY': country,
+                                        'SEO': seo,
+                                        'YEAR': year,
+                                        'GBARD_Values': 0})
 
-                        new_df.append(new_set, ignore_index=True)
-
-                    # ---------------------------------contry in countrylist----------------------------------- #
-                    elif (last_year >= year or year >= first_year) and contry in countrylist:
+                    # ---------------------------------country in Exc country list----------------------------------- #
+                    elif (last_year >= year or year >= first_year) and country in Exc_countrylist:
                         try:
-                            if year not in list(ExcRate.YEAR[ExcRate.COUNTRY == contry].unique()) \
-                                    and contry != 'TWN':
-                                print("Can't convert this currency")
-                                pass
+                            if year not in Exc_contry_year_list:
+                                Logger.warning("Can't convert this currency in Exc dataset")
+                                Logger.debug("Trying to use ConvertToUSD function")
+                                currValue = ConvertToUSD(country, year)
                             else:
-                                currValue = list(ExcRate.Exchange_Values[(ExcRate.COUNTRY == contry)
+                                currValue = list(ExcRate.Exchange_Values[(ExcRate.COUNTRY == country)
                                                                          & (ExcRate.YEAR == year)])[0]
-                                value2replace = df[(df.COUNTRY == contry) & (df.YEAR == year) & (df.SEO == seo)].GBARD_Values
-                                newValue = value2replace / currValue
-                                new_set = pd.DataFrame({'COUNTRY': contry,
-                                                        'SEO': seo,
-                                                        'YEAR': year,
-                                                        'GBARD_Values': newValue})
-                                new_df.append(new_set, ignore_index=True)
+                            value2replace = df[
+                                (df.COUNTRY == country) & (df.YEAR == year) & (df.SEO == seo)].GBARD_Values
+                            newValue = list(value2replace)[0] / currValue
+                            new_set.append({'COUNTRY': country,
+                                            'SEO': seo,
+                                            'YEAR': year,
+                                            'GBARD_Values': newValue})
 
-                        except IndexError:
-                            if contry not in count_contry:
-                                count_contry.append(contry)
+                        except IndexError as err:
+                            Logger.warning(f"This error occurred: {err}")
+                            if country not in count_country:
+                                count_country.append(country)
+                                continue
 
-                        except ValueError:
-                            if contry not in count_contry:
-                                count_contry.append(contry)
-
-                    # ----------------------------------currency empty value------------------------------------ #
-                    elif (last_year < year or year < first_year) and contry not in countrylist:
-                        new_set = pd.DataFrame({'COUNTRY': contry,
-                                                'SEO': seo,
-                                                'YEAR': year,
-                                                'GBARD_Values': [0]})
-                        new_df.append(new_set, ignore_index=True)
-
+                        except ValueError as err:
+                            Logger.warning(f"This error occurred: {err}")
+                            if country not in count_country:
+                                count_country.append(country)
+                                continue
+                    # -------------------------------country not in Exc country list--------------------------------- #
                     else:
                         try:
-                            if contry == 'TWN':
+                            if country == 'TWN':
                                 currValue = ConvertToUSD('TWN', year)
-                                value2replace = df[(df.COUNTRY == contry) & (df.YEAR == year) & (df.SEO == seo)].GBARD_Values
-                                newValue = value2replace / currValue
-                                new_set = pd.DataFrame({'COUNTRY': contry,
-                                                        'SEO': seo,
-                                                        'YEAR': year,
-                                                        'GBARD_Values': newValue})
-                                new_df.append(new_set, ignore_index=True)
+                                value2replace = df[
+                                    (df.COUNTRY == country) & (df.YEAR == year) & (df.SEO == seo)].GBARD_Values
+                                newValue = list(value2replace)[0] / currValue
+                                new_set.append({'COUNTRY': country,
+                                                'SEO': seo,
+                                                'YEAR': year,
+                                                'GBARD_Values': newValue})
 
                         except Exception as exc:
                             print(exc)
@@ -234,9 +227,12 @@ def df2USA_currency(df, ExcRate, Logger):
                             continue
 
     # ------------------------------Try currency valu0e implamantion----------------------------- #
-    new_df.reset_index(inplace=True, drop=True)
-    new_df.sort_values(by=['COUNTRY', 'YEAR'], inplace=True)
+    Logger.debug(f"There were problems with this country's: {count_country}")
+    new_df = pd.DataFrame(new_set, columns=['COUNTRY', 'SEO', 'YEAR', 'GBARD_Values'])
+
     st.write(new_df)
+    # new_df.reset_index(inplace=True, drop=True)
+    new_df.sort_values(by=['COUNTRY', 'YEAR'], inplace=True)
     return new_df
 
 
@@ -266,13 +262,11 @@ def checkIfnull(df_dict, Logger):
 
 # def adjusted_DataFrames(df1, df2, df3):
 def adjusted_DataFrames(full_datasets, progress):
-
     CleanLogger = Log('Clean_log')
 
     CleanLogger.info('Starting DataFrames Cleaning...')
 
     CleanLogger.debug('Going to Clean_DataFrames function')
-    # sort_df1, sort_df2, sort_df3 = Clean_DataFrames(df1, df2, df3, CleanLogger)
     # full_datasets: [gbard, agricultural, currncy]
     time.sleep(0.1)
     progress.progress(60)
@@ -281,7 +275,6 @@ def adjusted_DataFrames(full_datasets, progress):
     # clean_full_datasets: [slim_gbard, slim_agricultural, slim_currncy]
 
     CleanLogger.debug('Going to sorted_dfs function')
-    # G_df, A_df, D_df = sorted_dfs(sort_df1, sort_df2, sort_df3, CleanLogger)
     sort_full_datasets = sorted_dfs(clean_full_datasets, CleanLogger)
 
     CleanLogger.debug('Going to checkIfnull function')
