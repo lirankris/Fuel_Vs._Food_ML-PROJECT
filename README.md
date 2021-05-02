@@ -1,7 +1,7 @@
 
 ![Image](https://github.com/lirankris/Fuel_Vs._Food_ML-PROJECT/blob/main/Pic/Under%20Construction.jpg)
 
-# Fuel Vs. Food
+# Fuel Vs. Food (Beta)
 
 Project Target: 
 
@@ -32,7 +32,9 @@ Depend on API:
 - [ ] More data sources.
 - [x] initial Sqlite Database.
 - [x] initial batch file (offline start-up).
-- [ ] local web app (Streamlit) (**beta**).
+- [ ] Divide countries by continent.
+- [x] local web app (Streamlit) (**beta**).
+- [ ] Data preparation.
 - [ ] Gradient descent testing.
 - [ ] Line regression testing.
 - [ ] Decision tree testing.
