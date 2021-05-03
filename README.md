@@ -26,12 +26,17 @@ Depend on API:
 
 •	More to come...
 
+<h2>Beta Web app:<h2\>
+  
+<!-- The script tag should live in the head of your page if at all possible -->
+<script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js"></script>
 
+<!-- Put this wherever you would like your player to appear -->
 <img
   style="width: 100%; margin: auto; display: block;"
   class="vidyard-player-embed"
-  src="https://play.vidyard.com/o7T935ZzQpjSw7xEuiWfU3.jpg"
-  data-uuid="o7T935ZzQpjSw7xEuiWfU3"
+  src="https://play.vidyard.com/ZdJkQLrRwCYJw9trfY6qLS.jpg"
+  data-uuid="ZdJkQLrRwCYJw9trfY6qLS"
   data-v="4"
   data-type="inline"
 />
