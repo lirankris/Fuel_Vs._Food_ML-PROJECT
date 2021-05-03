@@ -24,10 +24,11 @@ Depend on API:
 •	yahoo finance API. :money_with_wings:
 
 •	More to come...
-
-<h2>Beta Web app:<h2\>
   
-https://share.vidyard.com/watch/ZdJkQLrRwCYJw9trfY6qLS?
+  
+<h2>OECD Beta Web app<h2\><br>
+Check out this video: https://share.vidyard.com/watch/ZdJkQLrRwCYJw9trfY6qLS?
+
 
 
 ## check list: :bookmark_tabs:
