@@ -1,0 +1,19 @@
+2021-05-01 00:10:42,616: 	 --> [DEBUG] 	 Starting to create database..
+2021-05-01 13:12:02,056: 	 --> [DEBUG] 	 Starting to create database..
+2021-05-01 14:29:14,001: 	 --> [DEBUG] 	 Starting to create database..
+2021-05-01 14:29:14,001: 	 --> [DEBUG] 	 Starting to create database..
+2021-05-01 14:29:14,001: 	 --> [DEBUG] 	 Starting to create database..
+2021-05-01 14:29:14,001: 	 --> [DEBUG] 	 Starting to create database..
+2021-05-01 14:47:15,188: 	 --> [DEBUG] 	 Starting to create database..
+2021-05-01 15:43:28,018: 	 --> [DEBUG] 	 Starting to create database..
+2021-05-01 15:43:28,020: 	 --> [DEBUG] 	 Getting DataFrames GBARD to DB
+2021-05-01 16:05:18,534: 	 --> [DEBUG] 	 Starting to create database..
+2021-05-01 16:05:18,537: 	 --> [DEBUG] 	 Getting DataFrames GBARD to DB
+2021-05-01 19:20:08,981: 	 --> [DEBUG] 	 Starting to create database..
+2021-05-01 19:20:08,983: 	 --> [DEBUG] 	 Getting DataFrames GBARD to DB
+2021-05-03 00:34:38,826: 	 --> [DEBUG] 	 databases to read: ['Agricultural']
+2021-05-03 00:34:39,130: 	 --> [DEBUG] 	 Read_init_sql: append Agricultural df to dfs
+2021-05-03 00:34:39,658: 	 --> [DEBUG] 	 databases to read: ['Agri_country', 'commodity', 'Agri_variable']
+2021-05-03 00:34:39,662: 	 --> [DEBUG] 	 Read_init_sql: append Agri_country df to dfs
+2021-05-03 00:34:39,671: 	 --> [DEBUG] 	 Read_init_sql: append commodity df to dfs
+2021-05-03 00:34:39,674: 	 --> [DEBUG] 	 Read_init_sql: append Agri_variable df to dfs

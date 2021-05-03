@@ -1,0 +1,38 @@
+2021-05-03 00:16:03,486: 	 --> [DEBUG] 	 databases to read: ['Agricultural']
+2021-05-03 00:16:03,783: 	 --> [DEBUG] 	 Read_init_sql: append Agricultural df to dfs
+2021-05-03 00:16:04,313: 	 --> [DEBUG] 	 databases to read: ['Agri_country', 'commodity', 'Agri_variable']
+2021-05-03 00:16:04,316: 	 --> [DEBUG] 	 Read_init_sql: append Agri_country df to dfs
+2021-05-03 00:16:04,318: 	 --> [DEBUG] 	 Read_init_sql: append commodity df to dfs
+2021-05-03 00:16:04,319: 	 --> [DEBUG] 	 Read_init_sql: append Agri_variable df to dfs
+2021-05-03 00:22:56,168: 	 --> [DEBUG] 	 databases to read: ['Agricultural']
+2021-05-03 00:22:56,430: 	 --> [DEBUG] 	 Read_init_sql: append Agricultural df to dfs
+2021-05-03 00:22:56,956: 	 --> [DEBUG] 	 databases to read: ['Agri_country', 'commodity', 'Agri_variable']
+2021-05-03 00:22:56,958: 	 --> [DEBUG] 	 Read_init_sql: append Agri_country df to dfs
+2021-05-03 00:22:56,960: 	 --> [DEBUG] 	 Read_init_sql: append commodity df to dfs
+2021-05-03 00:22:56,963: 	 --> [DEBUG] 	 Read_init_sql: append Agri_variable df to dfs
+2021-05-03 00:30:42,537: 	 --> [DEBUG] 	 databases to read: ['Agricultural']
+2021-05-03 00:30:42,780: 	 --> [DEBUG] 	 Read_init_sql: append Agricultural df to dfs
+2021-05-03 00:30:43,306: 	 --> [DEBUG] 	 databases to read: ['Agri_country', 'commodity', 'Agri_variable']
+2021-05-03 00:30:43,308: 	 --> [DEBUG] 	 Read_init_sql: append Agri_country df to dfs
+2021-05-03 00:30:43,309: 	 --> [DEBUG] 	 Read_init_sql: append commodity df to dfs
+2021-05-03 00:30:43,311: 	 --> [DEBUG] 	 Read_init_sql: append Agri_variable df to dfs
+2021-05-03 00:34:38,826: 	 --> [DEBUG] 	 databases to read: ['Agricultural']
+2021-05-03 00:34:39,130: 	 --> [DEBUG] 	 Read_init_sql: append Agricultural df to dfs
+2021-05-03 00:34:39,658: 	 --> [DEBUG] 	 databases to read: ['Agri_country', 'commodity', 'Agri_variable']
+2021-05-03 00:34:39,662: 	 --> [DEBUG] 	 Read_init_sql: append Agri_country df to dfs
+2021-05-03 00:34:39,671: 	 --> [DEBUG] 	 Read_init_sql: append commodity df to dfs
+2021-05-03 00:34:39,674: 	 --> [DEBUG] 	 Read_init_sql: append Agri_variable df to dfs
+2021-05-03 01:04:39,203: 	 --> [DEBUG] 	 databases to read: ['Agricultural']
+2021-05-03 01:04:39,450: 	 --> [DEBUG] 	 Read_init_sql: append Agricultural df to dfs
+2021-05-03 01:04:39,978: 	 --> [DEBUG] 	 databases to read: ['Agri_country', 'commodity', 'Agri_variable']
+2021-05-03 01:04:39,979: 	 --> [DEBUG] 	 Read_init_sql: append Agri_country df to dfs
+2021-05-03 01:04:39,981: 	 --> [DEBUG] 	 Read_init_sql: append commodity df to dfs
+2021-05-03 01:04:39,984: 	 --> [DEBUG] 	 Read_init_sql: append Agri_variable df to dfs
+2021-05-03 03:07:55,256: 	 --> [DEBUG] 	 Starting to create database..
+2021-05-03 03:07:55,258: 	 --> [DEBUG] 	 Getting DataFrames GBARD to DB
+2021-05-03 03:07:55,289: 	 --> [DEBUG] 	 Getting DataFrames Agricultural
+2021-05-03 03:07:55,535: 	 --> [DEBUG] 	 Getting DataFrames GBARD_country
+2021-05-03 03:07:55,549: 	 --> [DEBUG] 	 Getting DataFrames seo
+2021-05-03 03:07:55,563: 	 --> [DEBUG] 	 Getting DataFrames Agri_country
+2021-05-03 03:07:55,576: 	 --> [DEBUG] 	 Getting DataFrames commodity
+2021-05-03 03:07:55,589: 	 --> [DEBUG] 	 Getting DataFrames Agri_variable

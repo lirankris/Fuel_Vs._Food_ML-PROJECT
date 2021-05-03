@@ -1,0 +1,1672 @@
+2021-05-03 03:04:24,635: 	 --> [INFO] 	 Starting DataFrames Cleaning...
+2021-05-03 03:04:24,635: 	 --> [DEBUG] 	 Going to Clean_DataFrames function
+2021-05-03 03:04:24,746: 	 --> [INFO] 	 Starting drop/rename...
+2021-05-03 03:07:45,943: 	 --> [DEBUG] 	 drop rows that not contains MIO_NAC in column: MEASURE &                               Drop the MEASURE column from GBARD df
+2021-05-03 03:07:46,630: 	 --> [DEBUG] 	 drop rows that not contains 'OECD', 'EUN', 'NOA',              'EUR', 'OCD', 'AFR', 'LAC', 'WLD', 'BRICS' in column: LOCATION
+2021-05-03 03:07:50,542: 	 --> [DEBUG] 	 drop rows that not contains 'EXCH' & columns: MEASURE, TRANSACT
+2021-05-03 03:07:50,545: 	 --> [INFO] 	 number dfs: 3, name of dfs: ['slim_gbard', 'slim_agricultural', 'slim_currncy']
+2021-05-03 03:07:50,546: 	 --> [DEBUG] 	 Going to sorted_dfs function
+2021-05-03 03:07:50,546: 	 --> [INFO] 	 Starting 2 sort dfs by values...
+2021-05-03 03:07:50,611: 	 --> [DEBUG] 	 Finished sort values by SEO & COMMODITY & VARIABLE
+2021-05-03 03:07:50,612: 	 --> [DEBUG] 	 Going to checkIfnull function
+2021-05-03 03:07:50,612: 	 --> [INFO] 	 Starting Cleaning null values...
+2021-05-03 03:07:50,621: 	 --> [DEBUG] 	 Going to df2USA_currency function
+2021-05-03 03:07:50,621: 	 --> [INFO] 	 Starting Converting currency 2 USD...
+2021-05-03 03:07:50,623: 	 --> [INFO] 	 Chosen SEO: NABS06
+2021-05-03 03:07:50,624: 	 --> [INFO] 	 Chosen country: AUS
+2021-05-03 03:07:50,625: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:50,665: 	 --> [DEBUG] 	 In 2020 there's an empty value for AUS
+2021-05-03 03:07:50,666: 	 --> [INFO] 	 Chosen country: AUT
+2021-05-03 03:07:50,667: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2020
+2021-05-03 03:07:50,711: 	 --> [INFO] 	 Chosen country: BEL
+2021-05-03 03:07:50,713: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:50,753: 	 --> [DEBUG] 	 In 2020 there's an empty value for BEL
+2021-05-03 03:07:50,753: 	 --> [INFO] 	 Chosen country: CAN
+2021-05-03 03:07:50,755: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2016
+2021-05-03 03:07:50,794: 	 --> [DEBUG] 	 In 2017 there's an empty value for CAN
+2021-05-03 03:07:50,795: 	 --> [DEBUG] 	 In 2018 there's an empty value for CAN
+2021-05-03 03:07:50,795: 	 --> [DEBUG] 	 In 2019 there's an empty value for CAN
+2021-05-03 03:07:50,796: 	 --> [DEBUG] 	 In 2020 there's an empty value for CAN
+2021-05-03 03:07:50,796: 	 --> [INFO] 	 Chosen country: CHE
+2021-05-03 03:07:50,797: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2017
+2021-05-03 03:07:50,800: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:50,804: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:50,807: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:50,810: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:50,814: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:50,817: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:50,820: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:50,823: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:50,827: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:50,829: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:50,833: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:50,836: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:50,840: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:50,842: 	 --> [DEBUG] 	 In 2018 there's an empty value for CHE
+2021-05-03 03:07:50,842: 	 --> [DEBUG] 	 In 2019 there's an empty value for CHE
+2021-05-03 03:07:50,842: 	 --> [DEBUG] 	 In 2020 there's an empty value for CHE
+2021-05-03 03:07:50,842: 	 --> [INFO] 	 Chosen country: DEU
+2021-05-03 03:07:50,844: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:50,883: 	 --> [DEBUG] 	 In 2020 there's an empty value for DEU
+2021-05-03 03:07:50,883: 	 --> [INFO] 	 Chosen country: DNK
+2021-05-03 03:07:50,885: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2020
+2021-05-03 03:07:50,928: 	 --> [INFO] 	 Chosen country: ESP
+2021-05-03 03:07:50,929: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:50,969: 	 --> [DEBUG] 	 In 2020 there's an empty value for ESP
+2021-05-03 03:07:50,969: 	 --> [INFO] 	 Chosen country: FIN
+2021-05-03 03:07:50,971: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:51,012: 	 --> [DEBUG] 	 In 2020 there's an empty value for FIN
+2021-05-03 03:07:51,013: 	 --> [INFO] 	 Chosen country: FRA
+2021-05-03 03:07:51,014: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2018
+2021-05-03 03:07:51,052: 	 --> [DEBUG] 	 In 2019 there's an empty value for FRA
+2021-05-03 03:07:51,053: 	 --> [DEBUG] 	 In 2020 there's an empty value for FRA
+2021-05-03 03:07:51,053: 	 --> [INFO] 	 Chosen country: GBR
+2021-05-03 03:07:51,055: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:51,095: 	 --> [DEBUG] 	 In 2020 there's an empty value for GBR
+2021-05-03 03:07:51,096: 	 --> [INFO] 	 Chosen country: GRC
+2021-05-03 03:07:51,097: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:51,135: 	 --> [DEBUG] 	 In 2020 there's an empty value for GRC
+2021-05-03 03:07:51,136: 	 --> [INFO] 	 Chosen country: IRL
+2021-05-03 03:07:51,137: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:51,179: 	 --> [DEBUG] 	 In 2020 there's an empty value for IRL
+2021-05-03 03:07:51,180: 	 --> [INFO] 	 Chosen country: ITA
+2021-05-03 03:07:51,181: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:51,197: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,199: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,200: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,222: 	 --> [DEBUG] 	 In 2020 there's an empty value for ITA
+2021-05-03 03:07:51,223: 	 --> [INFO] 	 Chosen country: JPN
+2021-05-03 03:07:51,224: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2020
+2021-05-03 03:07:51,264: 	 --> [INFO] 	 Chosen country: MEX
+2021-05-03 03:07:51,266: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:51,305: 	 --> [DEBUG] 	 In 2020 there's an empty value for MEX
+2021-05-03 03:07:51,306: 	 --> [INFO] 	 Chosen country: NLD
+2021-05-03 03:07:51,307: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2020
+2021-05-03 03:07:51,351: 	 --> [INFO] 	 Chosen country: NOR
+2021-05-03 03:07:51,352: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2020
+2021-05-03 03:07:51,394: 	 --> [INFO] 	 Chosen country: NZL
+2021-05-03 03:07:51,397: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2017
+2021-05-03 03:07:51,403: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,407: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,410: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,413: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,415: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,417: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,419: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,420: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,422: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,439: 	 --> [DEBUG] 	 In 2018 there's an empty value for NZL
+2021-05-03 03:07:51,440: 	 --> [DEBUG] 	 In 2019 there's an empty value for NZL
+2021-05-03 03:07:51,440: 	 --> [DEBUG] 	 In 2020 there's an empty value for NZL
+2021-05-03 03:07:51,440: 	 --> [INFO] 	 Chosen country: PRT
+2021-05-03 03:07:51,442: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:51,481: 	 --> [DEBUG] 	 In 2020 there's an empty value for PRT
+2021-05-03 03:07:51,482: 	 --> [INFO] 	 Chosen country: SWE
+2021-05-03 03:07:51,483: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:51,496: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,528: 	 --> [DEBUG] 	 In 2020 there's an empty value for SWE
+2021-05-03 03:07:51,529: 	 --> [INFO] 	 Chosen country: USA
+2021-05-03 03:07:51,530: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:51,569: 	 --> [DEBUG] 	 In 2020 there's an empty value for USA
+2021-05-03 03:07:51,570: 	 --> [INFO] 	 Chosen country: ISL
+2021-05-03 03:07:51,572: 	 --> [INFO] 	 Chosen country years limits: 1991 - 2017
+2021-05-03 03:07:51,572: 	 --> [DEBUG] 	 In 1990 there's an empty value for ISL
+2021-05-03 03:07:51,610: 	 --> [DEBUG] 	 In 2018 there's an empty value for ISL
+2021-05-03 03:07:51,610: 	 --> [DEBUG] 	 In 2019 there's an empty value for ISL
+2021-05-03 03:07:51,611: 	 --> [DEBUG] 	 In 2020 there's an empty value for ISL
+2021-05-03 03:07:51,611: 	 --> [INFO] 	 Chosen country: ISR
+2021-05-03 03:07:51,613: 	 --> [INFO] 	 Chosen country years limits: 1993 - 2018
+2021-05-03 03:07:51,613: 	 --> [DEBUG] 	 In 1990 there's an empty value for ISR
+2021-05-03 03:07:51,613: 	 --> [DEBUG] 	 In 1991 there's an empty value for ISR
+2021-05-03 03:07:51,614: 	 --> [DEBUG] 	 In 1992 there's an empty value for ISR
+2021-05-03 03:07:51,652: 	 --> [DEBUG] 	 In 2019 there's an empty value for ISR
+2021-05-03 03:07:51,652: 	 --> [DEBUG] 	 In 2020 there's an empty value for ISR
+2021-05-03 03:07:51,652: 	 --> [INFO] 	 Chosen country: ROU
+2021-05-03 03:07:51,654: 	 --> [INFO] 	 Chosen country years limits: 1993 - 2019
+2021-05-03 03:07:51,655: 	 --> [DEBUG] 	 In 1990 there's an empty value for ROU
+2021-05-03 03:07:51,655: 	 --> [DEBUG] 	 In 1991 there's an empty value for ROU
+2021-05-03 03:07:51,656: 	 --> [DEBUG] 	 In 1992 there's an empty value for ROU
+2021-05-03 03:07:51,692: 	 --> [DEBUG] 	 In 2020 there's an empty value for ROU
+2021-05-03 03:07:51,692: 	 --> [INFO] 	 Chosen country: SVK
+2021-05-03 03:07:51,694: 	 --> [INFO] 	 Chosen country years limits: 1993 - 2019
+2021-05-03 03:07:51,694: 	 --> [DEBUG] 	 In 1990 there's an empty value for SVK
+2021-05-03 03:07:51,695: 	 --> [DEBUG] 	 In 1991 there's an empty value for SVK
+2021-05-03 03:07:51,695: 	 --> [DEBUG] 	 In 1992 there's an empty value for SVK
+2021-05-03 03:07:51,729: 	 --> [DEBUG] 	 In 2020 there's an empty value for SVK
+2021-05-03 03:07:51,730: 	 --> [INFO] 	 Chosen country: RUS
+2021-05-03 03:07:51,732: 	 --> [INFO] 	 Chosen country years limits: 1994 - 2009
+2021-05-03 03:07:51,732: 	 --> [DEBUG] 	 In 1990 there's an empty value for RUS
+2021-05-03 03:07:51,732: 	 --> [DEBUG] 	 In 1991 there's an empty value for RUS
+2021-05-03 03:07:51,732: 	 --> [DEBUG] 	 In 1992 there's an empty value for RUS
+2021-05-03 03:07:51,733: 	 --> [DEBUG] 	 In 1993 there's an empty value for RUS
+2021-05-03 03:07:51,747: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,748: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,750: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,751: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,753: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:51,758: 	 --> [DEBUG] 	 In 2010 there's an empty value for RUS
+2021-05-03 03:07:51,759: 	 --> [DEBUG] 	 In 2011 there's an empty value for RUS
+2021-05-03 03:07:51,759: 	 --> [DEBUG] 	 In 2012 there's an empty value for RUS
+2021-05-03 03:07:51,759: 	 --> [DEBUG] 	 In 2013 there's an empty value for RUS
+2021-05-03 03:07:51,759: 	 --> [DEBUG] 	 In 2014 there's an empty value for RUS
+2021-05-03 03:07:51,759: 	 --> [DEBUG] 	 In 2015 there's an empty value for RUS
+2021-05-03 03:07:51,760: 	 --> [DEBUG] 	 In 2016 there's an empty value for RUS
+2021-05-03 03:07:51,760: 	 --> [DEBUG] 	 In 2017 there's an empty value for RUS
+2021-05-03 03:07:51,760: 	 --> [DEBUG] 	 In 2018 there's an empty value for RUS
+2021-05-03 03:07:51,761: 	 --> [DEBUG] 	 In 2019 there's an empty value for RUS
+2021-05-03 03:07:51,761: 	 --> [DEBUG] 	 In 2020 there's an empty value for RUS
+2021-05-03 03:07:51,761: 	 --> [INFO] 	 Chosen country: ARG
+2021-05-03 03:07:51,762: 	 --> [INFO] 	 Chosen country years limits: 1996 - 2012
+2021-05-03 03:07:51,762: 	 --> [DEBUG] 	 In 1990 there's an empty value for ARG
+2021-05-03 03:07:51,763: 	 --> [DEBUG] 	 In 1991 there's an empty value for ARG
+2021-05-03 03:07:51,763: 	 --> [DEBUG] 	 In 1992 there's an empty value for ARG
+2021-05-03 03:07:51,763: 	 --> [DEBUG] 	 In 1993 there's an empty value for ARG
+2021-05-03 03:07:51,763: 	 --> [DEBUG] 	 In 1994 there's an empty value for ARG
+2021-05-03 03:07:51,763: 	 --> [DEBUG] 	 In 1995 there's an empty value for ARG
+2021-05-03 03:07:51,787: 	 --> [DEBUG] 	 In 2013 there's an empty value for ARG
+2021-05-03 03:07:51,789: 	 --> [DEBUG] 	 In 2014 there's an empty value for ARG
+2021-05-03 03:07:51,789: 	 --> [DEBUG] 	 In 2015 there's an empty value for ARG
+2021-05-03 03:07:51,790: 	 --> [DEBUG] 	 In 2016 there's an empty value for ARG
+2021-05-03 03:07:51,790: 	 --> [DEBUG] 	 In 2017 there's an empty value for ARG
+2021-05-03 03:07:51,790: 	 --> [DEBUG] 	 In 2018 there's an empty value for ARG
+2021-05-03 03:07:51,790: 	 --> [DEBUG] 	 In 2019 there's an empty value for ARG
+2021-05-03 03:07:51,790: 	 --> [DEBUG] 	 In 2020 there's an empty value for ARG
+2021-05-03 03:07:51,790: 	 --> [INFO] 	 Chosen country: SVN
+2021-05-03 03:07:51,792: 	 --> [INFO] 	 Chosen country years limits: 1996 - 2019
+2021-05-03 03:07:51,792: 	 --> [DEBUG] 	 In 1990 there's an empty value for SVN
+2021-05-03 03:07:51,792: 	 --> [DEBUG] 	 In 1991 there's an empty value for SVN
+2021-05-03 03:07:51,793: 	 --> [DEBUG] 	 In 1992 there's an empty value for SVN
+2021-05-03 03:07:51,793: 	 --> [DEBUG] 	 In 1993 there's an empty value for SVN
+2021-05-03 03:07:51,793: 	 --> [DEBUG] 	 In 1994 there's an empty value for SVN
+2021-05-03 03:07:51,793: 	 --> [DEBUG] 	 In 1995 there's an empty value for SVN
+2021-05-03 03:07:51,826: 	 --> [DEBUG] 	 In 2020 there's an empty value for SVN
+2021-05-03 03:07:51,826: 	 --> [INFO] 	 Chosen country: KOR
+2021-05-03 03:07:51,828: 	 --> [INFO] 	 Chosen country years limits: 1999 - 2018
+2021-05-03 03:07:51,828: 	 --> [DEBUG] 	 In 1990 there's an empty value for KOR
+2021-05-03 03:07:51,828: 	 --> [DEBUG] 	 In 1991 there's an empty value for KOR
+2021-05-03 03:07:51,828: 	 --> [DEBUG] 	 In 1992 there's an empty value for KOR
+2021-05-03 03:07:51,829: 	 --> [DEBUG] 	 In 1993 there's an empty value for KOR
+2021-05-03 03:07:51,829: 	 --> [DEBUG] 	 In 1994 there's an empty value for KOR
+2021-05-03 03:07:51,829: 	 --> [DEBUG] 	 In 1995 there's an empty value for KOR
+2021-05-03 03:07:51,829: 	 --> [DEBUG] 	 In 1996 there's an empty value for KOR
+2021-05-03 03:07:51,830: 	 --> [DEBUG] 	 In 1997 there's an empty value for KOR
+2021-05-03 03:07:51,830: 	 --> [DEBUG] 	 In 1998 there's an empty value for KOR
+2021-05-03 03:07:51,857: 	 --> [DEBUG] 	 In 2019 there's an empty value for KOR
+2021-05-03 03:07:51,857: 	 --> [DEBUG] 	 In 2020 there's an empty value for KOR
+2021-05-03 03:07:51,858: 	 --> [INFO] 	 Chosen country: COL
+2021-05-03 03:07:51,859: 	 --> [INFO] 	 Chosen country years limits: 2000 - 2019
+2021-05-03 03:07:51,859: 	 --> [DEBUG] 	 In 1990 there's an empty value for COL
+2021-05-03 03:07:51,859: 	 --> [DEBUG] 	 In 1991 there's an empty value for COL
+2021-05-03 03:07:51,859: 	 --> [DEBUG] 	 In 1992 there's an empty value for COL
+2021-05-03 03:07:51,859: 	 --> [DEBUG] 	 In 1993 there's an empty value for COL
+2021-05-03 03:07:51,860: 	 --> [DEBUG] 	 In 1994 there's an empty value for COL
+2021-05-03 03:07:51,860: 	 --> [DEBUG] 	 In 1995 there's an empty value for COL
+2021-05-03 03:07:51,860: 	 --> [DEBUG] 	 In 1996 there's an empty value for COL
+2021-05-03 03:07:51,860: 	 --> [DEBUG] 	 In 1997 there's an empty value for COL
+2021-05-03 03:07:51,861: 	 --> [DEBUG] 	 In 1998 there's an empty value for COL
+2021-05-03 03:07:51,861: 	 --> [DEBUG] 	 In 1999 there's an empty value for COL
+2021-05-03 03:07:51,887: 	 --> [DEBUG] 	 In 2020 there's an empty value for COL
+2021-05-03 03:07:51,888: 	 --> [INFO] 	 Chosen country: CZE
+2021-05-03 03:07:51,889: 	 --> [INFO] 	 Chosen country years limits: 2000 - 2019
+2021-05-03 03:07:51,890: 	 --> [DEBUG] 	 In 1990 there's an empty value for CZE
+2021-05-03 03:07:51,890: 	 --> [DEBUG] 	 In 1991 there's an empty value for CZE
+2021-05-03 03:07:51,890: 	 --> [DEBUG] 	 In 1992 there's an empty value for CZE
+2021-05-03 03:07:51,890: 	 --> [DEBUG] 	 In 1993 there's an empty value for CZE
+2021-05-03 03:07:51,891: 	 --> [DEBUG] 	 In 1994 there's an empty value for CZE
+2021-05-03 03:07:51,891: 	 --> [DEBUG] 	 In 1995 there's an empty value for CZE
+2021-05-03 03:07:51,891: 	 --> [DEBUG] 	 In 1996 there's an empty value for CZE
+2021-05-03 03:07:51,892: 	 --> [DEBUG] 	 In 1997 there's an empty value for CZE
+2021-05-03 03:07:51,892: 	 --> [DEBUG] 	 In 1998 there's an empty value for CZE
+2021-05-03 03:07:51,892: 	 --> [DEBUG] 	 In 1999 there's an empty value for CZE
+2021-05-03 03:07:51,921: 	 --> [DEBUG] 	 In 2020 there's an empty value for CZE
+2021-05-03 03:07:51,922: 	 --> [INFO] 	 Chosen country: LUX
+2021-05-03 03:07:51,923: 	 --> [INFO] 	 Chosen country years limits: 2000 - 2019
+2021-05-03 03:07:51,923: 	 --> [DEBUG] 	 In 1990 there's an empty value for LUX
+2021-05-03 03:07:51,923: 	 --> [DEBUG] 	 In 1991 there's an empty value for LUX
+2021-05-03 03:07:51,923: 	 --> [DEBUG] 	 In 1992 there's an empty value for LUX
+2021-05-03 03:07:51,924: 	 --> [DEBUG] 	 In 1993 there's an empty value for LUX
+2021-05-03 03:07:51,924: 	 --> [DEBUG] 	 In 1994 there's an empty value for LUX
+2021-05-03 03:07:51,924: 	 --> [DEBUG] 	 In 1995 there's an empty value for LUX
+2021-05-03 03:07:51,924: 	 --> [DEBUG] 	 In 1996 there's an empty value for LUX
+2021-05-03 03:07:51,924: 	 --> [DEBUG] 	 In 1997 there's an empty value for LUX
+2021-05-03 03:07:51,924: 	 --> [DEBUG] 	 In 1998 there's an empty value for LUX
+2021-05-03 03:07:51,925: 	 --> [DEBUG] 	 In 1999 there's an empty value for LUX
+2021-05-03 03:07:51,950: 	 --> [DEBUG] 	 In 2020 there's an empty value for LUX
+2021-05-03 03:07:51,951: 	 --> [INFO] 	 Chosen country: TWN
+2021-05-03 03:07:51,952: 	 --> [INFO] 	 Chosen country years limits: 2000 - 2019
+2021-05-03 03:07:51,952: 	 --> [DEBUG] 	 In 1990 there's an empty value for TWN
+2021-05-03 03:07:51,952: 	 --> [DEBUG] 	 In 1991 there's an empty value for TWN
+2021-05-03 03:07:51,953: 	 --> [DEBUG] 	 In 1992 there's an empty value for TWN
+2021-05-03 03:07:51,953: 	 --> [DEBUG] 	 In 1993 there's an empty value for TWN
+2021-05-03 03:07:51,953: 	 --> [DEBUG] 	 In 1994 there's an empty value for TWN
+2021-05-03 03:07:51,953: 	 --> [DEBUG] 	 In 1995 there's an empty value for TWN
+2021-05-03 03:07:51,953: 	 --> [DEBUG] 	 In 1996 there's an empty value for TWN
+2021-05-03 03:07:51,953: 	 --> [DEBUG] 	 In 1997 there's an empty value for TWN
+2021-05-03 03:07:51,954: 	 --> [DEBUG] 	 In 1998 there's an empty value for TWN
+2021-05-03 03:07:51,954: 	 --> [DEBUG] 	 In 1999 there's an empty value for TWN
+2021-05-03 03:07:51,972: 	 --> [DEBUG] 	 In 2020 there's an empty value for TWN
+2021-05-03 03:07:51,973: 	 --> [INFO] 	 Chosen country: EST
+2021-05-03 03:07:51,974: 	 --> [INFO] 	 Chosen country years limits: 2002 - 2018
+2021-05-03 03:07:51,974: 	 --> [DEBUG] 	 In 1990 there's an empty value for EST
+2021-05-03 03:07:51,974: 	 --> [DEBUG] 	 In 1991 there's an empty value for EST
+2021-05-03 03:07:51,974: 	 --> [DEBUG] 	 In 1992 there's an empty value for EST
+2021-05-03 03:07:51,975: 	 --> [DEBUG] 	 In 1993 there's an empty value for EST
+2021-05-03 03:07:51,975: 	 --> [DEBUG] 	 In 1994 there's an empty value for EST
+2021-05-03 03:07:51,975: 	 --> [DEBUG] 	 In 1995 there's an empty value for EST
+2021-05-03 03:07:51,975: 	 --> [DEBUG] 	 In 1996 there's an empty value for EST
+2021-05-03 03:07:51,975: 	 --> [DEBUG] 	 In 1997 there's an empty value for EST
+2021-05-03 03:07:51,977: 	 --> [DEBUG] 	 In 1998 there's an empty value for EST
+2021-05-03 03:07:51,977: 	 --> [DEBUG] 	 In 1999 there's an empty value for EST
+2021-05-03 03:07:51,978: 	 --> [DEBUG] 	 In 2000 there's an empty value for EST
+2021-05-03 03:07:51,978: 	 --> [DEBUG] 	 In 2001 there's an empty value for EST
+2021-05-03 03:07:52,002: 	 --> [DEBUG] 	 In 2019 there's an empty value for EST
+2021-05-03 03:07:52,002: 	 --> [DEBUG] 	 In 2020 there's an empty value for EST
+2021-05-03 03:07:52,002: 	 --> [INFO] 	 Chosen country: LTU
+2021-05-03 03:07:52,004: 	 --> [INFO] 	 Chosen country years limits: 2004 - 2019
+2021-05-03 03:07:52,004: 	 --> [DEBUG] 	 In 1990 there's an empty value for LTU
+2021-05-03 03:07:52,004: 	 --> [DEBUG] 	 In 1991 there's an empty value for LTU
+2021-05-03 03:07:52,005: 	 --> [DEBUG] 	 In 1992 there's an empty value for LTU
+2021-05-03 03:07:52,005: 	 --> [DEBUG] 	 In 1993 there's an empty value for LTU
+2021-05-03 03:07:52,005: 	 --> [DEBUG] 	 In 1994 there's an empty value for LTU
+2021-05-03 03:07:52,005: 	 --> [DEBUG] 	 In 1995 there's an empty value for LTU
+2021-05-03 03:07:52,006: 	 --> [DEBUG] 	 In 1996 there's an empty value for LTU
+2021-05-03 03:07:52,006: 	 --> [DEBUG] 	 In 1997 there's an empty value for LTU
+2021-05-03 03:07:52,006: 	 --> [DEBUG] 	 In 1998 there's an empty value for LTU
+2021-05-03 03:07:52,006: 	 --> [DEBUG] 	 In 1999 there's an empty value for LTU
+2021-05-03 03:07:52,007: 	 --> [DEBUG] 	 In 2000 there's an empty value for LTU
+2021-05-03 03:07:52,007: 	 --> [DEBUG] 	 In 2001 there's an empty value for LTU
+2021-05-03 03:07:52,007: 	 --> [DEBUG] 	 In 2002 there's an empty value for LTU
+2021-05-03 03:07:52,007: 	 --> [DEBUG] 	 In 2003 there's an empty value for LTU
+2021-05-03 03:07:52,030: 	 --> [DEBUG] 	 In 2020 there's an empty value for LTU
+2021-05-03 03:07:52,031: 	 --> [INFO] 	 Chosen country: POL
+2021-05-03 03:07:52,032: 	 --> [INFO] 	 Chosen country years limits: 2004 - 2018
+2021-05-03 03:07:52,033: 	 --> [DEBUG] 	 In 1990 there's an empty value for POL
+2021-05-03 03:07:52,033: 	 --> [DEBUG] 	 In 1991 there's an empty value for POL
+2021-05-03 03:07:52,034: 	 --> [DEBUG] 	 In 1992 there's an empty value for POL
+2021-05-03 03:07:52,034: 	 --> [DEBUG] 	 In 1993 there's an empty value for POL
+2021-05-03 03:07:52,034: 	 --> [DEBUG] 	 In 1994 there's an empty value for POL
+2021-05-03 03:07:52,035: 	 --> [DEBUG] 	 In 1995 there's an empty value for POL
+2021-05-03 03:07:52,035: 	 --> [DEBUG] 	 In 1996 there's an empty value for POL
+2021-05-03 03:07:52,035: 	 --> [DEBUG] 	 In 1997 there's an empty value for POL
+2021-05-03 03:07:52,036: 	 --> [DEBUG] 	 In 1998 there's an empty value for POL
+2021-05-03 03:07:52,036: 	 --> [DEBUG] 	 In 1999 there's an empty value for POL
+2021-05-03 03:07:52,036: 	 --> [DEBUG] 	 In 2000 there's an empty value for POL
+2021-05-03 03:07:52,036: 	 --> [DEBUG] 	 In 2001 there's an empty value for POL
+2021-05-03 03:07:52,036: 	 --> [DEBUG] 	 In 2002 there's an empty value for POL
+2021-05-03 03:07:52,037: 	 --> [DEBUG] 	 In 2003 there's an empty value for POL
+2021-05-03 03:07:52,046: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,048: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,050: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,059: 	 --> [DEBUG] 	 In 2019 there's an empty value for POL
+2021-05-03 03:07:52,060: 	 --> [DEBUG] 	 In 2020 there's an empty value for POL
+2021-05-03 03:07:52,060: 	 --> [INFO] 	 Chosen country: HUN
+2021-05-03 03:07:52,061: 	 --> [INFO] 	 Chosen country years limits: 2005 - 2019
+2021-05-03 03:07:52,062: 	 --> [DEBUG] 	 In 1990 there's an empty value for HUN
+2021-05-03 03:07:52,062: 	 --> [DEBUG] 	 In 1991 there's an empty value for HUN
+2021-05-03 03:07:52,062: 	 --> [DEBUG] 	 In 1992 there's an empty value for HUN
+2021-05-03 03:07:52,062: 	 --> [DEBUG] 	 In 1993 there's an empty value for HUN
+2021-05-03 03:07:52,063: 	 --> [DEBUG] 	 In 1994 there's an empty value for HUN
+2021-05-03 03:07:52,063: 	 --> [DEBUG] 	 In 1995 there's an empty value for HUN
+2021-05-03 03:07:52,063: 	 --> [DEBUG] 	 In 1996 there's an empty value for HUN
+2021-05-03 03:07:52,063: 	 --> [DEBUG] 	 In 1997 there's an empty value for HUN
+2021-05-03 03:07:52,063: 	 --> [DEBUG] 	 In 1998 there's an empty value for HUN
+2021-05-03 03:07:52,064: 	 --> [DEBUG] 	 In 1999 there's an empty value for HUN
+2021-05-03 03:07:52,064: 	 --> [DEBUG] 	 In 2000 there's an empty value for HUN
+2021-05-03 03:07:52,064: 	 --> [DEBUG] 	 In 2001 there's an empty value for HUN
+2021-05-03 03:07:52,064: 	 --> [DEBUG] 	 In 2002 there's an empty value for HUN
+2021-05-03 03:07:52,064: 	 --> [DEBUG] 	 In 2003 there's an empty value for HUN
+2021-05-03 03:07:52,064: 	 --> [DEBUG] 	 In 2004 there's an empty value for HUN
+2021-05-03 03:07:52,090: 	 --> [DEBUG] 	 In 2020 there's an empty value for HUN
+2021-05-03 03:07:52,090: 	 --> [INFO] 	 Chosen country: LVA
+2021-05-03 03:07:52,092: 	 --> [INFO] 	 Chosen country years limits: 2005 - 2019
+2021-05-03 03:07:52,092: 	 --> [DEBUG] 	 In 1990 there's an empty value for LVA
+2021-05-03 03:07:52,093: 	 --> [DEBUG] 	 In 1991 there's an empty value for LVA
+2021-05-03 03:07:52,093: 	 --> [DEBUG] 	 In 1992 there's an empty value for LVA
+2021-05-03 03:07:52,093: 	 --> [DEBUG] 	 In 1993 there's an empty value for LVA
+2021-05-03 03:07:52,094: 	 --> [DEBUG] 	 In 1994 there's an empty value for LVA
+2021-05-03 03:07:52,094: 	 --> [DEBUG] 	 In 1995 there's an empty value for LVA
+2021-05-03 03:07:52,094: 	 --> [DEBUG] 	 In 1996 there's an empty value for LVA
+2021-05-03 03:07:52,095: 	 --> [DEBUG] 	 In 1997 there's an empty value for LVA
+2021-05-03 03:07:52,095: 	 --> [DEBUG] 	 In 1998 there's an empty value for LVA
+2021-05-03 03:07:52,095: 	 --> [DEBUG] 	 In 1999 there's an empty value for LVA
+2021-05-03 03:07:52,095: 	 --> [DEBUG] 	 In 2000 there's an empty value for LVA
+2021-05-03 03:07:52,096: 	 --> [DEBUG] 	 In 2001 there's an empty value for LVA
+2021-05-03 03:07:52,096: 	 --> [DEBUG] 	 In 2002 there's an empty value for LVA
+2021-05-03 03:07:52,096: 	 --> [DEBUG] 	 In 2003 there's an empty value for LVA
+2021-05-03 03:07:52,096: 	 --> [DEBUG] 	 In 2004 there's an empty value for LVA
+2021-05-03 03:07:52,118: 	 --> [DEBUG] 	 In 2020 there's an empty value for LVA
+2021-05-03 03:07:52,118: 	 --> [INFO] 	 Chosen country: TUR
+2021-05-03 03:07:52,119: 	 --> [INFO] 	 Chosen country years limits: 2008 - 2020
+2021-05-03 03:07:52,121: 	 --> [DEBUG] 	 In 1990 there's an empty value for TUR
+2021-05-03 03:07:52,121: 	 --> [DEBUG] 	 In 1991 there's an empty value for TUR
+2021-05-03 03:07:52,122: 	 --> [DEBUG] 	 In 1992 there's an empty value for TUR
+2021-05-03 03:07:52,122: 	 --> [DEBUG] 	 In 1993 there's an empty value for TUR
+2021-05-03 03:07:52,122: 	 --> [DEBUG] 	 In 1994 there's an empty value for TUR
+2021-05-03 03:07:52,123: 	 --> [DEBUG] 	 In 1995 there's an empty value for TUR
+2021-05-03 03:07:52,123: 	 --> [DEBUG] 	 In 1996 there's an empty value for TUR
+2021-05-03 03:07:52,123: 	 --> [DEBUG] 	 In 1997 there's an empty value for TUR
+2021-05-03 03:07:52,124: 	 --> [DEBUG] 	 In 1998 there's an empty value for TUR
+2021-05-03 03:07:52,124: 	 --> [DEBUG] 	 In 1999 there's an empty value for TUR
+2021-05-03 03:07:52,124: 	 --> [DEBUG] 	 In 2000 there's an empty value for TUR
+2021-05-03 03:07:52,125: 	 --> [DEBUG] 	 In 2001 there's an empty value for TUR
+2021-05-03 03:07:52,125: 	 --> [DEBUG] 	 In 2002 there's an empty value for TUR
+2021-05-03 03:07:52,125: 	 --> [DEBUG] 	 In 2003 there's an empty value for TUR
+2021-05-03 03:07:52,125: 	 --> [DEBUG] 	 In 2004 there's an empty value for TUR
+2021-05-03 03:07:52,125: 	 --> [DEBUG] 	 In 2005 there's an empty value for TUR
+2021-05-03 03:07:52,126: 	 --> [DEBUG] 	 In 2006 there's an empty value for TUR
+2021-05-03 03:07:52,126: 	 --> [DEBUG] 	 In 2007 there's an empty value for TUR
+2021-05-03 03:07:52,142: 	 --> [WARNING] 	 Can't convert this currency in Exc dataset
+2021-05-03 03:07:52,143: 	 --> [DEBUG] 	 Trying to use ConvertToUSD function
+2021-05-03 03:07:52,329: 	 --> [WARNING] 	 This error occurred: TUR is not a supported currency
+2021-05-03 03:07:52,334: 	 --> [INFO] 	 Chosen country: CHL
+2021-05-03 03:07:52,336: 	 --> [INFO] 	 Chosen country years limits: 2011 - 2017
+2021-05-03 03:07:52,336: 	 --> [DEBUG] 	 In 1990 there's an empty value for CHL
+2021-05-03 03:07:52,337: 	 --> [DEBUG] 	 In 1991 there's an empty value for CHL
+2021-05-03 03:07:52,337: 	 --> [DEBUG] 	 In 1992 there's an empty value for CHL
+2021-05-03 03:07:52,337: 	 --> [DEBUG] 	 In 1993 there's an empty value for CHL
+2021-05-03 03:07:52,337: 	 --> [DEBUG] 	 In 1994 there's an empty value for CHL
+2021-05-03 03:07:52,338: 	 --> [DEBUG] 	 In 1995 there's an empty value for CHL
+2021-05-03 03:07:52,338: 	 --> [DEBUG] 	 In 1996 there's an empty value for CHL
+2021-05-03 03:07:52,338: 	 --> [DEBUG] 	 In 1997 there's an empty value for CHL
+2021-05-03 03:07:52,338: 	 --> [DEBUG] 	 In 1998 there's an empty value for CHL
+2021-05-03 03:07:52,338: 	 --> [DEBUG] 	 In 1999 there's an empty value for CHL
+2021-05-03 03:07:52,339: 	 --> [DEBUG] 	 In 2000 there's an empty value for CHL
+2021-05-03 03:07:52,339: 	 --> [DEBUG] 	 In 2001 there's an empty value for CHL
+2021-05-03 03:07:52,339: 	 --> [DEBUG] 	 In 2002 there's an empty value for CHL
+2021-05-03 03:07:52,339: 	 --> [DEBUG] 	 In 2003 there's an empty value for CHL
+2021-05-03 03:07:52,339: 	 --> [DEBUG] 	 In 2004 there's an empty value for CHL
+2021-05-03 03:07:52,339: 	 --> [DEBUG] 	 In 2005 there's an empty value for CHL
+2021-05-03 03:07:52,340: 	 --> [DEBUG] 	 In 2006 there's an empty value for CHL
+2021-05-03 03:07:52,340: 	 --> [DEBUG] 	 In 2007 there's an empty value for CHL
+2021-05-03 03:07:52,340: 	 --> [DEBUG] 	 In 2008 there's an empty value for CHL
+2021-05-03 03:07:52,340: 	 --> [DEBUG] 	 In 2009 there's an empty value for CHL
+2021-05-03 03:07:52,340: 	 --> [DEBUG] 	 In 2010 there's an empty value for CHL
+2021-05-03 03:07:52,351: 	 --> [DEBUG] 	 In 2018 there's an empty value for CHL
+2021-05-03 03:07:52,351: 	 --> [DEBUG] 	 In 2019 there's an empty value for CHL
+2021-05-03 03:07:52,351: 	 --> [DEBUG] 	 In 2020 there's an empty value for CHL
+2021-05-03 03:07:52,352: 	 --> [INFO] 	 Chosen SEO: NABS08
+2021-05-03 03:07:52,352: 	 --> [INFO] 	 Chosen country: AUS
+2021-05-03 03:07:52,353: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:52,401: 	 --> [DEBUG] 	 In 2020 there's an empty value for AUS
+2021-05-03 03:07:52,401: 	 --> [INFO] 	 Chosen country: AUT
+2021-05-03 03:07:52,403: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2020
+2021-05-03 03:07:52,451: 	 --> [INFO] 	 Chosen country: BEL
+2021-05-03 03:07:52,453: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:52,494: 	 --> [DEBUG] 	 In 2020 there's an empty value for BEL
+2021-05-03 03:07:52,495: 	 --> [INFO] 	 Chosen country: CAN
+2021-05-03 03:07:52,496: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2016
+2021-05-03 03:07:52,541: 	 --> [DEBUG] 	 In 2017 there's an empty value for CAN
+2021-05-03 03:07:52,542: 	 --> [DEBUG] 	 In 2018 there's an empty value for CAN
+2021-05-03 03:07:52,542: 	 --> [DEBUG] 	 In 2019 there's an empty value for CAN
+2021-05-03 03:07:52,542: 	 --> [DEBUG] 	 In 2020 there's an empty value for CAN
+2021-05-03 03:07:52,543: 	 --> [INFO] 	 Chosen country: CHE
+2021-05-03 03:07:52,544: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2017
+2021-05-03 03:07:52,547: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,551: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,554: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,557: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,560: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,563: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,569: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,575: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,578: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,581: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,584: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,587: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,592: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,594: 	 --> [DEBUG] 	 In 2018 there's an empty value for CHE
+2021-05-03 03:07:52,594: 	 --> [DEBUG] 	 In 2019 there's an empty value for CHE
+2021-05-03 03:07:52,595: 	 --> [DEBUG] 	 In 2020 there's an empty value for CHE
+2021-05-03 03:07:52,596: 	 --> [INFO] 	 Chosen country: DEU
+2021-05-03 03:07:52,597: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:52,639: 	 --> [DEBUG] 	 In 2020 there's an empty value for DEU
+2021-05-03 03:07:52,640: 	 --> [INFO] 	 Chosen country: DNK
+2021-05-03 03:07:52,642: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2020
+2021-05-03 03:07:52,690: 	 --> [INFO] 	 Chosen country: ESP
+2021-05-03 03:07:52,692: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:52,732: 	 --> [DEBUG] 	 In 2020 there's an empty value for ESP
+2021-05-03 03:07:52,733: 	 --> [INFO] 	 Chosen country: FIN
+2021-05-03 03:07:52,734: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:52,776: 	 --> [DEBUG] 	 In 2020 there's an empty value for FIN
+2021-05-03 03:07:52,777: 	 --> [INFO] 	 Chosen country: FRA
+2021-05-03 03:07:52,778: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2018
+2021-05-03 03:07:52,819: 	 --> [DEBUG] 	 In 2019 there's an empty value for FRA
+2021-05-03 03:07:52,820: 	 --> [DEBUG] 	 In 2020 there's an empty value for FRA
+2021-05-03 03:07:52,820: 	 --> [INFO] 	 Chosen country: GBR
+2021-05-03 03:07:52,821: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:52,862: 	 --> [DEBUG] 	 In 2020 there's an empty value for GBR
+2021-05-03 03:07:52,863: 	 --> [INFO] 	 Chosen country: GRC
+2021-05-03 03:07:52,864: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:52,904: 	 --> [DEBUG] 	 In 2020 there's an empty value for GRC
+2021-05-03 03:07:52,905: 	 --> [INFO] 	 Chosen country: IRL
+2021-05-03 03:07:52,906: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:52,952: 	 --> [DEBUG] 	 In 2020 there's an empty value for IRL
+2021-05-03 03:07:52,952: 	 --> [INFO] 	 Chosen country: ITA
+2021-05-03 03:07:52,954: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:52,970: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,973: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:52,975: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,001: 	 --> [DEBUG] 	 In 2020 there's an empty value for ITA
+2021-05-03 03:07:53,001: 	 --> [INFO] 	 Chosen country: JPN
+2021-05-03 03:07:53,003: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2020
+2021-05-03 03:07:53,046: 	 --> [INFO] 	 Chosen country: MEX
+2021-05-03 03:07:53,048: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:53,091: 	 --> [DEBUG] 	 In 2020 there's an empty value for MEX
+2021-05-03 03:07:53,092: 	 --> [INFO] 	 Chosen country: NLD
+2021-05-03 03:07:53,093: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2020
+2021-05-03 03:07:53,139: 	 --> [INFO] 	 Chosen country: NOR
+2021-05-03 03:07:53,141: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2020
+2021-05-03 03:07:53,184: 	 --> [INFO] 	 Chosen country: NZL
+2021-05-03 03:07:53,186: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2017
+2021-05-03 03:07:53,193: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,197: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,200: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,203: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,204: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,206: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,208: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,209: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,211: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,226: 	 --> [DEBUG] 	 In 2018 there's an empty value for NZL
+2021-05-03 03:07:53,227: 	 --> [DEBUG] 	 In 2019 there's an empty value for NZL
+2021-05-03 03:07:53,228: 	 --> [DEBUG] 	 In 2020 there's an empty value for NZL
+2021-05-03 03:07:53,228: 	 --> [INFO] 	 Chosen country: PRT
+2021-05-03 03:07:53,229: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:53,268: 	 --> [DEBUG] 	 In 2020 there's an empty value for PRT
+2021-05-03 03:07:53,269: 	 --> [INFO] 	 Chosen country: SWE
+2021-05-03 03:07:53,270: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:53,282: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,313: 	 --> [DEBUG] 	 In 2020 there's an empty value for SWE
+2021-05-03 03:07:53,314: 	 --> [INFO] 	 Chosen country: USA
+2021-05-03 03:07:53,315: 	 --> [INFO] 	 Chosen country years limits: 1990 - 2019
+2021-05-03 03:07:53,358: 	 --> [DEBUG] 	 In 2020 there's an empty value for USA
+2021-05-03 03:07:53,358: 	 --> [INFO] 	 Chosen country: ISL
+2021-05-03 03:07:53,360: 	 --> [INFO] 	 Chosen country years limits: 1991 - 2017
+2021-05-03 03:07:53,360: 	 --> [DEBUG] 	 In 1990 there's an empty value for ISL
+2021-05-03 03:07:53,408: 	 --> [DEBUG] 	 In 2018 there's an empty value for ISL
+2021-05-03 03:07:53,409: 	 --> [DEBUG] 	 In 2019 there's an empty value for ISL
+2021-05-03 03:07:53,409: 	 --> [DEBUG] 	 In 2020 there's an empty value for ISL
+2021-05-03 03:07:53,410: 	 --> [INFO] 	 Chosen country: ISR
+2021-05-03 03:07:53,411: 	 --> [INFO] 	 Chosen country years limits: 1993 - 2018
+2021-05-03 03:07:53,411: 	 --> [DEBUG] 	 In 1990 there's an empty value for ISR
+2021-05-03 03:07:53,412: 	 --> [DEBUG] 	 In 1991 there's an empty value for ISR
+2021-05-03 03:07:53,412: 	 --> [DEBUG] 	 In 1992 there's an empty value for ISR
+2021-05-03 03:07:53,447: 	 --> [DEBUG] 	 In 2019 there's an empty value for ISR
+2021-05-03 03:07:53,447: 	 --> [DEBUG] 	 In 2020 there's an empty value for ISR
+2021-05-03 03:07:53,447: 	 --> [INFO] 	 Chosen country: ROU
+2021-05-03 03:07:53,449: 	 --> [INFO] 	 Chosen country years limits: 1993 - 2019
+2021-05-03 03:07:53,449: 	 --> [DEBUG] 	 In 1990 there's an empty value for ROU
+2021-05-03 03:07:53,449: 	 --> [DEBUG] 	 In 1991 there's an empty value for ROU
+2021-05-03 03:07:53,449: 	 --> [DEBUG] 	 In 1992 there's an empty value for ROU
+2021-05-03 03:07:53,485: 	 --> [DEBUG] 	 In 2020 there's an empty value for ROU
+2021-05-03 03:07:53,485: 	 --> [INFO] 	 Chosen country: SVK
+2021-05-03 03:07:53,487: 	 --> [INFO] 	 Chosen country years limits: 1993 - 2019
+2021-05-03 03:07:53,487: 	 --> [DEBUG] 	 In 1990 there's an empty value for SVK
+2021-05-03 03:07:53,488: 	 --> [DEBUG] 	 In 1991 there's an empty value for SVK
+2021-05-03 03:07:53,488: 	 --> [DEBUG] 	 In 1992 there's an empty value for SVK
+2021-05-03 03:07:53,524: 	 --> [DEBUG] 	 In 2020 there's an empty value for SVK
+2021-05-03 03:07:53,524: 	 --> [INFO] 	 Chosen country: RUS
+2021-05-03 03:07:53,526: 	 --> [INFO] 	 Chosen country years limits: 1994 - 2009
+2021-05-03 03:07:53,526: 	 --> [DEBUG] 	 In 1990 there's an empty value for RUS
+2021-05-03 03:07:53,527: 	 --> [DEBUG] 	 In 1991 there's an empty value for RUS
+2021-05-03 03:07:53,527: 	 --> [DEBUG] 	 In 1992 there's an empty value for RUS
+2021-05-03 03:07:53,527: 	 --> [DEBUG] 	 In 1993 there's an empty value for RUS
+2021-05-03 03:07:53,539: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,540: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,542: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,544: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,546: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,551: 	 --> [DEBUG] 	 In 2010 there's an empty value for RUS
+2021-05-03 03:07:53,551: 	 --> [DEBUG] 	 In 2011 there's an empty value for RUS
+2021-05-03 03:07:53,551: 	 --> [DEBUG] 	 In 2012 there's an empty value for RUS
+2021-05-03 03:07:53,552: 	 --> [DEBUG] 	 In 2013 there's an empty value for RUS
+2021-05-03 03:07:53,552: 	 --> [DEBUG] 	 In 2014 there's an empty value for RUS
+2021-05-03 03:07:53,552: 	 --> [DEBUG] 	 In 2015 there's an empty value for RUS
+2021-05-03 03:07:53,553: 	 --> [DEBUG] 	 In 2016 there's an empty value for RUS
+2021-05-03 03:07:53,553: 	 --> [DEBUG] 	 In 2017 there's an empty value for RUS
+2021-05-03 03:07:53,553: 	 --> [DEBUG] 	 In 2018 there's an empty value for RUS
+2021-05-03 03:07:53,554: 	 --> [DEBUG] 	 In 2019 there's an empty value for RUS
+2021-05-03 03:07:53,554: 	 --> [DEBUG] 	 In 2020 there's an empty value for RUS
+2021-05-03 03:07:53,555: 	 --> [INFO] 	 Chosen country: ARG
+2021-05-03 03:07:53,556: 	 --> [INFO] 	 Chosen country years limits: 1996 - 2012
+2021-05-03 03:07:53,556: 	 --> [DEBUG] 	 In 1990 there's an empty value for ARG
+2021-05-03 03:07:53,557: 	 --> [DEBUG] 	 In 1991 there's an empty value for ARG
+2021-05-03 03:07:53,557: 	 --> [DEBUG] 	 In 1992 there's an empty value for ARG
+2021-05-03 03:07:53,557: 	 --> [DEBUG] 	 In 1993 there's an empty value for ARG
+2021-05-03 03:07:53,558: 	 --> [DEBUG] 	 In 1994 there's an empty value for ARG
+2021-05-03 03:07:53,558: 	 --> [DEBUG] 	 In 1995 there's an empty value for ARG
+2021-05-03 03:07:53,582: 	 --> [DEBUG] 	 In 2013 there's an empty value for ARG
+2021-05-03 03:07:53,583: 	 --> [DEBUG] 	 In 2014 there's an empty value for ARG
+2021-05-03 03:07:53,583: 	 --> [DEBUG] 	 In 2015 there's an empty value for ARG
+2021-05-03 03:07:53,584: 	 --> [DEBUG] 	 In 2016 there's an empty value for ARG
+2021-05-03 03:07:53,584: 	 --> [DEBUG] 	 In 2017 there's an empty value for ARG
+2021-05-03 03:07:53,584: 	 --> [DEBUG] 	 In 2018 there's an empty value for ARG
+2021-05-03 03:07:53,584: 	 --> [DEBUG] 	 In 2019 there's an empty value for ARG
+2021-05-03 03:07:53,585: 	 --> [DEBUG] 	 In 2020 there's an empty value for ARG
+2021-05-03 03:07:53,585: 	 --> [INFO] 	 Chosen country: SVN
+2021-05-03 03:07:53,586: 	 --> [INFO] 	 Chosen country years limits: 1996 - 2019
+2021-05-03 03:07:53,586: 	 --> [DEBUG] 	 In 1990 there's an empty value for SVN
+2021-05-03 03:07:53,587: 	 --> [DEBUG] 	 In 1991 there's an empty value for SVN
+2021-05-03 03:07:53,587: 	 --> [DEBUG] 	 In 1992 there's an empty value for SVN
+2021-05-03 03:07:53,587: 	 --> [DEBUG] 	 In 1993 there's an empty value for SVN
+2021-05-03 03:07:53,588: 	 --> [DEBUG] 	 In 1994 there's an empty value for SVN
+2021-05-03 03:07:53,588: 	 --> [DEBUG] 	 In 1995 there's an empty value for SVN
+2021-05-03 03:07:53,619: 	 --> [DEBUG] 	 In 2020 there's an empty value for SVN
+2021-05-03 03:07:53,620: 	 --> [INFO] 	 Chosen country: KOR
+2021-05-03 03:07:53,621: 	 --> [INFO] 	 Chosen country years limits: 1999 - 2018
+2021-05-03 03:07:53,621: 	 --> [DEBUG] 	 In 1990 there's an empty value for KOR
+2021-05-03 03:07:53,621: 	 --> [DEBUG] 	 In 1991 there's an empty value for KOR
+2021-05-03 03:07:53,621: 	 --> [DEBUG] 	 In 1992 there's an empty value for KOR
+2021-05-03 03:07:53,623: 	 --> [DEBUG] 	 In 1993 there's an empty value for KOR
+2021-05-03 03:07:53,623: 	 --> [DEBUG] 	 In 1994 there's an empty value for KOR
+2021-05-03 03:07:53,623: 	 --> [DEBUG] 	 In 1995 there's an empty value for KOR
+2021-05-03 03:07:53,624: 	 --> [DEBUG] 	 In 1996 there's an empty value for KOR
+2021-05-03 03:07:53,624: 	 --> [DEBUG] 	 In 1997 there's an empty value for KOR
+2021-05-03 03:07:53,624: 	 --> [DEBUG] 	 In 1998 there's an empty value for KOR
+2021-05-03 03:07:53,651: 	 --> [DEBUG] 	 In 2019 there's an empty value for KOR
+2021-05-03 03:07:53,651: 	 --> [DEBUG] 	 In 2020 there's an empty value for KOR
+2021-05-03 03:07:53,651: 	 --> [INFO] 	 Chosen country: COL
+2021-05-03 03:07:53,653: 	 --> [INFO] 	 Chosen country years limits: 2000 - 2019
+2021-05-03 03:07:53,654: 	 --> [DEBUG] 	 In 1990 there's an empty value for COL
+2021-05-03 03:07:53,654: 	 --> [DEBUG] 	 In 1991 there's an empty value for COL
+2021-05-03 03:07:53,654: 	 --> [DEBUG] 	 In 1992 there's an empty value for COL
+2021-05-03 03:07:53,654: 	 --> [DEBUG] 	 In 1993 there's an empty value for COL
+2021-05-03 03:07:53,655: 	 --> [DEBUG] 	 In 1994 there's an empty value for COL
+2021-05-03 03:07:53,655: 	 --> [DEBUG] 	 In 1995 there's an empty value for COL
+2021-05-03 03:07:53,655: 	 --> [DEBUG] 	 In 1996 there's an empty value for COL
+2021-05-03 03:07:53,655: 	 --> [DEBUG] 	 In 1997 there's an empty value for COL
+2021-05-03 03:07:53,656: 	 --> [DEBUG] 	 In 1998 there's an empty value for COL
+2021-05-03 03:07:53,656: 	 --> [DEBUG] 	 In 1999 there's an empty value for COL
+2021-05-03 03:07:53,682: 	 --> [DEBUG] 	 In 2020 there's an empty value for COL
+2021-05-03 03:07:53,683: 	 --> [INFO] 	 Chosen country: CZE
+2021-05-03 03:07:53,684: 	 --> [INFO] 	 Chosen country years limits: 2000 - 2019
+2021-05-03 03:07:53,684: 	 --> [DEBUG] 	 In 1990 there's an empty value for CZE
+2021-05-03 03:07:53,684: 	 --> [DEBUG] 	 In 1991 there's an empty value for CZE
+2021-05-03 03:07:53,684: 	 --> [DEBUG] 	 In 1992 there's an empty value for CZE
+2021-05-03 03:07:53,686: 	 --> [DEBUG] 	 In 1993 there's an empty value for CZE
+2021-05-03 03:07:53,686: 	 --> [DEBUG] 	 In 1994 there's an empty value for CZE
+2021-05-03 03:07:53,686: 	 --> [DEBUG] 	 In 1995 there's an empty value for CZE
+2021-05-03 03:07:53,687: 	 --> [DEBUG] 	 In 1996 there's an empty value for CZE
+2021-05-03 03:07:53,687: 	 --> [DEBUG] 	 In 1997 there's an empty value for CZE
+2021-05-03 03:07:53,687: 	 --> [DEBUG] 	 In 1998 there's an empty value for CZE
+2021-05-03 03:07:53,688: 	 --> [DEBUG] 	 In 1999 there's an empty value for CZE
+2021-05-03 03:07:53,714: 	 --> [DEBUG] 	 In 2020 there's an empty value for CZE
+2021-05-03 03:07:53,714: 	 --> [INFO] 	 Chosen country: LUX
+2021-05-03 03:07:53,715: 	 --> [INFO] 	 Chosen country years limits: 2000 - 2019
+2021-05-03 03:07:53,715: 	 --> [DEBUG] 	 In 1990 there's an empty value for LUX
+2021-05-03 03:07:53,716: 	 --> [DEBUG] 	 In 1991 there's an empty value for LUX
+2021-05-03 03:07:53,716: 	 --> [DEBUG] 	 In 1992 there's an empty value for LUX
+2021-05-03 03:07:53,716: 	 --> [DEBUG] 	 In 1993 there's an empty value for LUX
+2021-05-03 03:07:53,716: 	 --> [DEBUG] 	 In 1994 there's an empty value for LUX
+2021-05-03 03:07:53,716: 	 --> [DEBUG] 	 In 1995 there's an empty value for LUX
+2021-05-03 03:07:53,716: 	 --> [DEBUG] 	 In 1996 there's an empty value for LUX
+2021-05-03 03:07:53,718: 	 --> [DEBUG] 	 In 1997 there's an empty value for LUX
+2021-05-03 03:07:53,718: 	 --> [DEBUG] 	 In 1998 there's an empty value for LUX
+2021-05-03 03:07:53,719: 	 --> [DEBUG] 	 In 1999 there's an empty value for LUX
+2021-05-03 03:07:53,745: 	 --> [DEBUG] 	 In 2020 there's an empty value for LUX
+2021-05-03 03:07:53,746: 	 --> [INFO] 	 Chosen country: TWN
+2021-05-03 03:07:53,747: 	 --> [INFO] 	 Chosen country years limits: 2000 - 2019
+2021-05-03 03:07:53,747: 	 --> [DEBUG] 	 In 1990 there's an empty value for TWN
+2021-05-03 03:07:53,747: 	 --> [DEBUG] 	 In 1991 there's an empty value for TWN
+2021-05-03 03:07:53,747: 	 --> [DEBUG] 	 In 1992 there's an empty value for TWN
+2021-05-03 03:07:53,748: 	 --> [DEBUG] 	 In 1993 there's an empty value for TWN
+2021-05-03 03:07:53,748: 	 --> [DEBUG] 	 In 1994 there's an empty value for TWN
+2021-05-03 03:07:53,748: 	 --> [DEBUG] 	 In 1995 there's an empty value for TWN
+2021-05-03 03:07:53,748: 	 --> [DEBUG] 	 In 1996 there's an empty value for TWN
+2021-05-03 03:07:53,748: 	 --> [DEBUG] 	 In 1997 there's an empty value for TWN
+2021-05-03 03:07:53,748: 	 --> [DEBUG] 	 In 1998 there's an empty value for TWN
+2021-05-03 03:07:53,750: 	 --> [DEBUG] 	 In 1999 there's an empty value for TWN
+2021-05-03 03:07:53,769: 	 --> [DEBUG] 	 In 2020 there's an empty value for TWN
+2021-05-03 03:07:53,769: 	 --> [INFO] 	 Chosen country: EST
+2021-05-03 03:07:53,771: 	 --> [INFO] 	 Chosen country years limits: 2002 - 2018
+2021-05-03 03:07:53,771: 	 --> [DEBUG] 	 In 1990 there's an empty value for EST
+2021-05-03 03:07:53,772: 	 --> [DEBUG] 	 In 1991 there's an empty value for EST
+2021-05-03 03:07:53,772: 	 --> [DEBUG] 	 In 1992 there's an empty value for EST
+2021-05-03 03:07:53,772: 	 --> [DEBUG] 	 In 1993 there's an empty value for EST
+2021-05-03 03:07:53,773: 	 --> [DEBUG] 	 In 1994 there's an empty value for EST
+2021-05-03 03:07:53,773: 	 --> [DEBUG] 	 In 1995 there's an empty value for EST
+2021-05-03 03:07:53,773: 	 --> [DEBUG] 	 In 1996 there's an empty value for EST
+2021-05-03 03:07:53,773: 	 --> [DEBUG] 	 In 1997 there's an empty value for EST
+2021-05-03 03:07:53,774: 	 --> [DEBUG] 	 In 1998 there's an empty value for EST
+2021-05-03 03:07:53,774: 	 --> [DEBUG] 	 In 1999 there's an empty value for EST
+2021-05-03 03:07:53,774: 	 --> [DEBUG] 	 In 2000 there's an empty value for EST
+2021-05-03 03:07:53,774: 	 --> [DEBUG] 	 In 2001 there's an empty value for EST
+2021-05-03 03:07:53,798: 	 --> [DEBUG] 	 In 2019 there's an empty value for EST
+2021-05-03 03:07:53,799: 	 --> [DEBUG] 	 In 2020 there's an empty value for EST
+2021-05-03 03:07:53,799: 	 --> [INFO] 	 Chosen country: LTU
+2021-05-03 03:07:53,800: 	 --> [INFO] 	 Chosen country years limits: 2004 - 2019
+2021-05-03 03:07:53,801: 	 --> [DEBUG] 	 In 1990 there's an empty value for LTU
+2021-05-03 03:07:53,801: 	 --> [DEBUG] 	 In 1991 there's an empty value for LTU
+2021-05-03 03:07:53,801: 	 --> [DEBUG] 	 In 1992 there's an empty value for LTU
+2021-05-03 03:07:53,801: 	 --> [DEBUG] 	 In 1993 there's an empty value for LTU
+2021-05-03 03:07:53,802: 	 --> [DEBUG] 	 In 1994 there's an empty value for LTU
+2021-05-03 03:07:53,802: 	 --> [DEBUG] 	 In 1995 there's an empty value for LTU
+2021-05-03 03:07:53,802: 	 --> [DEBUG] 	 In 1996 there's an empty value for LTU
+2021-05-03 03:07:53,802: 	 --> [DEBUG] 	 In 1997 there's an empty value for LTU
+2021-05-03 03:07:53,803: 	 --> [DEBUG] 	 In 1998 there's an empty value for LTU
+2021-05-03 03:07:53,803: 	 --> [DEBUG] 	 In 1999 there's an empty value for LTU
+2021-05-03 03:07:53,803: 	 --> [DEBUG] 	 In 2000 there's an empty value for LTU
+2021-05-03 03:07:53,803: 	 --> [DEBUG] 	 In 2001 there's an empty value for LTU
+2021-05-03 03:07:53,803: 	 --> [DEBUG] 	 In 2002 there's an empty value for LTU
+2021-05-03 03:07:53,803: 	 --> [DEBUG] 	 In 2003 there's an empty value for LTU
+2021-05-03 03:07:53,827: 	 --> [DEBUG] 	 In 2020 there's an empty value for LTU
+2021-05-03 03:07:53,828: 	 --> [INFO] 	 Chosen country: POL
+2021-05-03 03:07:53,829: 	 --> [INFO] 	 Chosen country years limits: 2004 - 2018
+2021-05-03 03:07:53,830: 	 --> [DEBUG] 	 In 1990 there's an empty value for POL
+2021-05-03 03:07:53,830: 	 --> [DEBUG] 	 In 1991 there's an empty value for POL
+2021-05-03 03:07:53,830: 	 --> [DEBUG] 	 In 1992 there's an empty value for POL
+2021-05-03 03:07:53,830: 	 --> [DEBUG] 	 In 1993 there's an empty value for POL
+2021-05-03 03:07:53,831: 	 --> [DEBUG] 	 In 1994 there's an empty value for POL
+2021-05-03 03:07:53,831: 	 --> [DEBUG] 	 In 1995 there's an empty value for POL
+2021-05-03 03:07:53,831: 	 --> [DEBUG] 	 In 1996 there's an empty value for POL
+2021-05-03 03:07:53,832: 	 --> [DEBUG] 	 In 1997 there's an empty value for POL
+2021-05-03 03:07:53,832: 	 --> [DEBUG] 	 In 1998 there's an empty value for POL
+2021-05-03 03:07:53,832: 	 --> [DEBUG] 	 In 1999 there's an empty value for POL
+2021-05-03 03:07:53,832: 	 --> [DEBUG] 	 In 2000 there's an empty value for POL
+2021-05-03 03:07:53,832: 	 --> [DEBUG] 	 In 2001 there's an empty value for POL
+2021-05-03 03:07:53,832: 	 --> [DEBUG] 	 In 2002 there's an empty value for POL
+2021-05-03 03:07:53,833: 	 --> [DEBUG] 	 In 2003 there's an empty value for POL
+2021-05-03 03:07:53,841: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,842: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,844: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:53,855: 	 --> [DEBUG] 	 In 2019 there's an empty value for POL
+2021-05-03 03:07:53,856: 	 --> [DEBUG] 	 In 2020 there's an empty value for POL
+2021-05-03 03:07:53,856: 	 --> [INFO] 	 Chosen country: HUN
+2021-05-03 03:07:53,857: 	 --> [INFO] 	 Chosen country years limits: 2005 - 2019
+2021-05-03 03:07:53,858: 	 --> [DEBUG] 	 In 1990 there's an empty value for HUN
+2021-05-03 03:07:53,858: 	 --> [DEBUG] 	 In 1991 there's an empty value for HUN
+2021-05-03 03:07:53,858: 	 --> [DEBUG] 	 In 1992 there's an empty value for HUN
+2021-05-03 03:07:53,858: 	 --> [DEBUG] 	 In 1993 there's an empty value for HUN
+2021-05-03 03:07:53,859: 	 --> [DEBUG] 	 In 1994 there's an empty value for HUN
+2021-05-03 03:07:53,859: 	 --> [DEBUG] 	 In 1995 there's an empty value for HUN
+2021-05-03 03:07:53,859: 	 --> [DEBUG] 	 In 1996 there's an empty value for HUN
+2021-05-03 03:07:53,859: 	 --> [DEBUG] 	 In 1997 there's an empty value for HUN
+2021-05-03 03:07:53,859: 	 --> [DEBUG] 	 In 1998 there's an empty value for HUN
+2021-05-03 03:07:53,860: 	 --> [DEBUG] 	 In 1999 there's an empty value for HUN
+2021-05-03 03:07:53,860: 	 --> [DEBUG] 	 In 2000 there's an empty value for HUN
+2021-05-03 03:07:53,860: 	 --> [DEBUG] 	 In 2001 there's an empty value for HUN
+2021-05-03 03:07:53,860: 	 --> [DEBUG] 	 In 2002 there's an empty value for HUN
+2021-05-03 03:07:53,860: 	 --> [DEBUG] 	 In 2003 there's an empty value for HUN
+2021-05-03 03:07:53,862: 	 --> [DEBUG] 	 In 2004 there's an empty value for HUN
+2021-05-03 03:07:53,882: 	 --> [DEBUG] 	 In 2020 there's an empty value for HUN
+2021-05-03 03:07:53,882: 	 --> [INFO] 	 Chosen country: LVA
+2021-05-03 03:07:53,884: 	 --> [INFO] 	 Chosen country years limits: 2005 - 2019
+2021-05-03 03:07:53,884: 	 --> [DEBUG] 	 In 1990 there's an empty value for LVA
+2021-05-03 03:07:53,884: 	 --> [DEBUG] 	 In 1991 there's an empty value for LVA
+2021-05-03 03:07:53,885: 	 --> [DEBUG] 	 In 1992 there's an empty value for LVA
+2021-05-03 03:07:53,885: 	 --> [DEBUG] 	 In 1993 there's an empty value for LVA
+2021-05-03 03:07:53,885: 	 --> [DEBUG] 	 In 1994 there's an empty value for LVA
+2021-05-03 03:07:53,886: 	 --> [DEBUG] 	 In 1995 there's an empty value for LVA
+2021-05-03 03:07:53,886: 	 --> [DEBUG] 	 In 1996 there's an empty value for LVA
+2021-05-03 03:07:53,886: 	 --> [DEBUG] 	 In 1997 there's an empty value for LVA
+2021-05-03 03:07:53,887: 	 --> [DEBUG] 	 In 1998 there's an empty value for LVA
+2021-05-03 03:07:53,887: 	 --> [DEBUG] 	 In 1999 there's an empty value for LVA
+2021-05-03 03:07:53,887: 	 --> [DEBUG] 	 In 2000 there's an empty value for LVA
+2021-05-03 03:07:53,888: 	 --> [DEBUG] 	 In 2001 there's an empty value for LVA
+2021-05-03 03:07:53,888: 	 --> [DEBUG] 	 In 2002 there's an empty value for LVA
+2021-05-03 03:07:53,888: 	 --> [DEBUG] 	 In 2003 there's an empty value for LVA
+2021-05-03 03:07:53,888: 	 --> [DEBUG] 	 In 2004 there's an empty value for LVA
+2021-05-03 03:07:53,909: 	 --> [DEBUG] 	 In 2020 there's an empty value for LVA
+2021-05-03 03:07:53,909: 	 --> [INFO] 	 Chosen country: TUR
+2021-05-03 03:07:53,911: 	 --> [INFO] 	 Chosen country years limits: 2008 - 2020
+2021-05-03 03:07:53,911: 	 --> [DEBUG] 	 In 1990 there's an empty value for TUR
+2021-05-03 03:07:53,912: 	 --> [DEBUG] 	 In 1991 there's an empty value for TUR
+2021-05-03 03:07:53,912: 	 --> [DEBUG] 	 In 1992 there's an empty value for TUR
+2021-05-03 03:07:53,912: 	 --> [DEBUG] 	 In 1993 there's an empty value for TUR
+2021-05-03 03:07:53,913: 	 --> [DEBUG] 	 In 1994 there's an empty value for TUR
+2021-05-03 03:07:53,913: 	 --> [DEBUG] 	 In 1995 there's an empty value for TUR
+2021-05-03 03:07:53,913: 	 --> [DEBUG] 	 In 1996 there's an empty value for TUR
+2021-05-03 03:07:53,914: 	 --> [DEBUG] 	 In 1997 there's an empty value for TUR
+2021-05-03 03:07:53,914: 	 --> [DEBUG] 	 In 1998 there's an empty value for TUR
+2021-05-03 03:07:53,914: 	 --> [DEBUG] 	 In 1999 there's an empty value for TUR
+2021-05-03 03:07:53,915: 	 --> [DEBUG] 	 In 2000 there's an empty value for TUR
+2021-05-03 03:07:53,915: 	 --> [DEBUG] 	 In 2001 there's an empty value for TUR
+2021-05-03 03:07:53,915: 	 --> [DEBUG] 	 In 2002 there's an empty value for TUR
+2021-05-03 03:07:53,915: 	 --> [DEBUG] 	 In 2003 there's an empty value for TUR
+2021-05-03 03:07:53,916: 	 --> [DEBUG] 	 In 2004 there's an empty value for TUR
+2021-05-03 03:07:53,916: 	 --> [DEBUG] 	 In 2005 there's an empty value for TUR
+2021-05-03 03:07:53,916: 	 --> [DEBUG] 	 In 2006 there's an empty value for TUR
+2021-05-03 03:07:53,916: 	 --> [DEBUG] 	 In 2007 there's an empty value for TUR
+2021-05-03 03:07:53,935: 	 --> [WARNING] 	 Can't convert this currency in Exc dataset
+2021-05-03 03:07:53,935: 	 --> [DEBUG] 	 Trying to use ConvertToUSD function
+2021-05-03 03:07:54,067: 	 --> [WARNING] 	 This error occurred: TUR is not a supported currency
+2021-05-03 03:07:54,073: 	 --> [INFO] 	 Chosen country: CHL
+2021-05-03 03:07:54,075: 	 --> [INFO] 	 Chosen country years limits: 2011 - 2017
+2021-05-03 03:07:54,075: 	 --> [DEBUG] 	 In 1990 there's an empty value for CHL
+2021-05-03 03:07:54,075: 	 --> [DEBUG] 	 In 1991 there's an empty value for CHL
+2021-05-03 03:07:54,076: 	 --> [DEBUG] 	 In 1992 there's an empty value for CHL
+2021-05-03 03:07:54,076: 	 --> [DEBUG] 	 In 1993 there's an empty value for CHL
+2021-05-03 03:07:54,076: 	 --> [DEBUG] 	 In 1994 there's an empty value for CHL
+2021-05-03 03:07:54,077: 	 --> [DEBUG] 	 In 1995 there's an empty value for CHL
+2021-05-03 03:07:54,077: 	 --> [DEBUG] 	 In 1996 there's an empty value for CHL
+2021-05-03 03:07:54,077: 	 --> [DEBUG] 	 In 1997 there's an empty value for CHL
+2021-05-03 03:07:54,078: 	 --> [DEBUG] 	 In 1998 there's an empty value for CHL
+2021-05-03 03:07:54,078: 	 --> [DEBUG] 	 In 1999 there's an empty value for CHL
+2021-05-03 03:07:54,078: 	 --> [DEBUG] 	 In 2000 there's an empty value for CHL
+2021-05-03 03:07:54,079: 	 --> [DEBUG] 	 In 2001 there's an empty value for CHL
+2021-05-03 03:07:54,079: 	 --> [DEBUG] 	 In 2002 there's an empty value for CHL
+2021-05-03 03:07:54,079: 	 --> [DEBUG] 	 In 2003 there's an empty value for CHL
+2021-05-03 03:07:54,079: 	 --> [DEBUG] 	 In 2004 there's an empty value for CHL
+2021-05-03 03:07:54,079: 	 --> [DEBUG] 	 In 2005 there's an empty value for CHL
+2021-05-03 03:07:54,080: 	 --> [DEBUG] 	 In 2006 there's an empty value for CHL
+2021-05-03 03:07:54,080: 	 --> [DEBUG] 	 In 2007 there's an empty value for CHL
+2021-05-03 03:07:54,080: 	 --> [DEBUG] 	 In 2008 there's an empty value for CHL
+2021-05-03 03:07:54,080: 	 --> [DEBUG] 	 In 2009 there's an empty value for CHL
+2021-05-03 03:07:54,080: 	 --> [DEBUG] 	 In 2010 there's an empty value for CHL
+2021-05-03 03:07:54,091: 	 --> [DEBUG] 	 In 2018 there's an empty value for CHL
+2021-05-03 03:07:54,091: 	 --> [DEBUG] 	 In 2019 there's an empty value for CHL
+2021-05-03 03:07:54,092: 	 --> [DEBUG] 	 In 2020 there's an empty value for CHL
+2021-05-03 03:07:54,092: 	 --> [INFO] 	 Chosen SEO: NABS124
+2021-05-03 03:07:54,092: 	 --> [INFO] 	 Chosen country: AUS
+2021-05-03 03:07:54,093: 	 --> [WARNING] 	 country DataFrame: AUS, is Empty
+2021-05-03 03:07:54,094: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,094: 	 --> [INFO] 	 Chosen country: AUT
+2021-05-03 03:07:54,095: 	 --> [INFO] 	 Chosen country years limits: 2006 - 2020
+2021-05-03 03:07:54,096: 	 --> [DEBUG] 	 In 1990 there's an empty value for AUT
+2021-05-03 03:07:54,096: 	 --> [DEBUG] 	 In 1991 there's an empty value for AUT
+2021-05-03 03:07:54,096: 	 --> [DEBUG] 	 In 1992 there's an empty value for AUT
+2021-05-03 03:07:54,097: 	 --> [DEBUG] 	 In 1993 there's an empty value for AUT
+2021-05-03 03:07:54,097: 	 --> [DEBUG] 	 In 1994 there's an empty value for AUT
+2021-05-03 03:07:54,097: 	 --> [DEBUG] 	 In 1995 there's an empty value for AUT
+2021-05-03 03:07:54,097: 	 --> [DEBUG] 	 In 1996 there's an empty value for AUT
+2021-05-03 03:07:54,098: 	 --> [DEBUG] 	 In 1997 there's an empty value for AUT
+2021-05-03 03:07:54,098: 	 --> [DEBUG] 	 In 1998 there's an empty value for AUT
+2021-05-03 03:07:54,098: 	 --> [DEBUG] 	 In 1999 there's an empty value for AUT
+2021-05-03 03:07:54,098: 	 --> [DEBUG] 	 In 2000 there's an empty value for AUT
+2021-05-03 03:07:54,101: 	 --> [DEBUG] 	 In 2001 there's an empty value for AUT
+2021-05-03 03:07:54,101: 	 --> [DEBUG] 	 In 2002 there's an empty value for AUT
+2021-05-03 03:07:54,101: 	 --> [DEBUG] 	 In 2003 there's an empty value for AUT
+2021-05-03 03:07:54,102: 	 --> [DEBUG] 	 In 2004 there's an empty value for AUT
+2021-05-03 03:07:54,102: 	 --> [DEBUG] 	 In 2005 there's an empty value for AUT
+2021-05-03 03:07:54,123: 	 --> [INFO] 	 Chosen country: BEL
+2021-05-03 03:07:54,124: 	 --> [WARNING] 	 country DataFrame: BEL, is Empty
+2021-05-03 03:07:54,125: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,125: 	 --> [INFO] 	 Chosen country: CAN
+2021-05-03 03:07:54,126: 	 --> [WARNING] 	 country DataFrame: CAN, is Empty
+2021-05-03 03:07:54,126: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,127: 	 --> [INFO] 	 Chosen country: CHE
+2021-05-03 03:07:54,128: 	 --> [WARNING] 	 country DataFrame: CHE, is Empty
+2021-05-03 03:07:54,128: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,129: 	 --> [INFO] 	 Chosen country: DEU
+2021-05-03 03:07:54,130: 	 --> [INFO] 	 Chosen country years limits: 2007 - 2019
+2021-05-03 03:07:54,130: 	 --> [DEBUG] 	 In 1990 there's an empty value for DEU
+2021-05-03 03:07:54,130: 	 --> [DEBUG] 	 In 1991 there's an empty value for DEU
+2021-05-03 03:07:54,132: 	 --> [DEBUG] 	 In 1992 there's an empty value for DEU
+2021-05-03 03:07:54,133: 	 --> [DEBUG] 	 In 1993 there's an empty value for DEU
+2021-05-03 03:07:54,133: 	 --> [DEBUG] 	 In 1994 there's an empty value for DEU
+2021-05-03 03:07:54,133: 	 --> [DEBUG] 	 In 1995 there's an empty value for DEU
+2021-05-03 03:07:54,134: 	 --> [DEBUG] 	 In 1996 there's an empty value for DEU
+2021-05-03 03:07:54,134: 	 --> [DEBUG] 	 In 1997 there's an empty value for DEU
+2021-05-03 03:07:54,134: 	 --> [DEBUG] 	 In 1998 there's an empty value for DEU
+2021-05-03 03:07:54,135: 	 --> [DEBUG] 	 In 1999 there's an empty value for DEU
+2021-05-03 03:07:54,135: 	 --> [DEBUG] 	 In 2000 there's an empty value for DEU
+2021-05-03 03:07:54,135: 	 --> [DEBUG] 	 In 2001 there's an empty value for DEU
+2021-05-03 03:07:54,136: 	 --> [DEBUG] 	 In 2002 there's an empty value for DEU
+2021-05-03 03:07:54,136: 	 --> [DEBUG] 	 In 2003 there's an empty value for DEU
+2021-05-03 03:07:54,136: 	 --> [DEBUG] 	 In 2004 there's an empty value for DEU
+2021-05-03 03:07:54,136: 	 --> [DEBUG] 	 In 2005 there's an empty value for DEU
+2021-05-03 03:07:54,136: 	 --> [DEBUG] 	 In 2006 there's an empty value for DEU
+2021-05-03 03:07:54,155: 	 --> [DEBUG] 	 In 2020 there's an empty value for DEU
+2021-05-03 03:07:54,155: 	 --> [INFO] 	 Chosen country: DNK
+2021-05-03 03:07:54,156: 	 --> [WARNING] 	 country DataFrame: DNK, is Empty
+2021-05-03 03:07:54,157: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,157: 	 --> [INFO] 	 Chosen country: ESP
+2021-05-03 03:07:54,158: 	 --> [INFO] 	 Chosen country years limits: 2007 - 2019
+2021-05-03 03:07:54,158: 	 --> [DEBUG] 	 In 1990 there's an empty value for ESP
+2021-05-03 03:07:54,158: 	 --> [DEBUG] 	 In 1991 there's an empty value for ESP
+2021-05-03 03:07:54,159: 	 --> [DEBUG] 	 In 1992 there's an empty value for ESP
+2021-05-03 03:07:54,159: 	 --> [DEBUG] 	 In 1993 there's an empty value for ESP
+2021-05-03 03:07:54,159: 	 --> [DEBUG] 	 In 1994 there's an empty value for ESP
+2021-05-03 03:07:54,159: 	 --> [DEBUG] 	 In 1995 there's an empty value for ESP
+2021-05-03 03:07:54,159: 	 --> [DEBUG] 	 In 1996 there's an empty value for ESP
+2021-05-03 03:07:54,159: 	 --> [DEBUG] 	 In 1997 there's an empty value for ESP
+2021-05-03 03:07:54,160: 	 --> [DEBUG] 	 In 1998 there's an empty value for ESP
+2021-05-03 03:07:54,160: 	 --> [DEBUG] 	 In 1999 there's an empty value for ESP
+2021-05-03 03:07:54,160: 	 --> [DEBUG] 	 In 2000 there's an empty value for ESP
+2021-05-03 03:07:54,160: 	 --> [DEBUG] 	 In 2001 there's an empty value for ESP
+2021-05-03 03:07:54,160: 	 --> [DEBUG] 	 In 2002 there's an empty value for ESP
+2021-05-03 03:07:54,162: 	 --> [DEBUG] 	 In 2003 there's an empty value for ESP
+2021-05-03 03:07:54,163: 	 --> [DEBUG] 	 In 2004 there's an empty value for ESP
+2021-05-03 03:07:54,163: 	 --> [DEBUG] 	 In 2005 there's an empty value for ESP
+2021-05-03 03:07:54,163: 	 --> [DEBUG] 	 In 2006 there's an empty value for ESP
+2021-05-03 03:07:54,182: 	 --> [DEBUG] 	 In 2020 there's an empty value for ESP
+2021-05-03 03:07:54,182: 	 --> [INFO] 	 Chosen country: FIN
+2021-05-03 03:07:54,183: 	 --> [INFO] 	 Chosen country years limits: 2004 - 2019
+2021-05-03 03:07:54,184: 	 --> [DEBUG] 	 In 1990 there's an empty value for FIN
+2021-05-03 03:07:54,184: 	 --> [DEBUG] 	 In 1991 there's an empty value for FIN
+2021-05-03 03:07:54,184: 	 --> [DEBUG] 	 In 1992 there's an empty value for FIN
+2021-05-03 03:07:54,184: 	 --> [DEBUG] 	 In 1993 there's an empty value for FIN
+2021-05-03 03:07:54,185: 	 --> [DEBUG] 	 In 1994 there's an empty value for FIN
+2021-05-03 03:07:54,185: 	 --> [DEBUG] 	 In 1995 there's an empty value for FIN
+2021-05-03 03:07:54,185: 	 --> [DEBUG] 	 In 1996 there's an empty value for FIN
+2021-05-03 03:07:54,185: 	 --> [DEBUG] 	 In 1997 there's an empty value for FIN
+2021-05-03 03:07:54,186: 	 --> [DEBUG] 	 In 1998 there's an empty value for FIN
+2021-05-03 03:07:54,186: 	 --> [DEBUG] 	 In 1999 there's an empty value for FIN
+2021-05-03 03:07:54,186: 	 --> [DEBUG] 	 In 2000 there's an empty value for FIN
+2021-05-03 03:07:54,186: 	 --> [DEBUG] 	 In 2001 there's an empty value for FIN
+2021-05-03 03:07:54,186: 	 --> [DEBUG] 	 In 2002 there's an empty value for FIN
+2021-05-03 03:07:54,186: 	 --> [DEBUG] 	 In 2003 there's an empty value for FIN
+2021-05-03 03:07:54,209: 	 --> [DEBUG] 	 In 2020 there's an empty value for FIN
+2021-05-03 03:07:54,210: 	 --> [INFO] 	 Chosen country: FRA
+2021-05-03 03:07:54,211: 	 --> [INFO] 	 Chosen country years limits: 2008 - 2018
+2021-05-03 03:07:54,211: 	 --> [DEBUG] 	 In 1990 there's an empty value for FRA
+2021-05-03 03:07:54,212: 	 --> [DEBUG] 	 In 1991 there's an empty value for FRA
+2021-05-03 03:07:54,212: 	 --> [DEBUG] 	 In 1992 there's an empty value for FRA
+2021-05-03 03:07:54,212: 	 --> [DEBUG] 	 In 1993 there's an empty value for FRA
+2021-05-03 03:07:54,212: 	 --> [DEBUG] 	 In 1994 there's an empty value for FRA
+2021-05-03 03:07:54,213: 	 --> [DEBUG] 	 In 1995 there's an empty value for FRA
+2021-05-03 03:07:54,213: 	 --> [DEBUG] 	 In 1996 there's an empty value for FRA
+2021-05-03 03:07:54,213: 	 --> [DEBUG] 	 In 1997 there's an empty value for FRA
+2021-05-03 03:07:54,213: 	 --> [DEBUG] 	 In 1998 there's an empty value for FRA
+2021-05-03 03:07:54,214: 	 --> [DEBUG] 	 In 1999 there's an empty value for FRA
+2021-05-03 03:07:54,214: 	 --> [DEBUG] 	 In 2000 there's an empty value for FRA
+2021-05-03 03:07:54,214: 	 --> [DEBUG] 	 In 2001 there's an empty value for FRA
+2021-05-03 03:07:54,214: 	 --> [DEBUG] 	 In 2002 there's an empty value for FRA
+2021-05-03 03:07:54,215: 	 --> [DEBUG] 	 In 2003 there's an empty value for FRA
+2021-05-03 03:07:54,215: 	 --> [DEBUG] 	 In 2004 there's an empty value for FRA
+2021-05-03 03:07:54,215: 	 --> [DEBUG] 	 In 2005 there's an empty value for FRA
+2021-05-03 03:07:54,215: 	 --> [DEBUG] 	 In 2006 there's an empty value for FRA
+2021-05-03 03:07:54,215: 	 --> [DEBUG] 	 In 2007 there's an empty value for FRA
+2021-05-03 03:07:54,230: 	 --> [DEBUG] 	 In 2019 there's an empty value for FRA
+2021-05-03 03:07:54,231: 	 --> [DEBUG] 	 In 2020 there's an empty value for FRA
+2021-05-03 03:07:54,231: 	 --> [INFO] 	 Chosen country: GBR
+2021-05-03 03:07:54,232: 	 --> [WARNING] 	 country DataFrame: GBR, is Empty
+2021-05-03 03:07:54,233: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,233: 	 --> [INFO] 	 Chosen country: GRC
+2021-05-03 03:07:54,234: 	 --> [INFO] 	 Chosen country years limits: 2007 - 2007
+2021-05-03 03:07:54,235: 	 --> [DEBUG] 	 In 1990 there's an empty value for GRC
+2021-05-03 03:07:54,235: 	 --> [DEBUG] 	 In 1991 there's an empty value for GRC
+2021-05-03 03:07:54,235: 	 --> [DEBUG] 	 In 1992 there's an empty value for GRC
+2021-05-03 03:07:54,236: 	 --> [DEBUG] 	 In 1993 there's an empty value for GRC
+2021-05-03 03:07:54,236: 	 --> [DEBUG] 	 In 1994 there's an empty value for GRC
+2021-05-03 03:07:54,236: 	 --> [DEBUG] 	 In 1995 there's an empty value for GRC
+2021-05-03 03:07:54,236: 	 --> [DEBUG] 	 In 1996 there's an empty value for GRC
+2021-05-03 03:07:54,237: 	 --> [DEBUG] 	 In 1997 there's an empty value for GRC
+2021-05-03 03:07:54,237: 	 --> [DEBUG] 	 In 1998 there's an empty value for GRC
+2021-05-03 03:07:54,237: 	 --> [DEBUG] 	 In 1999 there's an empty value for GRC
+2021-05-03 03:07:54,237: 	 --> [DEBUG] 	 In 2000 there's an empty value for GRC
+2021-05-03 03:07:54,238: 	 --> [DEBUG] 	 In 2001 there's an empty value for GRC
+2021-05-03 03:07:54,238: 	 --> [DEBUG] 	 In 2002 there's an empty value for GRC
+2021-05-03 03:07:54,238: 	 --> [DEBUG] 	 In 2003 there's an empty value for GRC
+2021-05-03 03:07:54,238: 	 --> [DEBUG] 	 In 2004 there's an empty value for GRC
+2021-05-03 03:07:54,238: 	 --> [DEBUG] 	 In 2005 there's an empty value for GRC
+2021-05-03 03:07:54,239: 	 --> [DEBUG] 	 In 2006 there's an empty value for GRC
+2021-05-03 03:07:54,241: 	 --> [DEBUG] 	 In 2008 there's an empty value for GRC
+2021-05-03 03:07:54,242: 	 --> [DEBUG] 	 In 2009 there's an empty value for GRC
+2021-05-03 03:07:54,242: 	 --> [DEBUG] 	 In 2010 there's an empty value for GRC
+2021-05-03 03:07:54,242: 	 --> [DEBUG] 	 In 2011 there's an empty value for GRC
+2021-05-03 03:07:54,242: 	 --> [DEBUG] 	 In 2012 there's an empty value for GRC
+2021-05-03 03:07:54,243: 	 --> [DEBUG] 	 In 2013 there's an empty value for GRC
+2021-05-03 03:07:54,243: 	 --> [DEBUG] 	 In 2014 there's an empty value for GRC
+2021-05-03 03:07:54,243: 	 --> [DEBUG] 	 In 2015 there's an empty value for GRC
+2021-05-03 03:07:54,243: 	 --> [DEBUG] 	 In 2016 there's an empty value for GRC
+2021-05-03 03:07:54,244: 	 --> [DEBUG] 	 In 2017 there's an empty value for GRC
+2021-05-03 03:07:54,244: 	 --> [DEBUG] 	 In 2018 there's an empty value for GRC
+2021-05-03 03:07:54,244: 	 --> [DEBUG] 	 In 2019 there's an empty value for GRC
+2021-05-03 03:07:54,244: 	 --> [DEBUG] 	 In 2020 there's an empty value for GRC
+2021-05-03 03:07:54,245: 	 --> [INFO] 	 Chosen country: IRL
+2021-05-03 03:07:54,246: 	 --> [INFO] 	 Chosen country years limits: 2004 - 2019
+2021-05-03 03:07:54,246: 	 --> [DEBUG] 	 In 1990 there's an empty value for IRL
+2021-05-03 03:07:54,246: 	 --> [DEBUG] 	 In 1991 there's an empty value for IRL
+2021-05-03 03:07:54,247: 	 --> [DEBUG] 	 In 1992 there's an empty value for IRL
+2021-05-03 03:07:54,247: 	 --> [DEBUG] 	 In 1993 there's an empty value for IRL
+2021-05-03 03:07:54,247: 	 --> [DEBUG] 	 In 1994 there's an empty value for IRL
+2021-05-03 03:07:54,247: 	 --> [DEBUG] 	 In 1995 there's an empty value for IRL
+2021-05-03 03:07:54,248: 	 --> [DEBUG] 	 In 1996 there's an empty value for IRL
+2021-05-03 03:07:54,248: 	 --> [DEBUG] 	 In 1997 there's an empty value for IRL
+2021-05-03 03:07:54,248: 	 --> [DEBUG] 	 In 1998 there's an empty value for IRL
+2021-05-03 03:07:54,248: 	 --> [DEBUG] 	 In 1999 there's an empty value for IRL
+2021-05-03 03:07:54,248: 	 --> [DEBUG] 	 In 2000 there's an empty value for IRL
+2021-05-03 03:07:54,249: 	 --> [DEBUG] 	 In 2001 there's an empty value for IRL
+2021-05-03 03:07:54,249: 	 --> [DEBUG] 	 In 2002 there's an empty value for IRL
+2021-05-03 03:07:54,249: 	 --> [DEBUG] 	 In 2003 there's an empty value for IRL
+2021-05-03 03:07:54,269: 	 --> [DEBUG] 	 In 2020 there's an empty value for IRL
+2021-05-03 03:07:54,270: 	 --> [INFO] 	 Chosen country: ITA
+2021-05-03 03:07:54,272: 	 --> [INFO] 	 Chosen country years limits: 2007 - 2011
+2021-05-03 03:07:54,272: 	 --> [DEBUG] 	 In 1990 there's an empty value for ITA
+2021-05-03 03:07:54,273: 	 --> [DEBUG] 	 In 1991 there's an empty value for ITA
+2021-05-03 03:07:54,273: 	 --> [DEBUG] 	 In 1992 there's an empty value for ITA
+2021-05-03 03:07:54,274: 	 --> [DEBUG] 	 In 1993 there's an empty value for ITA
+2021-05-03 03:07:54,274: 	 --> [DEBUG] 	 In 1994 there's an empty value for ITA
+2021-05-03 03:07:54,274: 	 --> [DEBUG] 	 In 1995 there's an empty value for ITA
+2021-05-03 03:07:54,275: 	 --> [DEBUG] 	 In 1996 there's an empty value for ITA
+2021-05-03 03:07:54,275: 	 --> [DEBUG] 	 In 1997 there's an empty value for ITA
+2021-05-03 03:07:54,275: 	 --> [DEBUG] 	 In 1998 there's an empty value for ITA
+2021-05-03 03:07:54,275: 	 --> [DEBUG] 	 In 1999 there's an empty value for ITA
+2021-05-03 03:07:54,276: 	 --> [DEBUG] 	 In 2000 there's an empty value for ITA
+2021-05-03 03:07:54,276: 	 --> [DEBUG] 	 In 2001 there's an empty value for ITA
+2021-05-03 03:07:54,276: 	 --> [DEBUG] 	 In 2002 there's an empty value for ITA
+2021-05-03 03:07:54,276: 	 --> [DEBUG] 	 In 2003 there's an empty value for ITA
+2021-05-03 03:07:54,276: 	 --> [DEBUG] 	 In 2004 there's an empty value for ITA
+2021-05-03 03:07:54,277: 	 --> [DEBUG] 	 In 2005 there's an empty value for ITA
+2021-05-03 03:07:54,277: 	 --> [DEBUG] 	 In 2006 there's an empty value for ITA
+2021-05-03 03:07:54,283: 	 --> [DEBUG] 	 In 2012 there's an empty value for ITA
+2021-05-03 03:07:54,284: 	 --> [DEBUG] 	 In 2013 there's an empty value for ITA
+2021-05-03 03:07:54,284: 	 --> [DEBUG] 	 In 2014 there's an empty value for ITA
+2021-05-03 03:07:54,284: 	 --> [DEBUG] 	 In 2015 there's an empty value for ITA
+2021-05-03 03:07:54,285: 	 --> [DEBUG] 	 In 2016 there's an empty value for ITA
+2021-05-03 03:07:54,285: 	 --> [DEBUG] 	 In 2017 there's an empty value for ITA
+2021-05-03 03:07:54,285: 	 --> [DEBUG] 	 In 2018 there's an empty value for ITA
+2021-05-03 03:07:54,286: 	 --> [DEBUG] 	 In 2019 there's an empty value for ITA
+2021-05-03 03:07:54,286: 	 --> [DEBUG] 	 In 2020 there's an empty value for ITA
+2021-05-03 03:07:54,286: 	 --> [INFO] 	 Chosen country: JPN
+2021-05-03 03:07:54,288: 	 --> [WARNING] 	 country DataFrame: JPN, is Empty
+2021-05-03 03:07:54,289: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,290: 	 --> [INFO] 	 Chosen country: MEX
+2021-05-03 03:07:54,291: 	 --> [WARNING] 	 country DataFrame: MEX, is Empty
+2021-05-03 03:07:54,291: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,292: 	 --> [INFO] 	 Chosen country: NLD
+2021-05-03 03:07:54,293: 	 --> [INFO] 	 Chosen country years limits: 1999 - 2020
+2021-05-03 03:07:54,293: 	 --> [DEBUG] 	 In 1990 there's an empty value for NLD
+2021-05-03 03:07:54,294: 	 --> [DEBUG] 	 In 1991 there's an empty value for NLD
+2021-05-03 03:07:54,294: 	 --> [DEBUG] 	 In 1992 there's an empty value for NLD
+2021-05-03 03:07:54,294: 	 --> [DEBUG] 	 In 1993 there's an empty value for NLD
+2021-05-03 03:07:54,295: 	 --> [DEBUG] 	 In 1994 there's an empty value for NLD
+2021-05-03 03:07:54,295: 	 --> [DEBUG] 	 In 1995 there's an empty value for NLD
+2021-05-03 03:07:54,295: 	 --> [DEBUG] 	 In 1996 there's an empty value for NLD
+2021-05-03 03:07:54,296: 	 --> [DEBUG] 	 In 1997 there's an empty value for NLD
+2021-05-03 03:07:54,296: 	 --> [DEBUG] 	 In 1998 there's an empty value for NLD
+2021-05-03 03:07:54,328: 	 --> [INFO] 	 Chosen country: NOR
+2021-05-03 03:07:54,330: 	 --> [WARNING] 	 country DataFrame: NOR, is Empty
+2021-05-03 03:07:54,330: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,331: 	 --> [INFO] 	 Chosen country: NZL
+2021-05-03 03:07:54,332: 	 --> [WARNING] 	 country DataFrame: NZL, is Empty
+2021-05-03 03:07:54,332: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,333: 	 --> [INFO] 	 Chosen country: PRT
+2021-05-03 03:07:54,334: 	 --> [WARNING] 	 country DataFrame: PRT, is Empty
+2021-05-03 03:07:54,334: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,335: 	 --> [INFO] 	 Chosen country: SWE
+2021-05-03 03:07:54,336: 	 --> [INFO] 	 Chosen country years limits: 2015 - 2019
+2021-05-03 03:07:54,337: 	 --> [DEBUG] 	 In 1990 there's an empty value for SWE
+2021-05-03 03:07:54,337: 	 --> [DEBUG] 	 In 1991 there's an empty value for SWE
+2021-05-03 03:07:54,337: 	 --> [DEBUG] 	 In 1992 there's an empty value for SWE
+2021-05-03 03:07:54,338: 	 --> [DEBUG] 	 In 1993 there's an empty value for SWE
+2021-05-03 03:07:54,338: 	 --> [DEBUG] 	 In 1994 there's an empty value for SWE
+2021-05-03 03:07:54,338: 	 --> [DEBUG] 	 In 1995 there's an empty value for SWE
+2021-05-03 03:07:54,338: 	 --> [DEBUG] 	 In 1996 there's an empty value for SWE
+2021-05-03 03:07:54,339: 	 --> [DEBUG] 	 In 1997 there's an empty value for SWE
+2021-05-03 03:07:54,339: 	 --> [DEBUG] 	 In 1998 there's an empty value for SWE
+2021-05-03 03:07:54,339: 	 --> [DEBUG] 	 In 1999 there's an empty value for SWE
+2021-05-03 03:07:54,339: 	 --> [DEBUG] 	 In 2000 there's an empty value for SWE
+2021-05-03 03:07:54,339: 	 --> [DEBUG] 	 In 2001 there's an empty value for SWE
+2021-05-03 03:07:54,339: 	 --> [DEBUG] 	 In 2002 there's an empty value for SWE
+2021-05-03 03:07:54,340: 	 --> [DEBUG] 	 In 2003 there's an empty value for SWE
+2021-05-03 03:07:54,340: 	 --> [DEBUG] 	 In 2004 there's an empty value for SWE
+2021-05-03 03:07:54,340: 	 --> [DEBUG] 	 In 2005 there's an empty value for SWE
+2021-05-03 03:07:54,340: 	 --> [DEBUG] 	 In 2006 there's an empty value for SWE
+2021-05-03 03:07:54,340: 	 --> [DEBUG] 	 In 2007 there's an empty value for SWE
+2021-05-03 03:07:54,340: 	 --> [DEBUG] 	 In 2008 there's an empty value for SWE
+2021-05-03 03:07:54,341: 	 --> [DEBUG] 	 In 2009 there's an empty value for SWE
+2021-05-03 03:07:54,341: 	 --> [DEBUG] 	 In 2010 there's an empty value for SWE
+2021-05-03 03:07:54,341: 	 --> [DEBUG] 	 In 2011 there's an empty value for SWE
+2021-05-03 03:07:54,341: 	 --> [DEBUG] 	 In 2012 there's an empty value for SWE
+2021-05-03 03:07:54,341: 	 --> [DEBUG] 	 In 2013 there's an empty value for SWE
+2021-05-03 03:07:54,341: 	 --> [DEBUG] 	 In 2014 there's an empty value for SWE
+2021-05-03 03:07:54,348: 	 --> [DEBUG] 	 In 2020 there's an empty value for SWE
+2021-05-03 03:07:54,349: 	 --> [INFO] 	 Chosen country: USA
+2021-05-03 03:07:54,350: 	 --> [WARNING] 	 country DataFrame: USA, is Empty
+2021-05-03 03:07:54,350: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,350: 	 --> [INFO] 	 Chosen country: ISL
+2021-05-03 03:07:54,357: 	 --> [INFO] 	 Chosen country years limits: 2014 - 2017
+2021-05-03 03:07:54,357: 	 --> [DEBUG] 	 In 1990 there's an empty value for ISL
+2021-05-03 03:07:54,358: 	 --> [DEBUG] 	 In 1991 there's an empty value for ISL
+2021-05-03 03:07:54,358: 	 --> [DEBUG] 	 In 1992 there's an empty value for ISL
+2021-05-03 03:07:54,358: 	 --> [DEBUG] 	 In 1993 there's an empty value for ISL
+2021-05-03 03:07:54,359: 	 --> [DEBUG] 	 In 1994 there's an empty value for ISL
+2021-05-03 03:07:54,359: 	 --> [DEBUG] 	 In 1995 there's an empty value for ISL
+2021-05-03 03:07:54,359: 	 --> [DEBUG] 	 In 1996 there's an empty value for ISL
+2021-05-03 03:07:54,360: 	 --> [DEBUG] 	 In 1997 there's an empty value for ISL
+2021-05-03 03:07:54,360: 	 --> [DEBUG] 	 In 1998 there's an empty value for ISL
+2021-05-03 03:07:54,360: 	 --> [DEBUG] 	 In 1999 there's an empty value for ISL
+2021-05-03 03:07:54,361: 	 --> [DEBUG] 	 In 2000 there's an empty value for ISL
+2021-05-03 03:07:54,361: 	 --> [DEBUG] 	 In 2001 there's an empty value for ISL
+2021-05-03 03:07:54,361: 	 --> [DEBUG] 	 In 2002 there's an empty value for ISL
+2021-05-03 03:07:54,361: 	 --> [DEBUG] 	 In 2003 there's an empty value for ISL
+2021-05-03 03:07:54,362: 	 --> [DEBUG] 	 In 2004 there's an empty value for ISL
+2021-05-03 03:07:54,362: 	 --> [DEBUG] 	 In 2005 there's an empty value for ISL
+2021-05-03 03:07:54,362: 	 --> [DEBUG] 	 In 2006 there's an empty value for ISL
+2021-05-03 03:07:54,362: 	 --> [DEBUG] 	 In 2007 there's an empty value for ISL
+2021-05-03 03:07:54,363: 	 --> [DEBUG] 	 In 2008 there's an empty value for ISL
+2021-05-03 03:07:54,363: 	 --> [DEBUG] 	 In 2009 there's an empty value for ISL
+2021-05-03 03:07:54,363: 	 --> [DEBUG] 	 In 2010 there's an empty value for ISL
+2021-05-03 03:07:54,363: 	 --> [DEBUG] 	 In 2011 there's an empty value for ISL
+2021-05-03 03:07:54,363: 	 --> [DEBUG] 	 In 2012 there's an empty value for ISL
+2021-05-03 03:07:54,363: 	 --> [DEBUG] 	 In 2013 there's an empty value for ISL
+2021-05-03 03:07:54,370: 	 --> [DEBUG] 	 In 2018 there's an empty value for ISL
+2021-05-03 03:07:54,371: 	 --> [DEBUG] 	 In 2019 there's an empty value for ISL
+2021-05-03 03:07:54,371: 	 --> [DEBUG] 	 In 2020 there's an empty value for ISL
+2021-05-03 03:07:54,372: 	 --> [INFO] 	 Chosen country: ISR
+2021-05-03 03:07:54,373: 	 --> [WARNING] 	 country DataFrame: ISR, is Empty
+2021-05-03 03:07:54,373: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,374: 	 --> [INFO] 	 Chosen country: ROU
+2021-05-03 03:07:54,375: 	 --> [WARNING] 	 country DataFrame: ROU, is Empty
+2021-05-03 03:07:54,375: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,375: 	 --> [INFO] 	 Chosen country: SVK
+2021-05-03 03:07:54,377: 	 --> [INFO] 	 Chosen country years limits: 2012 - 2019
+2021-05-03 03:07:54,377: 	 --> [DEBUG] 	 In 1990 there's an empty value for SVK
+2021-05-03 03:07:54,377: 	 --> [DEBUG] 	 In 1991 there's an empty value for SVK
+2021-05-03 03:07:54,378: 	 --> [DEBUG] 	 In 1992 there's an empty value for SVK
+2021-05-03 03:07:54,378: 	 --> [DEBUG] 	 In 1993 there's an empty value for SVK
+2021-05-03 03:07:54,378: 	 --> [DEBUG] 	 In 1994 there's an empty value for SVK
+2021-05-03 03:07:54,378: 	 --> [DEBUG] 	 In 1995 there's an empty value for SVK
+2021-05-03 03:07:54,379: 	 --> [DEBUG] 	 In 1996 there's an empty value for SVK
+2021-05-03 03:07:54,379: 	 --> [DEBUG] 	 In 1997 there's an empty value for SVK
+2021-05-03 03:07:54,379: 	 --> [DEBUG] 	 In 1998 there's an empty value for SVK
+2021-05-03 03:07:54,379: 	 --> [DEBUG] 	 In 1999 there's an empty value for SVK
+2021-05-03 03:07:54,380: 	 --> [DEBUG] 	 In 2000 there's an empty value for SVK
+2021-05-03 03:07:54,380: 	 --> [DEBUG] 	 In 2001 there's an empty value for SVK
+2021-05-03 03:07:54,380: 	 --> [DEBUG] 	 In 2002 there's an empty value for SVK
+2021-05-03 03:07:54,380: 	 --> [DEBUG] 	 In 2003 there's an empty value for SVK
+2021-05-03 03:07:54,380: 	 --> [DEBUG] 	 In 2004 there's an empty value for SVK
+2021-05-03 03:07:54,380: 	 --> [DEBUG] 	 In 2005 there's an empty value for SVK
+2021-05-03 03:07:54,381: 	 --> [DEBUG] 	 In 2006 there's an empty value for SVK
+2021-05-03 03:07:54,381: 	 --> [DEBUG] 	 In 2007 there's an empty value for SVK
+2021-05-03 03:07:54,381: 	 --> [DEBUG] 	 In 2008 there's an empty value for SVK
+2021-05-03 03:07:54,381: 	 --> [DEBUG] 	 In 2009 there's an empty value for SVK
+2021-05-03 03:07:54,381: 	 --> [DEBUG] 	 In 2010 there's an empty value for SVK
+2021-05-03 03:07:54,381: 	 --> [DEBUG] 	 In 2011 there's an empty value for SVK
+2021-05-03 03:07:54,395: 	 --> [DEBUG] 	 In 2020 there's an empty value for SVK
+2021-05-03 03:07:54,395: 	 --> [INFO] 	 Chosen country: RUS
+2021-05-03 03:07:54,396: 	 --> [WARNING] 	 country DataFrame: RUS, is Empty
+2021-05-03 03:07:54,397: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,397: 	 --> [INFO] 	 Chosen country: ARG
+2021-05-03 03:07:54,398: 	 --> [INFO] 	 Chosen country years limits: 2007 - 2012
+2021-05-03 03:07:54,400: 	 --> [DEBUG] 	 In 1990 there's an empty value for ARG
+2021-05-03 03:07:54,400: 	 --> [DEBUG] 	 In 1991 there's an empty value for ARG
+2021-05-03 03:07:54,400: 	 --> [DEBUG] 	 In 1992 there's an empty value for ARG
+2021-05-03 03:07:54,401: 	 --> [DEBUG] 	 In 1993 there's an empty value for ARG
+2021-05-03 03:07:54,401: 	 --> [DEBUG] 	 In 1994 there's an empty value for ARG
+2021-05-03 03:07:54,402: 	 --> [DEBUG] 	 In 1995 there's an empty value for ARG
+2021-05-03 03:07:54,402: 	 --> [DEBUG] 	 In 1996 there's an empty value for ARG
+2021-05-03 03:07:54,402: 	 --> [DEBUG] 	 In 1997 there's an empty value for ARG
+2021-05-03 03:07:54,403: 	 --> [DEBUG] 	 In 1998 there's an empty value for ARG
+2021-05-03 03:07:54,403: 	 --> [DEBUG] 	 In 1999 there's an empty value for ARG
+2021-05-03 03:07:54,403: 	 --> [DEBUG] 	 In 2000 there's an empty value for ARG
+2021-05-03 03:07:54,404: 	 --> [DEBUG] 	 In 2001 there's an empty value for ARG
+2021-05-03 03:07:54,404: 	 --> [DEBUG] 	 In 2002 there's an empty value for ARG
+2021-05-03 03:07:54,404: 	 --> [DEBUG] 	 In 2003 there's an empty value for ARG
+2021-05-03 03:07:54,404: 	 --> [DEBUG] 	 In 2004 there's an empty value for ARG
+2021-05-03 03:07:54,405: 	 --> [DEBUG] 	 In 2005 there's an empty value for ARG
+2021-05-03 03:07:54,405: 	 --> [DEBUG] 	 In 2006 there's an empty value for ARG
+2021-05-03 03:07:54,413: 	 --> [DEBUG] 	 In 2013 there's an empty value for ARG
+2021-05-03 03:07:54,413: 	 --> [DEBUG] 	 In 2014 there's an empty value for ARG
+2021-05-03 03:07:54,413: 	 --> [DEBUG] 	 In 2015 there's an empty value for ARG
+2021-05-03 03:07:54,414: 	 --> [DEBUG] 	 In 2016 there's an empty value for ARG
+2021-05-03 03:07:54,414: 	 --> [DEBUG] 	 In 2017 there's an empty value for ARG
+2021-05-03 03:07:54,414: 	 --> [DEBUG] 	 In 2018 there's an empty value for ARG
+2021-05-03 03:07:54,414: 	 --> [DEBUG] 	 In 2019 there's an empty value for ARG
+2021-05-03 03:07:54,414: 	 --> [DEBUG] 	 In 2020 there's an empty value for ARG
+2021-05-03 03:07:54,417: 	 --> [INFO] 	 Chosen country: SVN
+2021-05-03 03:07:54,418: 	 --> [INFO] 	 Chosen country years limits: 2007 - 2019
+2021-05-03 03:07:54,419: 	 --> [DEBUG] 	 In 1990 there's an empty value for SVN
+2021-05-03 03:07:54,419: 	 --> [DEBUG] 	 In 1991 there's an empty value for SVN
+2021-05-03 03:07:54,419: 	 --> [DEBUG] 	 In 1992 there's an empty value for SVN
+2021-05-03 03:07:54,420: 	 --> [DEBUG] 	 In 1993 there's an empty value for SVN
+2021-05-03 03:07:54,420: 	 --> [DEBUG] 	 In 1994 there's an empty value for SVN
+2021-05-03 03:07:54,420: 	 --> [DEBUG] 	 In 1995 there's an empty value for SVN
+2021-05-03 03:07:54,421: 	 --> [DEBUG] 	 In 1996 there's an empty value for SVN
+2021-05-03 03:07:54,421: 	 --> [DEBUG] 	 In 1997 there's an empty value for SVN
+2021-05-03 03:07:54,422: 	 --> [DEBUG] 	 In 1998 there's an empty value for SVN
+2021-05-03 03:07:54,422: 	 --> [DEBUG] 	 In 1999 there's an empty value for SVN
+2021-05-03 03:07:54,422: 	 --> [DEBUG] 	 In 2000 there's an empty value for SVN
+2021-05-03 03:07:54,423: 	 --> [DEBUG] 	 In 2001 there's an empty value for SVN
+2021-05-03 03:07:54,423: 	 --> [DEBUG] 	 In 2002 there's an empty value for SVN
+2021-05-03 03:07:54,423: 	 --> [DEBUG] 	 In 2003 there's an empty value for SVN
+2021-05-03 03:07:54,423: 	 --> [DEBUG] 	 In 2004 there's an empty value for SVN
+2021-05-03 03:07:54,424: 	 --> [DEBUG] 	 In 2005 there's an empty value for SVN
+2021-05-03 03:07:54,424: 	 --> [DEBUG] 	 In 2006 there's an empty value for SVN
+2021-05-03 03:07:54,452: 	 --> [DEBUG] 	 In 2020 there's an empty value for SVN
+2021-05-03 03:07:54,453: 	 --> [INFO] 	 Chosen country: KOR
+2021-05-03 03:07:54,455: 	 --> [WARNING] 	 country DataFrame: KOR, is Empty
+2021-05-03 03:07:54,456: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,456: 	 --> [INFO] 	 Chosen country: COL
+2021-05-03 03:07:54,457: 	 --> [WARNING] 	 country DataFrame: COL, is Empty
+2021-05-03 03:07:54,458: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,458: 	 --> [INFO] 	 Chosen country: CZE
+2021-05-03 03:07:54,460: 	 --> [INFO] 	 Chosen country years limits: 2005 - 2019
+2021-05-03 03:07:54,460: 	 --> [DEBUG] 	 In 1990 there's an empty value for CZE
+2021-05-03 03:07:54,460: 	 --> [DEBUG] 	 In 1991 there's an empty value for CZE
+2021-05-03 03:07:54,461: 	 --> [DEBUG] 	 In 1992 there's an empty value for CZE
+2021-05-03 03:07:54,461: 	 --> [DEBUG] 	 In 1993 there's an empty value for CZE
+2021-05-03 03:07:54,461: 	 --> [DEBUG] 	 In 1994 there's an empty value for CZE
+2021-05-03 03:07:54,462: 	 --> [DEBUG] 	 In 1995 there's an empty value for CZE
+2021-05-03 03:07:54,462: 	 --> [DEBUG] 	 In 1996 there's an empty value for CZE
+2021-05-03 03:07:54,462: 	 --> [DEBUG] 	 In 1997 there's an empty value for CZE
+2021-05-03 03:07:54,462: 	 --> [DEBUG] 	 In 1998 there's an empty value for CZE
+2021-05-03 03:07:54,464: 	 --> [DEBUG] 	 In 1999 there's an empty value for CZE
+2021-05-03 03:07:54,464: 	 --> [DEBUG] 	 In 2000 there's an empty value for CZE
+2021-05-03 03:07:54,465: 	 --> [DEBUG] 	 In 2001 there's an empty value for CZE
+2021-05-03 03:07:54,465: 	 --> [DEBUG] 	 In 2002 there's an empty value for CZE
+2021-05-03 03:07:54,465: 	 --> [DEBUG] 	 In 2003 there's an empty value for CZE
+2021-05-03 03:07:54,465: 	 --> [DEBUG] 	 In 2004 there's an empty value for CZE
+2021-05-03 03:07:54,485: 	 --> [DEBUG] 	 In 2020 there's an empty value for CZE
+2021-05-03 03:07:54,486: 	 --> [INFO] 	 Chosen country: LUX
+2021-05-03 03:07:54,487: 	 --> [WARNING] 	 country DataFrame: LUX, is Empty
+2021-05-03 03:07:54,487: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,488: 	 --> [INFO] 	 Chosen country: TWN
+2021-05-03 03:07:54,489: 	 --> [INFO] 	 Chosen country years limits: 2009 - 2019
+2021-05-03 03:07:54,489: 	 --> [DEBUG] 	 In 1990 there's an empty value for TWN
+2021-05-03 03:07:54,490: 	 --> [DEBUG] 	 In 1991 there's an empty value for TWN
+2021-05-03 03:07:54,490: 	 --> [DEBUG] 	 In 1992 there's an empty value for TWN
+2021-05-03 03:07:54,490: 	 --> [DEBUG] 	 In 1993 there's an empty value for TWN
+2021-05-03 03:07:54,490: 	 --> [DEBUG] 	 In 1994 there's an empty value for TWN
+2021-05-03 03:07:54,491: 	 --> [DEBUG] 	 In 1995 there's an empty value for TWN
+2021-05-03 03:07:54,491: 	 --> [DEBUG] 	 In 1996 there's an empty value for TWN
+2021-05-03 03:07:54,491: 	 --> [DEBUG] 	 In 1997 there's an empty value for TWN
+2021-05-03 03:07:54,491: 	 --> [DEBUG] 	 In 1998 there's an empty value for TWN
+2021-05-03 03:07:54,491: 	 --> [DEBUG] 	 In 1999 there's an empty value for TWN
+2021-05-03 03:07:54,491: 	 --> [DEBUG] 	 In 2000 there's an empty value for TWN
+2021-05-03 03:07:54,492: 	 --> [DEBUG] 	 In 2001 there's an empty value for TWN
+2021-05-03 03:07:54,492: 	 --> [DEBUG] 	 In 2002 there's an empty value for TWN
+2021-05-03 03:07:54,492: 	 --> [DEBUG] 	 In 2003 there's an empty value for TWN
+2021-05-03 03:07:54,492: 	 --> [DEBUG] 	 In 2004 there's an empty value for TWN
+2021-05-03 03:07:54,492: 	 --> [DEBUG] 	 In 2005 there's an empty value for TWN
+2021-05-03 03:07:54,492: 	 --> [DEBUG] 	 In 2006 there's an empty value for TWN
+2021-05-03 03:07:54,493: 	 --> [DEBUG] 	 In 2007 there's an empty value for TWN
+2021-05-03 03:07:54,493: 	 --> [DEBUG] 	 In 2008 there's an empty value for TWN
+2021-05-03 03:07:54,504: 	 --> [DEBUG] 	 In 2020 there's an empty value for TWN
+2021-05-03 03:07:54,504: 	 --> [INFO] 	 Chosen country: EST
+2021-05-03 03:07:54,506: 	 --> [INFO] 	 Chosen country years limits: 2007 - 2016
+2021-05-03 03:07:54,506: 	 --> [DEBUG] 	 In 1990 there's an empty value for EST
+2021-05-03 03:07:54,506: 	 --> [DEBUG] 	 In 1991 there's an empty value for EST
+2021-05-03 03:07:54,507: 	 --> [DEBUG] 	 In 1992 there's an empty value for EST
+2021-05-03 03:07:54,507: 	 --> [DEBUG] 	 In 1993 there's an empty value for EST
+2021-05-03 03:07:54,507: 	 --> [DEBUG] 	 In 1994 there's an empty value for EST
+2021-05-03 03:07:54,507: 	 --> [DEBUG] 	 In 1995 there's an empty value for EST
+2021-05-03 03:07:54,508: 	 --> [DEBUG] 	 In 1996 there's an empty value for EST
+2021-05-03 03:07:54,508: 	 --> [DEBUG] 	 In 1997 there's an empty value for EST
+2021-05-03 03:07:54,508: 	 --> [DEBUG] 	 In 1998 there's an empty value for EST
+2021-05-03 03:07:54,508: 	 --> [DEBUG] 	 In 1999 there's an empty value for EST
+2021-05-03 03:07:54,509: 	 --> [DEBUG] 	 In 2000 there's an empty value for EST
+2021-05-03 03:07:54,509: 	 --> [DEBUG] 	 In 2001 there's an empty value for EST
+2021-05-03 03:07:54,509: 	 --> [DEBUG] 	 In 2002 there's an empty value for EST
+2021-05-03 03:07:54,509: 	 --> [DEBUG] 	 In 2003 there's an empty value for EST
+2021-05-03 03:07:54,509: 	 --> [DEBUG] 	 In 2004 there's an empty value for EST
+2021-05-03 03:07:54,511: 	 --> [DEBUG] 	 In 2005 there's an empty value for EST
+2021-05-03 03:07:54,512: 	 --> [DEBUG] 	 In 2006 there's an empty value for EST
+2021-05-03 03:07:54,526: 	 --> [DEBUG] 	 In 2017 there's an empty value for EST
+2021-05-03 03:07:54,526: 	 --> [DEBUG] 	 In 2018 there's an empty value for EST
+2021-05-03 03:07:54,527: 	 --> [DEBUG] 	 In 2019 there's an empty value for EST
+2021-05-03 03:07:54,527: 	 --> [DEBUG] 	 In 2020 there's an empty value for EST
+2021-05-03 03:07:54,527: 	 --> [INFO] 	 Chosen country: LTU
+2021-05-03 03:07:54,528: 	 --> [WARNING] 	 country DataFrame: LTU, is Empty
+2021-05-03 03:07:54,528: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,529: 	 --> [INFO] 	 Chosen country: POL
+2021-05-03 03:07:54,530: 	 --> [WARNING] 	 country DataFrame: POL, is Empty
+2021-05-03 03:07:54,530: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,530: 	 --> [INFO] 	 Chosen country: HUN
+2021-05-03 03:07:54,531: 	 --> [WARNING] 	 country DataFrame: HUN, is Empty
+2021-05-03 03:07:54,531: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,532: 	 --> [INFO] 	 Chosen country: LVA
+2021-05-03 03:07:54,533: 	 --> [WARNING] 	 country DataFrame: LVA, is Empty
+2021-05-03 03:07:54,533: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,533: 	 --> [INFO] 	 Chosen country: TUR
+2021-05-03 03:07:54,535: 	 --> [WARNING] 	 country DataFrame: TUR, is Empty
+2021-05-03 03:07:54,535: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,536: 	 --> [INFO] 	 Chosen country: CHL
+2021-05-03 03:07:54,537: 	 --> [INFO] 	 Chosen country years limits: 2011 - 2017
+2021-05-03 03:07:54,538: 	 --> [DEBUG] 	 In 1990 there's an empty value for CHL
+2021-05-03 03:07:54,538: 	 --> [DEBUG] 	 In 1991 there's an empty value for CHL
+2021-05-03 03:07:54,539: 	 --> [DEBUG] 	 In 1992 there's an empty value for CHL
+2021-05-03 03:07:54,539: 	 --> [DEBUG] 	 In 1993 there's an empty value for CHL
+2021-05-03 03:07:54,539: 	 --> [DEBUG] 	 In 1994 there's an empty value for CHL
+2021-05-03 03:07:54,539: 	 --> [DEBUG] 	 In 1995 there's an empty value for CHL
+2021-05-03 03:07:54,541: 	 --> [DEBUG] 	 In 1996 there's an empty value for CHL
+2021-05-03 03:07:54,542: 	 --> [DEBUG] 	 In 1997 there's an empty value for CHL
+2021-05-03 03:07:54,542: 	 --> [DEBUG] 	 In 1998 there's an empty value for CHL
+2021-05-03 03:07:54,542: 	 --> [DEBUG] 	 In 1999 there's an empty value for CHL
+2021-05-03 03:07:54,542: 	 --> [DEBUG] 	 In 2000 there's an empty value for CHL
+2021-05-03 03:07:54,543: 	 --> [DEBUG] 	 In 2001 there's an empty value for CHL
+2021-05-03 03:07:54,543: 	 --> [DEBUG] 	 In 2002 there's an empty value for CHL
+2021-05-03 03:07:54,543: 	 --> [DEBUG] 	 In 2003 there's an empty value for CHL
+2021-05-03 03:07:54,543: 	 --> [DEBUG] 	 In 2004 there's an empty value for CHL
+2021-05-03 03:07:54,543: 	 --> [DEBUG] 	 In 2005 there's an empty value for CHL
+2021-05-03 03:07:54,544: 	 --> [DEBUG] 	 In 2006 there's an empty value for CHL
+2021-05-03 03:07:54,544: 	 --> [DEBUG] 	 In 2007 there's an empty value for CHL
+2021-05-03 03:07:54,544: 	 --> [DEBUG] 	 In 2008 there's an empty value for CHL
+2021-05-03 03:07:54,544: 	 --> [DEBUG] 	 In 2009 there's an empty value for CHL
+2021-05-03 03:07:54,544: 	 --> [DEBUG] 	 In 2010 there's an empty value for CHL
+2021-05-03 03:07:54,553: 	 --> [DEBUG] 	 In 2018 there's an empty value for CHL
+2021-05-03 03:07:54,553: 	 --> [DEBUG] 	 In 2019 there's an empty value for CHL
+2021-05-03 03:07:54,554: 	 --> [DEBUG] 	 In 2020 there's an empty value for CHL
+2021-05-03 03:07:54,554: 	 --> [INFO] 	 Chosen SEO: NABS134
+2021-05-03 03:07:54,554: 	 --> [INFO] 	 Chosen country: AUS
+2021-05-03 03:07:54,556: 	 --> [WARNING] 	 country DataFrame: AUS, is Empty
+2021-05-03 03:07:54,558: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,558: 	 --> [INFO] 	 Chosen country: AUT
+2021-05-03 03:07:54,560: 	 --> [INFO] 	 Chosen country years limits: 2006 - 2020
+2021-05-03 03:07:54,560: 	 --> [DEBUG] 	 In 1990 there's an empty value for AUT
+2021-05-03 03:07:54,560: 	 --> [DEBUG] 	 In 1991 there's an empty value for AUT
+2021-05-03 03:07:54,560: 	 --> [DEBUG] 	 In 1992 there's an empty value for AUT
+2021-05-03 03:07:54,561: 	 --> [DEBUG] 	 In 1993 there's an empty value for AUT
+2021-05-03 03:07:54,561: 	 --> [DEBUG] 	 In 1994 there's an empty value for AUT
+2021-05-03 03:07:54,561: 	 --> [DEBUG] 	 In 1995 there's an empty value for AUT
+2021-05-03 03:07:54,561: 	 --> [DEBUG] 	 In 1996 there's an empty value for AUT
+2021-05-03 03:07:54,562: 	 --> [DEBUG] 	 In 1997 there's an empty value for AUT
+2021-05-03 03:07:54,562: 	 --> [DEBUG] 	 In 1998 there's an empty value for AUT
+2021-05-03 03:07:54,562: 	 --> [DEBUG] 	 In 1999 there's an empty value for AUT
+2021-05-03 03:07:54,562: 	 --> [DEBUG] 	 In 2000 there's an empty value for AUT
+2021-05-03 03:07:54,562: 	 --> [DEBUG] 	 In 2001 there's an empty value for AUT
+2021-05-03 03:07:54,562: 	 --> [DEBUG] 	 In 2002 there's an empty value for AUT
+2021-05-03 03:07:54,562: 	 --> [DEBUG] 	 In 2003 there's an empty value for AUT
+2021-05-03 03:07:54,563: 	 --> [DEBUG] 	 In 2004 there's an empty value for AUT
+2021-05-03 03:07:54,563: 	 --> [DEBUG] 	 In 2005 there's an empty value for AUT
+2021-05-03 03:07:54,583: 	 --> [INFO] 	 Chosen country: BEL
+2021-05-03 03:07:54,584: 	 --> [WARNING] 	 country DataFrame: BEL, is Empty
+2021-05-03 03:07:54,584: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,584: 	 --> [INFO] 	 Chosen country: CAN
+2021-05-03 03:07:54,585: 	 --> [WARNING] 	 country DataFrame: CAN, is Empty
+2021-05-03 03:07:54,585: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,585: 	 --> [INFO] 	 Chosen country: CHE
+2021-05-03 03:07:54,586: 	 --> [WARNING] 	 country DataFrame: CHE, is Empty
+2021-05-03 03:07:54,587: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,587: 	 --> [INFO] 	 Chosen country: DEU
+2021-05-03 03:07:54,590: 	 --> [INFO] 	 Chosen country years limits: 2007 - 2019
+2021-05-03 03:07:54,590: 	 --> [DEBUG] 	 In 1990 there's an empty value for DEU
+2021-05-03 03:07:54,590: 	 --> [DEBUG] 	 In 1991 there's an empty value for DEU
+2021-05-03 03:07:54,591: 	 --> [DEBUG] 	 In 1992 there's an empty value for DEU
+2021-05-03 03:07:54,591: 	 --> [DEBUG] 	 In 1993 there's an empty value for DEU
+2021-05-03 03:07:54,591: 	 --> [DEBUG] 	 In 1994 there's an empty value for DEU
+2021-05-03 03:07:54,591: 	 --> [DEBUG] 	 In 1995 there's an empty value for DEU
+2021-05-03 03:07:54,592: 	 --> [DEBUG] 	 In 1996 there's an empty value for DEU
+2021-05-03 03:07:54,592: 	 --> [DEBUG] 	 In 1997 there's an empty value for DEU
+2021-05-03 03:07:54,592: 	 --> [DEBUG] 	 In 1998 there's an empty value for DEU
+2021-05-03 03:07:54,592: 	 --> [DEBUG] 	 In 1999 there's an empty value for DEU
+2021-05-03 03:07:54,592: 	 --> [DEBUG] 	 In 2000 there's an empty value for DEU
+2021-05-03 03:07:54,593: 	 --> [DEBUG] 	 In 2001 there's an empty value for DEU
+2021-05-03 03:07:54,593: 	 --> [DEBUG] 	 In 2002 there's an empty value for DEU
+2021-05-03 03:07:54,593: 	 --> [DEBUG] 	 In 2003 there's an empty value for DEU
+2021-05-03 03:07:54,593: 	 --> [DEBUG] 	 In 2004 there's an empty value for DEU
+2021-05-03 03:07:54,593: 	 --> [DEBUG] 	 In 2005 there's an empty value for DEU
+2021-05-03 03:07:54,593: 	 --> [DEBUG] 	 In 2006 there's an empty value for DEU
+2021-05-03 03:07:54,611: 	 --> [DEBUG] 	 In 2020 there's an empty value for DEU
+2021-05-03 03:07:54,612: 	 --> [INFO] 	 Chosen country: DNK
+2021-05-03 03:07:54,613: 	 --> [WARNING] 	 country DataFrame: DNK, is Empty
+2021-05-03 03:07:54,613: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,613: 	 --> [INFO] 	 Chosen country: ESP
+2021-05-03 03:07:54,614: 	 --> [INFO] 	 Chosen country years limits: 2007 - 2019
+2021-05-03 03:07:54,614: 	 --> [DEBUG] 	 In 1990 there's an empty value for ESP
+2021-05-03 03:07:54,615: 	 --> [DEBUG] 	 In 1991 there's an empty value for ESP
+2021-05-03 03:07:54,615: 	 --> [DEBUG] 	 In 1992 there's an empty value for ESP
+2021-05-03 03:07:54,615: 	 --> [DEBUG] 	 In 1993 there's an empty value for ESP
+2021-05-03 03:07:54,615: 	 --> [DEBUG] 	 In 1994 there's an empty value for ESP
+2021-05-03 03:07:54,615: 	 --> [DEBUG] 	 In 1995 there's an empty value for ESP
+2021-05-03 03:07:54,615: 	 --> [DEBUG] 	 In 1996 there's an empty value for ESP
+2021-05-03 03:07:54,616: 	 --> [DEBUG] 	 In 1997 there's an empty value for ESP
+2021-05-03 03:07:54,616: 	 --> [DEBUG] 	 In 1998 there's an empty value for ESP
+2021-05-03 03:07:54,616: 	 --> [DEBUG] 	 In 1999 there's an empty value for ESP
+2021-05-03 03:07:54,616: 	 --> [DEBUG] 	 In 2000 there's an empty value for ESP
+2021-05-03 03:07:54,616: 	 --> [DEBUG] 	 In 2001 there's an empty value for ESP
+2021-05-03 03:07:54,617: 	 --> [DEBUG] 	 In 2002 there's an empty value for ESP
+2021-05-03 03:07:54,617: 	 --> [DEBUG] 	 In 2003 there's an empty value for ESP
+2021-05-03 03:07:54,617: 	 --> [DEBUG] 	 In 2004 there's an empty value for ESP
+2021-05-03 03:07:54,617: 	 --> [DEBUG] 	 In 2005 there's an empty value for ESP
+2021-05-03 03:07:54,617: 	 --> [DEBUG] 	 In 2006 there's an empty value for ESP
+2021-05-03 03:07:54,636: 	 --> [DEBUG] 	 In 2020 there's an empty value for ESP
+2021-05-03 03:07:54,637: 	 --> [INFO] 	 Chosen country: FIN
+2021-05-03 03:07:54,638: 	 --> [INFO] 	 Chosen country years limits: 2004 - 2019
+2021-05-03 03:07:54,639: 	 --> [DEBUG] 	 In 1990 there's an empty value for FIN
+2021-05-03 03:07:54,639: 	 --> [DEBUG] 	 In 1991 there's an empty value for FIN
+2021-05-03 03:07:54,639: 	 --> [DEBUG] 	 In 1992 there's an empty value for FIN
+2021-05-03 03:07:54,639: 	 --> [DEBUG] 	 In 1993 there's an empty value for FIN
+2021-05-03 03:07:54,640: 	 --> [DEBUG] 	 In 1994 there's an empty value for FIN
+2021-05-03 03:07:54,640: 	 --> [DEBUG] 	 In 1995 there's an empty value for FIN
+2021-05-03 03:07:54,640: 	 --> [DEBUG] 	 In 1996 there's an empty value for FIN
+2021-05-03 03:07:54,640: 	 --> [DEBUG] 	 In 1997 there's an empty value for FIN
+2021-05-03 03:07:54,641: 	 --> [DEBUG] 	 In 1998 there's an empty value for FIN
+2021-05-03 03:07:54,641: 	 --> [DEBUG] 	 In 1999 there's an empty value for FIN
+2021-05-03 03:07:54,641: 	 --> [DEBUG] 	 In 2000 there's an empty value for FIN
+2021-05-03 03:07:54,642: 	 --> [DEBUG] 	 In 2001 there's an empty value for FIN
+2021-05-03 03:07:54,642: 	 --> [DEBUG] 	 In 2002 there's an empty value for FIN
+2021-05-03 03:07:54,642: 	 --> [DEBUG] 	 In 2003 there's an empty value for FIN
+2021-05-03 03:07:54,663: 	 --> [DEBUG] 	 In 2020 there's an empty value for FIN
+2021-05-03 03:07:54,664: 	 --> [INFO] 	 Chosen country: FRA
+2021-05-03 03:07:54,665: 	 --> [INFO] 	 Chosen country years limits: 2008 - 2018
+2021-05-03 03:07:54,665: 	 --> [DEBUG] 	 In 1990 there's an empty value for FRA
+2021-05-03 03:07:54,666: 	 --> [DEBUG] 	 In 1991 there's an empty value for FRA
+2021-05-03 03:07:54,666: 	 --> [DEBUG] 	 In 1992 there's an empty value for FRA
+2021-05-03 03:07:54,666: 	 --> [DEBUG] 	 In 1993 there's an empty value for FRA
+2021-05-03 03:07:54,667: 	 --> [DEBUG] 	 In 1994 there's an empty value for FRA
+2021-05-03 03:07:54,667: 	 --> [DEBUG] 	 In 1995 there's an empty value for FRA
+2021-05-03 03:07:54,667: 	 --> [DEBUG] 	 In 1996 there's an empty value for FRA
+2021-05-03 03:07:54,669: 	 --> [DEBUG] 	 In 1997 there's an empty value for FRA
+2021-05-03 03:07:54,669: 	 --> [DEBUG] 	 In 1998 there's an empty value for FRA
+2021-05-03 03:07:54,670: 	 --> [DEBUG] 	 In 1999 there's an empty value for FRA
+2021-05-03 03:07:54,670: 	 --> [DEBUG] 	 In 2000 there's an empty value for FRA
+2021-05-03 03:07:54,671: 	 --> [DEBUG] 	 In 2001 there's an empty value for FRA
+2021-05-03 03:07:54,671: 	 --> [DEBUG] 	 In 2002 there's an empty value for FRA
+2021-05-03 03:07:54,671: 	 --> [DEBUG] 	 In 2003 there's an empty value for FRA
+2021-05-03 03:07:54,672: 	 --> [DEBUG] 	 In 2004 there's an empty value for FRA
+2021-05-03 03:07:54,672: 	 --> [DEBUG] 	 In 2005 there's an empty value for FRA
+2021-05-03 03:07:54,672: 	 --> [DEBUG] 	 In 2006 there's an empty value for FRA
+2021-05-03 03:07:54,673: 	 --> [DEBUG] 	 In 2007 there's an empty value for FRA
+2021-05-03 03:07:54,687: 	 --> [DEBUG] 	 In 2019 there's an empty value for FRA
+2021-05-03 03:07:54,688: 	 --> [DEBUG] 	 In 2020 there's an empty value for FRA
+2021-05-03 03:07:54,688: 	 --> [INFO] 	 Chosen country: GBR
+2021-05-03 03:07:54,689: 	 --> [WARNING] 	 country DataFrame: GBR, is Empty
+2021-05-03 03:07:54,690: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,690: 	 --> [INFO] 	 Chosen country: GRC
+2021-05-03 03:07:54,691: 	 --> [INFO] 	 Chosen country years limits: 2007 - 2007
+2021-05-03 03:07:54,692: 	 --> [DEBUG] 	 In 1990 there's an empty value for GRC
+2021-05-03 03:07:54,692: 	 --> [DEBUG] 	 In 1991 there's an empty value for GRC
+2021-05-03 03:07:54,692: 	 --> [DEBUG] 	 In 1992 there's an empty value for GRC
+2021-05-03 03:07:54,692: 	 --> [DEBUG] 	 In 1993 there's an empty value for GRC
+2021-05-03 03:07:54,692: 	 --> [DEBUG] 	 In 1994 there's an empty value for GRC
+2021-05-03 03:07:54,692: 	 --> [DEBUG] 	 In 1995 there's an empty value for GRC
+2021-05-03 03:07:54,693: 	 --> [DEBUG] 	 In 1996 there's an empty value for GRC
+2021-05-03 03:07:54,693: 	 --> [DEBUG] 	 In 1997 there's an empty value for GRC
+2021-05-03 03:07:54,693: 	 --> [DEBUG] 	 In 1998 there's an empty value for GRC
+2021-05-03 03:07:54,693: 	 --> [DEBUG] 	 In 1999 there's an empty value for GRC
+2021-05-03 03:07:54,693: 	 --> [DEBUG] 	 In 2000 there's an empty value for GRC
+2021-05-03 03:07:54,694: 	 --> [DEBUG] 	 In 2001 there's an empty value for GRC
+2021-05-03 03:07:54,694: 	 --> [DEBUG] 	 In 2002 there's an empty value for GRC
+2021-05-03 03:07:54,694: 	 --> [DEBUG] 	 In 2003 there's an empty value for GRC
+2021-05-03 03:07:54,694: 	 --> [DEBUG] 	 In 2004 there's an empty value for GRC
+2021-05-03 03:07:54,694: 	 --> [DEBUG] 	 In 2005 there's an empty value for GRC
+2021-05-03 03:07:54,694: 	 --> [DEBUG] 	 In 2006 there's an empty value for GRC
+2021-05-03 03:07:54,696: 	 --> [DEBUG] 	 In 2008 there's an empty value for GRC
+2021-05-03 03:07:54,696: 	 --> [DEBUG] 	 In 2009 there's an empty value for GRC
+2021-05-03 03:07:54,696: 	 --> [DEBUG] 	 In 2010 there's an empty value for GRC
+2021-05-03 03:07:54,697: 	 --> [DEBUG] 	 In 2011 there's an empty value for GRC
+2021-05-03 03:07:54,697: 	 --> [DEBUG] 	 In 2012 there's an empty value for GRC
+2021-05-03 03:07:54,697: 	 --> [DEBUG] 	 In 2013 there's an empty value for GRC
+2021-05-03 03:07:54,697: 	 --> [DEBUG] 	 In 2014 there's an empty value for GRC
+2021-05-03 03:07:54,697: 	 --> [DEBUG] 	 In 2015 there's an empty value for GRC
+2021-05-03 03:07:54,697: 	 --> [DEBUG] 	 In 2016 there's an empty value for GRC
+2021-05-03 03:07:54,698: 	 --> [DEBUG] 	 In 2017 there's an empty value for GRC
+2021-05-03 03:07:54,698: 	 --> [DEBUG] 	 In 2018 there's an empty value for GRC
+2021-05-03 03:07:54,698: 	 --> [DEBUG] 	 In 2019 there's an empty value for GRC
+2021-05-03 03:07:54,698: 	 --> [DEBUG] 	 In 2020 there's an empty value for GRC
+2021-05-03 03:07:54,698: 	 --> [INFO] 	 Chosen country: IRL
+2021-05-03 03:07:54,700: 	 --> [INFO] 	 Chosen country years limits: 2004 - 2019
+2021-05-03 03:07:54,701: 	 --> [DEBUG] 	 In 1990 there's an empty value for IRL
+2021-05-03 03:07:54,701: 	 --> [DEBUG] 	 In 1991 there's an empty value for IRL
+2021-05-03 03:07:54,702: 	 --> [DEBUG] 	 In 1992 there's an empty value for IRL
+2021-05-03 03:07:54,702: 	 --> [DEBUG] 	 In 1993 there's an empty value for IRL
+2021-05-03 03:07:54,702: 	 --> [DEBUG] 	 In 1994 there's an empty value for IRL
+2021-05-03 03:07:54,702: 	 --> [DEBUG] 	 In 1995 there's an empty value for IRL
+2021-05-03 03:07:54,702: 	 --> [DEBUG] 	 In 1996 there's an empty value for IRL
+2021-05-03 03:07:54,703: 	 --> [DEBUG] 	 In 1997 there's an empty value for IRL
+2021-05-03 03:07:54,703: 	 --> [DEBUG] 	 In 1998 there's an empty value for IRL
+2021-05-03 03:07:54,703: 	 --> [DEBUG] 	 In 1999 there's an empty value for IRL
+2021-05-03 03:07:54,703: 	 --> [DEBUG] 	 In 2000 there's an empty value for IRL
+2021-05-03 03:07:54,703: 	 --> [DEBUG] 	 In 2001 there's an empty value for IRL
+2021-05-03 03:07:54,704: 	 --> [DEBUG] 	 In 2002 there's an empty value for IRL
+2021-05-03 03:07:54,704: 	 --> [DEBUG] 	 In 2003 there's an empty value for IRL
+2021-05-03 03:07:54,725: 	 --> [DEBUG] 	 In 2020 there's an empty value for IRL
+2021-05-03 03:07:54,725: 	 --> [INFO] 	 Chosen country: ITA
+2021-05-03 03:07:54,726: 	 --> [WARNING] 	 country DataFrame: ITA, is Empty
+2021-05-03 03:07:54,726: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,727: 	 --> [INFO] 	 Chosen country: JPN
+2021-05-03 03:07:54,727: 	 --> [WARNING] 	 country DataFrame: JPN, is Empty
+2021-05-03 03:07:54,728: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,728: 	 --> [INFO] 	 Chosen country: MEX
+2021-05-03 03:07:54,729: 	 --> [WARNING] 	 country DataFrame: MEX, is Empty
+2021-05-03 03:07:54,729: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,729: 	 --> [INFO] 	 Chosen country: NLD
+2021-05-03 03:07:54,730: 	 --> [INFO] 	 Chosen country years limits: 2005 - 2020
+2021-05-03 03:07:54,731: 	 --> [DEBUG] 	 In 1990 there's an empty value for NLD
+2021-05-03 03:07:54,731: 	 --> [DEBUG] 	 In 1991 there's an empty value for NLD
+2021-05-03 03:07:54,731: 	 --> [DEBUG] 	 In 1992 there's an empty value for NLD
+2021-05-03 03:07:54,731: 	 --> [DEBUG] 	 In 1993 there's an empty value for NLD
+2021-05-03 03:07:54,731: 	 --> [DEBUG] 	 In 1994 there's an empty value for NLD
+2021-05-03 03:07:54,731: 	 --> [DEBUG] 	 In 1995 there's an empty value for NLD
+2021-05-03 03:07:54,734: 	 --> [DEBUG] 	 In 1996 there's an empty value for NLD
+2021-05-03 03:07:54,734: 	 --> [DEBUG] 	 In 1997 there's an empty value for NLD
+2021-05-03 03:07:54,734: 	 --> [DEBUG] 	 In 1998 there's an empty value for NLD
+2021-05-03 03:07:54,734: 	 --> [DEBUG] 	 In 1999 there's an empty value for NLD
+2021-05-03 03:07:54,734: 	 --> [DEBUG] 	 In 2000 there's an empty value for NLD
+2021-05-03 03:07:54,734: 	 --> [DEBUG] 	 In 2001 there's an empty value for NLD
+2021-05-03 03:07:54,735: 	 --> [DEBUG] 	 In 2002 there's an empty value for NLD
+2021-05-03 03:07:54,735: 	 --> [DEBUG] 	 In 2003 there's an empty value for NLD
+2021-05-03 03:07:54,735: 	 --> [DEBUG] 	 In 2004 there's an empty value for NLD
+2021-05-03 03:07:54,756: 	 --> [INFO] 	 Chosen country: NOR
+2021-05-03 03:07:54,757: 	 --> [WARNING] 	 country DataFrame: NOR, is Empty
+2021-05-03 03:07:54,757: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,757: 	 --> [INFO] 	 Chosen country: NZL
+2021-05-03 03:07:54,758: 	 --> [WARNING] 	 country DataFrame: NZL, is Empty
+2021-05-03 03:07:54,758: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,758: 	 --> [INFO] 	 Chosen country: PRT
+2021-05-03 03:07:54,759: 	 --> [WARNING] 	 country DataFrame: PRT, is Empty
+2021-05-03 03:07:54,760: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,760: 	 --> [INFO] 	 Chosen country: SWE
+2021-05-03 03:07:54,761: 	 --> [INFO] 	 Chosen country years limits: 2015 - 2019
+2021-05-03 03:07:54,761: 	 --> [DEBUG] 	 In 1990 there's an empty value for SWE
+2021-05-03 03:07:54,762: 	 --> [DEBUG] 	 In 1991 there's an empty value for SWE
+2021-05-03 03:07:54,762: 	 --> [DEBUG] 	 In 1992 there's an empty value for SWE
+2021-05-03 03:07:54,762: 	 --> [DEBUG] 	 In 1993 there's an empty value for SWE
+2021-05-03 03:07:54,762: 	 --> [DEBUG] 	 In 1994 there's an empty value for SWE
+2021-05-03 03:07:54,762: 	 --> [DEBUG] 	 In 1995 there's an empty value for SWE
+2021-05-03 03:07:54,762: 	 --> [DEBUG] 	 In 1996 there's an empty value for SWE
+2021-05-03 03:07:54,762: 	 --> [DEBUG] 	 In 1997 there's an empty value for SWE
+2021-05-03 03:07:54,763: 	 --> [DEBUG] 	 In 1998 there's an empty value for SWE
+2021-05-03 03:07:54,763: 	 --> [DEBUG] 	 In 1999 there's an empty value for SWE
+2021-05-03 03:07:54,763: 	 --> [DEBUG] 	 In 2000 there's an empty value for SWE
+2021-05-03 03:07:54,763: 	 --> [DEBUG] 	 In 2001 there's an empty value for SWE
+2021-05-03 03:07:54,763: 	 --> [DEBUG] 	 In 2002 there's an empty value for SWE
+2021-05-03 03:07:54,763: 	 --> [DEBUG] 	 In 2003 there's an empty value for SWE
+2021-05-03 03:07:54,766: 	 --> [DEBUG] 	 In 2004 there's an empty value for SWE
+2021-05-03 03:07:54,766: 	 --> [DEBUG] 	 In 2005 there's an empty value for SWE
+2021-05-03 03:07:54,767: 	 --> [DEBUG] 	 In 2006 there's an empty value for SWE
+2021-05-03 03:07:54,767: 	 --> [DEBUG] 	 In 2007 there's an empty value for SWE
+2021-05-03 03:07:54,767: 	 --> [DEBUG] 	 In 2008 there's an empty value for SWE
+2021-05-03 03:07:54,767: 	 --> [DEBUG] 	 In 2009 there's an empty value for SWE
+2021-05-03 03:07:54,767: 	 --> [DEBUG] 	 In 2010 there's an empty value for SWE
+2021-05-03 03:07:54,768: 	 --> [DEBUG] 	 In 2011 there's an empty value for SWE
+2021-05-03 03:07:54,768: 	 --> [DEBUG] 	 In 2012 there's an empty value for SWE
+2021-05-03 03:07:54,768: 	 --> [DEBUG] 	 In 2013 there's an empty value for SWE
+2021-05-03 03:07:54,768: 	 --> [DEBUG] 	 In 2014 there's an empty value for SWE
+2021-05-03 03:07:54,775: 	 --> [DEBUG] 	 In 2020 there's an empty value for SWE
+2021-05-03 03:07:54,775: 	 --> [INFO] 	 Chosen country: USA
+2021-05-03 03:07:54,776: 	 --> [WARNING] 	 country DataFrame: USA, is Empty
+2021-05-03 03:07:54,777: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,777: 	 --> [INFO] 	 Chosen country: ISL
+2021-05-03 03:07:54,778: 	 --> [WARNING] 	 country DataFrame: ISL, is Empty
+2021-05-03 03:07:54,778: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,779: 	 --> [INFO] 	 Chosen country: ISR
+2021-05-03 03:07:54,780: 	 --> [WARNING] 	 country DataFrame: ISR, is Empty
+2021-05-03 03:07:54,782: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,782: 	 --> [INFO] 	 Chosen country: ROU
+2021-05-03 03:07:54,784: 	 --> [INFO] 	 Chosen country years limits: 2004 - 2019
+2021-05-03 03:07:54,784: 	 --> [DEBUG] 	 In 1990 there's an empty value for ROU
+2021-05-03 03:07:54,784: 	 --> [DEBUG] 	 In 1991 there's an empty value for ROU
+2021-05-03 03:07:54,785: 	 --> [DEBUG] 	 In 1992 there's an empty value for ROU
+2021-05-03 03:07:54,785: 	 --> [DEBUG] 	 In 1993 there's an empty value for ROU
+2021-05-03 03:07:54,785: 	 --> [DEBUG] 	 In 1994 there's an empty value for ROU
+2021-05-03 03:07:54,786: 	 --> [DEBUG] 	 In 1995 there's an empty value for ROU
+2021-05-03 03:07:54,786: 	 --> [DEBUG] 	 In 1996 there's an empty value for ROU
+2021-05-03 03:07:54,786: 	 --> [DEBUG] 	 In 1997 there's an empty value for ROU
+2021-05-03 03:07:54,787: 	 --> [DEBUG] 	 In 1998 there's an empty value for ROU
+2021-05-03 03:07:54,787: 	 --> [DEBUG] 	 In 1999 there's an empty value for ROU
+2021-05-03 03:07:54,787: 	 --> [DEBUG] 	 In 2000 there's an empty value for ROU
+2021-05-03 03:07:54,788: 	 --> [DEBUG] 	 In 2001 there's an empty value for ROU
+2021-05-03 03:07:54,788: 	 --> [DEBUG] 	 In 2002 there's an empty value for ROU
+2021-05-03 03:07:54,788: 	 --> [DEBUG] 	 In 2003 there's an empty value for ROU
+2021-05-03 03:07:54,810: 	 --> [DEBUG] 	 In 2020 there's an empty value for ROU
+2021-05-03 03:07:54,811: 	 --> [INFO] 	 Chosen country: SVK
+2021-05-03 03:07:54,813: 	 --> [INFO] 	 Chosen country years limits: 2012 - 2019
+2021-05-03 03:07:54,813: 	 --> [DEBUG] 	 In 1990 there's an empty value for SVK
+2021-05-03 03:07:54,813: 	 --> [DEBUG] 	 In 1991 there's an empty value for SVK
+2021-05-03 03:07:54,814: 	 --> [DEBUG] 	 In 1992 there's an empty value for SVK
+2021-05-03 03:07:54,814: 	 --> [DEBUG] 	 In 1993 there's an empty value for SVK
+2021-05-03 03:07:54,814: 	 --> [DEBUG] 	 In 1994 there's an empty value for SVK
+2021-05-03 03:07:54,814: 	 --> [DEBUG] 	 In 1995 there's an empty value for SVK
+2021-05-03 03:07:54,814: 	 --> [DEBUG] 	 In 1996 there's an empty value for SVK
+2021-05-03 03:07:54,815: 	 --> [DEBUG] 	 In 1997 there's an empty value for SVK
+2021-05-03 03:07:54,815: 	 --> [DEBUG] 	 In 1998 there's an empty value for SVK
+2021-05-03 03:07:54,815: 	 --> [DEBUG] 	 In 1999 there's an empty value for SVK
+2021-05-03 03:07:54,815: 	 --> [DEBUG] 	 In 2000 there's an empty value for SVK
+2021-05-03 03:07:54,815: 	 --> [DEBUG] 	 In 2001 there's an empty value for SVK
+2021-05-03 03:07:54,815: 	 --> [DEBUG] 	 In 2002 there's an empty value for SVK
+2021-05-03 03:07:54,816: 	 --> [DEBUG] 	 In 2003 there's an empty value for SVK
+2021-05-03 03:07:54,816: 	 --> [DEBUG] 	 In 2004 there's an empty value for SVK
+2021-05-03 03:07:54,816: 	 --> [DEBUG] 	 In 2005 there's an empty value for SVK
+2021-05-03 03:07:54,816: 	 --> [DEBUG] 	 In 2006 there's an empty value for SVK
+2021-05-03 03:07:54,816: 	 --> [DEBUG] 	 In 2007 there's an empty value for SVK
+2021-05-03 03:07:54,816: 	 --> [DEBUG] 	 In 2008 there's an empty value for SVK
+2021-05-03 03:07:54,817: 	 --> [DEBUG] 	 In 2009 there's an empty value for SVK
+2021-05-03 03:07:54,817: 	 --> [DEBUG] 	 In 2010 there's an empty value for SVK
+2021-05-03 03:07:54,817: 	 --> [DEBUG] 	 In 2011 there's an empty value for SVK
+2021-05-03 03:07:54,828: 	 --> [DEBUG] 	 In 2020 there's an empty value for SVK
+2021-05-03 03:07:54,830: 	 --> [INFO] 	 Chosen country: RUS
+2021-05-03 03:07:54,831: 	 --> [WARNING] 	 country DataFrame: RUS, is Empty
+2021-05-03 03:07:54,831: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,831: 	 --> [INFO] 	 Chosen country: ARG
+2021-05-03 03:07:54,832: 	 --> [WARNING] 	 country DataFrame: ARG, is Empty
+2021-05-03 03:07:54,833: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,833: 	 --> [INFO] 	 Chosen country: SVN
+2021-05-03 03:07:54,834: 	 --> [INFO] 	 Chosen country years limits: 2007 - 2019
+2021-05-03 03:07:54,834: 	 --> [DEBUG] 	 In 1990 there's an empty value for SVN
+2021-05-03 03:07:54,835: 	 --> [DEBUG] 	 In 1991 there's an empty value for SVN
+2021-05-03 03:07:54,835: 	 --> [DEBUG] 	 In 1992 there's an empty value for SVN
+2021-05-03 03:07:54,835: 	 --> [DEBUG] 	 In 1993 there's an empty value for SVN
+2021-05-03 03:07:54,835: 	 --> [DEBUG] 	 In 1994 there's an empty value for SVN
+2021-05-03 03:07:54,835: 	 --> [DEBUG] 	 In 1995 there's an empty value for SVN
+2021-05-03 03:07:54,836: 	 --> [DEBUG] 	 In 1996 there's an empty value for SVN
+2021-05-03 03:07:54,836: 	 --> [DEBUG] 	 In 1997 there's an empty value for SVN
+2021-05-03 03:07:54,836: 	 --> [DEBUG] 	 In 1998 there's an empty value for SVN
+2021-05-03 03:07:54,836: 	 --> [DEBUG] 	 In 1999 there's an empty value for SVN
+2021-05-03 03:07:54,836: 	 --> [DEBUG] 	 In 2000 there's an empty value for SVN
+2021-05-03 03:07:54,836: 	 --> [DEBUG] 	 In 2001 there's an empty value for SVN
+2021-05-03 03:07:54,837: 	 --> [DEBUG] 	 In 2002 there's an empty value for SVN
+2021-05-03 03:07:54,837: 	 --> [DEBUG] 	 In 2003 there's an empty value for SVN
+2021-05-03 03:07:54,837: 	 --> [DEBUG] 	 In 2004 there's an empty value for SVN
+2021-05-03 03:07:54,837: 	 --> [DEBUG] 	 In 2005 there's an empty value for SVN
+2021-05-03 03:07:54,837: 	 --> [DEBUG] 	 In 2006 there's an empty value for SVN
+2021-05-03 03:07:54,855: 	 --> [DEBUG] 	 In 2020 there's an empty value for SVN
+2021-05-03 03:07:54,856: 	 --> [INFO] 	 Chosen country: KOR
+2021-05-03 03:07:54,857: 	 --> [WARNING] 	 country DataFrame: KOR, is Empty
+2021-05-03 03:07:54,857: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,857: 	 --> [INFO] 	 Chosen country: COL
+2021-05-03 03:07:54,858: 	 --> [WARNING] 	 country DataFrame: COL, is Empty
+2021-05-03 03:07:54,858: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,859: 	 --> [INFO] 	 Chosen country: CZE
+2021-05-03 03:07:54,860: 	 --> [INFO] 	 Chosen country years limits: 2005 - 2019
+2021-05-03 03:07:54,861: 	 --> [DEBUG] 	 In 1990 there's an empty value for CZE
+2021-05-03 03:07:54,861: 	 --> [DEBUG] 	 In 1991 there's an empty value for CZE
+2021-05-03 03:07:54,861: 	 --> [DEBUG] 	 In 1992 there's an empty value for CZE
+2021-05-03 03:07:54,861: 	 --> [DEBUG] 	 In 1993 there's an empty value for CZE
+2021-05-03 03:07:54,862: 	 --> [DEBUG] 	 In 1994 there's an empty value for CZE
+2021-05-03 03:07:54,862: 	 --> [DEBUG] 	 In 1995 there's an empty value for CZE
+2021-05-03 03:07:54,862: 	 --> [DEBUG] 	 In 1996 there's an empty value for CZE
+2021-05-03 03:07:54,862: 	 --> [DEBUG] 	 In 1997 there's an empty value for CZE
+2021-05-03 03:07:54,862: 	 --> [DEBUG] 	 In 1998 there's an empty value for CZE
+2021-05-03 03:07:54,862: 	 --> [DEBUG] 	 In 1999 there's an empty value for CZE
+2021-05-03 03:07:54,863: 	 --> [DEBUG] 	 In 2000 there's an empty value for CZE
+2021-05-03 03:07:54,863: 	 --> [DEBUG] 	 In 2001 there's an empty value for CZE
+2021-05-03 03:07:54,863: 	 --> [DEBUG] 	 In 2002 there's an empty value for CZE
+2021-05-03 03:07:54,863: 	 --> [DEBUG] 	 In 2003 there's an empty value for CZE
+2021-05-03 03:07:54,863: 	 --> [DEBUG] 	 In 2004 there's an empty value for CZE
+2021-05-03 03:07:54,883: 	 --> [DEBUG] 	 In 2020 there's an empty value for CZE
+2021-05-03 03:07:54,883: 	 --> [INFO] 	 Chosen country: LUX
+2021-05-03 03:07:54,884: 	 --> [WARNING] 	 country DataFrame: LUX, is Empty
+2021-05-03 03:07:54,884: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,885: 	 --> [INFO] 	 Chosen country: TWN
+2021-05-03 03:07:54,886: 	 --> [INFO] 	 Chosen country years limits: 2009 - 2019
+2021-05-03 03:07:54,886: 	 --> [DEBUG] 	 In 1990 there's an empty value for TWN
+2021-05-03 03:07:54,887: 	 --> [DEBUG] 	 In 1991 there's an empty value for TWN
+2021-05-03 03:07:54,887: 	 --> [DEBUG] 	 In 1992 there's an empty value for TWN
+2021-05-03 03:07:54,887: 	 --> [DEBUG] 	 In 1993 there's an empty value for TWN
+2021-05-03 03:07:54,887: 	 --> [DEBUG] 	 In 1994 there's an empty value for TWN
+2021-05-03 03:07:54,888: 	 --> [DEBUG] 	 In 1995 there's an empty value for TWN
+2021-05-03 03:07:54,888: 	 --> [DEBUG] 	 In 1996 there's an empty value for TWN
+2021-05-03 03:07:54,888: 	 --> [DEBUG] 	 In 1997 there's an empty value for TWN
+2021-05-03 03:07:54,888: 	 --> [DEBUG] 	 In 1998 there's an empty value for TWN
+2021-05-03 03:07:54,889: 	 --> [DEBUG] 	 In 1999 there's an empty value for TWN
+2021-05-03 03:07:54,889: 	 --> [DEBUG] 	 In 2000 there's an empty value for TWN
+2021-05-03 03:07:54,889: 	 --> [DEBUG] 	 In 2001 there's an empty value for TWN
+2021-05-03 03:07:54,889: 	 --> [DEBUG] 	 In 2002 there's an empty value for TWN
+2021-05-03 03:07:54,889: 	 --> [DEBUG] 	 In 2003 there's an empty value for TWN
+2021-05-03 03:07:54,889: 	 --> [DEBUG] 	 In 2004 there's an empty value for TWN
+2021-05-03 03:07:54,890: 	 --> [DEBUG] 	 In 2005 there's an empty value for TWN
+2021-05-03 03:07:54,890: 	 --> [DEBUG] 	 In 2006 there's an empty value for TWN
+2021-05-03 03:07:54,890: 	 --> [DEBUG] 	 In 2007 there's an empty value for TWN
+2021-05-03 03:07:54,890: 	 --> [DEBUG] 	 In 2008 there's an empty value for TWN
+2021-05-03 03:07:54,901: 	 --> [DEBUG] 	 In 2020 there's an empty value for TWN
+2021-05-03 03:07:54,901: 	 --> [INFO] 	 Chosen country: EST
+2021-05-03 03:07:54,903: 	 --> [INFO] 	 Chosen country years limits: 2007 - 2015
+2021-05-03 03:07:54,903: 	 --> [DEBUG] 	 In 1990 there's an empty value for EST
+2021-05-03 03:07:54,903: 	 --> [DEBUG] 	 In 1991 there's an empty value for EST
+2021-05-03 03:07:54,903: 	 --> [DEBUG] 	 In 1992 there's an empty value for EST
+2021-05-03 03:07:54,903: 	 --> [DEBUG] 	 In 1993 there's an empty value for EST
+2021-05-03 03:07:54,904: 	 --> [DEBUG] 	 In 1994 there's an empty value for EST
+2021-05-03 03:07:54,904: 	 --> [DEBUG] 	 In 1995 there's an empty value for EST
+2021-05-03 03:07:54,904: 	 --> [DEBUG] 	 In 1996 there's an empty value for EST
+2021-05-03 03:07:54,904: 	 --> [DEBUG] 	 In 1997 there's an empty value for EST
+2021-05-03 03:07:54,904: 	 --> [DEBUG] 	 In 1998 there's an empty value for EST
+2021-05-03 03:07:54,904: 	 --> [DEBUG] 	 In 1999 there's an empty value for EST
+2021-05-03 03:07:54,905: 	 --> [DEBUG] 	 In 2000 there's an empty value for EST
+2021-05-03 03:07:54,905: 	 --> [DEBUG] 	 In 2001 there's an empty value for EST
+2021-05-03 03:07:54,905: 	 --> [DEBUG] 	 In 2002 there's an empty value for EST
+2021-05-03 03:07:54,905: 	 --> [DEBUG] 	 In 2003 there's an empty value for EST
+2021-05-03 03:07:54,905: 	 --> [DEBUG] 	 In 2004 there's an empty value for EST
+2021-05-03 03:07:54,905: 	 --> [DEBUG] 	 In 2005 there's an empty value for EST
+2021-05-03 03:07:54,906: 	 --> [DEBUG] 	 In 2006 there's an empty value for EST
+2021-05-03 03:07:54,918: 	 --> [DEBUG] 	 In 2016 there's an empty value for EST
+2021-05-03 03:07:54,918: 	 --> [DEBUG] 	 In 2017 there's an empty value for EST
+2021-05-03 03:07:54,918: 	 --> [DEBUG] 	 In 2018 there's an empty value for EST
+2021-05-03 03:07:54,919: 	 --> [DEBUG] 	 In 2019 there's an empty value for EST
+2021-05-03 03:07:54,919: 	 --> [DEBUG] 	 In 2020 there's an empty value for EST
+2021-05-03 03:07:54,919: 	 --> [INFO] 	 Chosen country: LTU
+2021-05-03 03:07:54,921: 	 --> [WARNING] 	 country DataFrame: LTU, is Empty
+2021-05-03 03:07:54,921: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,922: 	 --> [INFO] 	 Chosen country: POL
+2021-05-03 03:07:54,923: 	 --> [WARNING] 	 country DataFrame: POL, is Empty
+2021-05-03 03:07:54,924: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,925: 	 --> [INFO] 	 Chosen country: HUN
+2021-05-03 03:07:54,926: 	 --> [WARNING] 	 country DataFrame: HUN, is Empty
+2021-05-03 03:07:54,927: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,927: 	 --> [INFO] 	 Chosen country: LVA
+2021-05-03 03:07:54,928: 	 --> [INFO] 	 Chosen country years limits: 2007 - 2019
+2021-05-03 03:07:54,929: 	 --> [DEBUG] 	 In 1990 there's an empty value for LVA
+2021-05-03 03:07:54,929: 	 --> [DEBUG] 	 In 1991 there's an empty value for LVA
+2021-05-03 03:07:54,929: 	 --> [DEBUG] 	 In 1992 there's an empty value for LVA
+2021-05-03 03:07:54,930: 	 --> [DEBUG] 	 In 1993 there's an empty value for LVA
+2021-05-03 03:07:54,930: 	 --> [DEBUG] 	 In 1994 there's an empty value for LVA
+2021-05-03 03:07:54,930: 	 --> [DEBUG] 	 In 1995 there's an empty value for LVA
+2021-05-03 03:07:54,930: 	 --> [DEBUG] 	 In 1996 there's an empty value for LVA
+2021-05-03 03:07:54,931: 	 --> [DEBUG] 	 In 1997 there's an empty value for LVA
+2021-05-03 03:07:54,931: 	 --> [DEBUG] 	 In 1998 there's an empty value for LVA
+2021-05-03 03:07:54,931: 	 --> [DEBUG] 	 In 1999 there's an empty value for LVA
+2021-05-03 03:07:54,931: 	 --> [DEBUG] 	 In 2000 there's an empty value for LVA
+2021-05-03 03:07:54,932: 	 --> [DEBUG] 	 In 2001 there's an empty value for LVA
+2021-05-03 03:07:54,932: 	 --> [DEBUG] 	 In 2002 there's an empty value for LVA
+2021-05-03 03:07:54,932: 	 --> [DEBUG] 	 In 2003 there's an empty value for LVA
+2021-05-03 03:07:54,932: 	 --> [DEBUG] 	 In 2004 there's an empty value for LVA
+2021-05-03 03:07:54,932: 	 --> [DEBUG] 	 In 2005 there's an empty value for LVA
+2021-05-03 03:07:54,932: 	 --> [DEBUG] 	 In 2006 there's an empty value for LVA
+2021-05-03 03:07:54,936: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:54,942: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:54,944: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:54,945: 	 --> [WARNING] 	 This error occurred: list index out of range
+2021-05-03 03:07:54,952: 	 --> [DEBUG] 	 In 2020 there's an empty value for LVA
+2021-05-03 03:07:54,952: 	 --> [INFO] 	 Chosen country: TUR
+2021-05-03 03:07:54,953: 	 --> [WARNING] 	 country DataFrame: TUR, is Empty
+2021-05-03 03:07:54,954: 	 --> [WARNING] 	 Getting an error: list index out of range
+2021-05-03 03:07:54,954: 	 --> [INFO] 	 Chosen country: CHL
+2021-05-03 03:07:54,957: 	 --> [INFO] 	 Chosen country years limits: 2011 - 2017
+2021-05-03 03:07:54,957: 	 --> [DEBUG] 	 In 1990 there's an empty value for CHL
+2021-05-03 03:07:54,958: 	 --> [DEBUG] 	 In 1991 there's an empty value for CHL
+2021-05-03 03:07:54,958: 	 --> [DEBUG] 	 In 1992 there's an empty value for CHL
+2021-05-03 03:07:54,958: 	 --> [DEBUG] 	 In 1993 there's an empty value for CHL
+2021-05-03 03:07:54,958: 	 --> [DEBUG] 	 In 1994 there's an empty value for CHL
+2021-05-03 03:07:54,959: 	 --> [DEBUG] 	 In 1995 there's an empty value for CHL
+2021-05-03 03:07:54,959: 	 --> [DEBUG] 	 In 1996 there's an empty value for CHL
+2021-05-03 03:07:54,959: 	 --> [DEBUG] 	 In 1997 there's an empty value for CHL
+2021-05-03 03:07:54,960: 	 --> [DEBUG] 	 In 1998 there's an empty value for CHL
+2021-05-03 03:07:54,960: 	 --> [DEBUG] 	 In 1999 there's an empty value for CHL
+2021-05-03 03:07:54,960: 	 --> [DEBUG] 	 In 2000 there's an empty value for CHL
+2021-05-03 03:07:54,960: 	 --> [DEBUG] 	 In 2001 there's an empty value for CHL
+2021-05-03 03:07:54,960: 	 --> [DEBUG] 	 In 2002 there's an empty value for CHL
+2021-05-03 03:07:54,960: 	 --> [DEBUG] 	 In 2003 there's an empty value for CHL
+2021-05-03 03:07:54,961: 	 --> [DEBUG] 	 In 2004 there's an empty value for CHL
+2021-05-03 03:07:54,961: 	 --> [DEBUG] 	 In 2005 there's an empty value for CHL
+2021-05-03 03:07:54,961: 	 --> [DEBUG] 	 In 2006 there's an empty value for CHL
+2021-05-03 03:07:54,961: 	 --> [DEBUG] 	 In 2007 there's an empty value for CHL
+2021-05-03 03:07:54,961: 	 --> [DEBUG] 	 In 2008 there's an empty value for CHL
+2021-05-03 03:07:54,961: 	 --> [DEBUG] 	 In 2009 there's an empty value for CHL
+2021-05-03 03:07:54,962: 	 --> [DEBUG] 	 In 2010 there's an empty value for CHL
+2021-05-03 03:07:54,971: 	 --> [DEBUG] 	 In 2018 there's an empty value for CHL
+2021-05-03 03:07:54,973: 	 --> [DEBUG] 	 In 2019 there's an empty value for CHL
+2021-05-03 03:07:54,973: 	 --> [DEBUG] 	 In 2020 there's an empty value for CHL
+2021-05-03 03:07:54,974: 	 --> [DEBUG] 	 There were problems with this country's: ['CHE', 'ITA', 'NZL', 'SWE', 'RUS', 'POL', 'TUR', 'LVA']
