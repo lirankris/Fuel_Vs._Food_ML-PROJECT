@@ -1,4 +1,3 @@
-
 ![Image](http://troya.tv/UnderConstruction.png)
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -28,18 +27,7 @@ Depend on API:
 
 <h2>Beta Web app:<h2\>
   
-<!-- The script tag should live in the head of your page if at all possible -->
-<script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js"></script>
-
-<!-- Put this wherever you would like your player to appear -->
-<img
-  style="width: 100%; margin: auto; display: block;"
-  class="vidyard-player-embed"
-  src="https://play.vidyard.com/ZdJkQLrRwCYJw9trfY6qLS.jpg"
-  data-uuid="ZdJkQLrRwCYJw9trfY6qLS"
-  data-v="4"
-  data-type="inline"
-/>
+https://share.vidyard.com/watch/ZdJkQLrRwCYJw9trfY6qLS?
 
 
 ## check list: :bookmark_tabs:
