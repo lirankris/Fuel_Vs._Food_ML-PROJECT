@@ -64,7 +64,7 @@ import streamlit
 import pandas 
 import time
 import datetime
-import plotly.graph_objects 
+import plotly
 import requests
 import xmltodict
 import pandasdmx
