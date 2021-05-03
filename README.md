@@ -50,6 +50,7 @@ Depend on API:
 - [ ] Gradient descent testing.
 - [ ] Line regression testing.
 - [ ] Decision tree testing.
+- [ ] 'Slim code' rev.
 - [ ] Full Logging framework.
 - [ ] Full docstring.
 - [ ] Updated requirement.txt file.
