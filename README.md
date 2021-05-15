@@ -35,12 +35,13 @@ Check out this video: https://share.vidyard.com/watch/ZdJkQLrRwCYJw9trfY6qLS?
 ## check list: :bookmark_tabs:
 
 - [x] OECD API.
-- [x] yahoo finance API ().
+- [x] yahoo finance API().
 - [ ] More data sources.
 - [x] initial Sqlite Database.
 - [x] initial batch file (offline start-up).
 - [ ] Divide countries by continent.
 - [x] local web app (Streamlit) (**beta**).
+- [ ] web app (Dash) (**beta**).
 - [ ] Data preparation (NumPy).
 - [ ] Gradient descent testing.
 - [ ] Line regression testing.
