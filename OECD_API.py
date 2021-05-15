@@ -6,7 +6,6 @@ import xmltodict
 import datetime
 import pandasdmx
 import time
-import streamlit as st
 
 cwd = os.getcwd()
 sys.path.append(f'{cwd}\DataFrames\CreateTools')
@@ -125,20 +124,15 @@ def OECD_dataset_name(keynames, Logger, db_list):
                 if year > HIGH_AGLINK_YEAR:
                     HIGH_AGLINK_YEAR = year
                     HIGH_AGLINK = dataset_id
+
     if GBARD:
         for dataset_id in keynames:
             if dataset_id == 'SNA_TABLE4':
                 CUR_TABLE = dataset_id
 
-        dataset_ids = []
-
-        for dataset in [GBARD, HIGH_AGLINK, CUR_TABLE]:
-            if dataset:
-                dataset_ids.append(dataset)
-
-        Logger.debug(f'Finished, Selected datasets are: {dataset_ids}')
-
-        return dataset_ids
+    dataset_ids = [GBARD, HIGH_AGLINK, CUR_TABLE]
+    Logger.debug(f'Finished, Selected datasets are: {dataset_ids}')
+    return dataset_ids
 
 
 '/////////////////////////////////////////////////////////////////////////////'
@@ -165,95 +159,98 @@ def OECD_dataset(dataset_ids, Logger):
                   dimensionAtObservation='TimeDimension',
                   detail='Full')
     dfs = {}
-    st.text(f'Getting Datasets names..')
-    st.text(f'dataset ids: {dataset_ids}')
+    # st.text(f'Getting Datasets names..')
+    # st.text(f'dataset ids: {dataset_ids}')
+    try:
+        for dataset in dataset_ids:
+            if 'GBARD' in dataset:
+                # st.text(f'Getting Dataset: {dataset}')
+                try:
+                    Logger.warning(f'Loading {dataset} from OECD database')
+                    data_response = oecd.data(resource_id=dataset,
+                                              params=params)
+                    df = get_df(data_response, Logger)
+                    Logger.debug(f'flattening {dataset} df')
+                    df.reset_index(level=['COUNTRY',
+                                          'SEO',
+                                          'MEASURE'],
+                                   inplace=True)
+                    sort_df: object = df.melt(id_vars=['COUNTRY',
+                                                       'SEO',
+                                                       'MEASURE'],
+                                              var_name="Date",
+                                              value_name="Value")
 
-    for dataset in dataset_ids:
-        if 'GBARD' in dataset:
-            st.text(f'Getting Dataset: {dataset}')
-            try:
-                Logger.warning(f'Loading {dataset} from OECD database')
-                data_response = oecd.data(resource_id=dataset,
-                                          params=params)
-                df = get_df(data_response, Logger)
-                Logger.debug(f'flattening {dataset} df')
-                df.reset_index(level=['COUNTRY',
-                                      'SEO',
-                                      'MEASURE'],
-                               inplace=True)
-                sort_df: object = df.melt(id_vars=['COUNTRY',
-                                                   'SEO',
-                                                   'MEASURE'],
-                                          var_name="Date",
-                                          value_name="Value")
+                    dfs['gbard'] = sort_df
 
-                dfs['gbard'] = sort_df
+                except req.exceptions.ConnectionError as err:
+                    Logger.warning(f'This {dataset} got this error: {err}')
+                    print(f'This dataset: {dataset} as failed to response')
+                    continue
 
-            except req.exceptions.ConnectionError as err:
-                Logger.warning(f'This {dataset} got this error: {err}')
-                print(f'This dataset: {dataset} as failed to response')
-                continue
+            elif 'HIGH_AGLINK' in dataset:
+                # st.text(f'Getting Dataset: {dataset}')
+                try:
+                    Logger.warning(f'Loading {dataset} from OECD database')
+                    data_response = oecd.data(resource_id=dataset,
+                                              params=params)
+                    df = get_df(data_response, Logger)
+                    Logger.debug(f'flattening {dataset} df')
+                    df.reset_index(level=['LOCATION',
+                                          'COMMODITY',
+                                          'VARIABLE'],
+                                   inplace=True)
+                    sort_df: object = df.melt(id_vars=['LOCATION',
+                                                       'COMMODITY',
+                                                       'VARIABLE'],
+                                              var_name="Date",
+                                              value_name="Value")
 
-        elif 'HIGH_AGLINK' in dataset:
-            st.text(f'Getting Dataset: {dataset}')
-            try:
-                Logger.warning(f'Loading {dataset} from OECD database')
-                data_response = oecd.data(resource_id=dataset,
-                                          params=params)
-                df = get_df(data_response, Logger)
-                Logger.debug(f'flattening {dataset} df')
-                df.reset_index(level=['LOCATION',
-                                      'COMMODITY',
-                                      'VARIABLE'],
-                               inplace=True)
-                sort_df: object = df.melt(id_vars=['LOCATION',
-                                                   'COMMODITY',
-                                                   'VARIABLE'],
-                                          var_name="Date",
-                                          value_name="Value")
+                    dfs['agricultural'] = sort_df
 
-                dfs['agricultural'] = sort_df
+                except req.exceptions.ConnectionError as err:
+                    Logger.warning(f'This {dataset} got this error: {err}')
+                    print(f'This dataset: {dataset} as failed to response')
+                    continue
 
-            except req.exceptions.ConnectionError as err:
-                Logger.warning(f'This {dataset} got this error: {err}')
-                print(f'This dataset: {dataset} as failed to response')
-                continue
+            elif 'SNA_TABLE4' in dataset:
+                # st.text(f'Getting Dataset: {dataset}')
+                try:
+                    Logger.warning(f'Loading {dataset} from OECD database')
+                    data_response = oecd.data(resource_id=dataset,
+                                              params=params)
 
-        elif 'SNA_TABLE4' in dataset:
-            st.text(f'Getting Dataset: {dataset}')
-            try:
-                Logger.warning(f'Loading {dataset} from OECD database')
-                data_response = oecd.data(resource_id=dataset,
-                                          params=params)
+                    df = get_df(data_response, Logger)
+                    Logger.debug(f'flattening {dataset} df')
+                    df.reset_index(level=['LOCATION',
+                                          'TRANSACT',
+                                          'MEASURE'],
+                                   inplace=True)
+                    sort_df: object = df.melt(id_vars=['LOCATION',
+                                                       'TRANSACT',
+                                                       'MEASURE'],
+                                              var_name="Date",
+                                              value_name="Value")
 
-                df = get_df(data_response, Logger)
-                Logger.debug(f'flattening {dataset} df')
-                df.reset_index(level=['LOCATION',
-                                      'TRANSACT',
-                                      'MEASURE'],
-                               inplace=True)
-                sort_df: object = df.melt(id_vars=['LOCATION',
-                                                   'TRANSACT',
-                                                   'MEASURE'],
-                                          var_name="Date",
-                                          value_name="Value")
+                    dfs['currncy'] = sort_df
 
-                dfs['currncy'] = sort_df
+                except req.exceptions.ConnectionError as err:
+                    Logger.warning(f'This {dataset} got this error: {err}')
+                    print(f'This dataset: {dataset} as failed to response')
+                    continue
 
-            except req.exceptions.ConnectionError as err:
-                Logger.warning(f'This {dataset} got this error: {err}')
-                print(f'This dataset: {dataset} as failed to response')
-                continue
+        if len(dfs) == len(dataset_ids):
+            # st.text(f'Success of Getting Datasets')
+            Logger.debug('Success')
+            print('Success')
+        else:
+            # st.text(f'Only {len(dfs)} dataset were found: {list(dfs.keys())}')
+            Logger.info(f'Only {len(dfs)} dataset were found')
+            print(f'Only {len(dfs)} dataset were found')
+        return dfs
 
-    if len(dfs) == len(dataset_ids):
-        st.text(f'Success of Getting Datasets')
-        Logger.debug('Success')
-        print('Success')
-    else:
-        st.text(f'Only {len(dfs)} dataset were found: {list(dfs.keys())}')
-        Logger.info(f'Only {len(dfs)} dataset were found')
-        print(f'Only {len(dfs)} dataset were found')
-    return dfs
+    except TypeError:
+        pass
 
 
 '/////////////////////////////////////////////////////////////////////////////'
@@ -279,7 +276,7 @@ def OECD_get_id_df(dataset_ids, Logger):
 
     variable_id = []
     variable_full_name = []
-
+    print(dataset_ids)
     with req.Session() as reqSe:
         for keyname in dataset_ids:
             try:
@@ -387,14 +384,19 @@ def OECD_get_id_df(dataset_ids, Logger):
                                                         "country_full_name": G_country_full_name})
             sector_dfs['seo'] = pd.DataFrame({"seo_id": seo_id,
                                               "seo_full_name": seo_full_name})
+
+
+    for c in ['OECD', 'EUN', 'NOA', 'EUR', 'OCD', 'AFR', 'LAC', 'WLD', 'BRICS', 'DVD', 'DVG']:
+        index = (sector_dfs['Agri_country'][sector_dfs['Agri_country'].country_id == c]).index
+        sector_dfs['Agri_country'].drop(index, axis=0, inplace=True)
+
     return sector_dfs
 
 
 '////////////////////////////////////////////////////////////////////'
 
 
-def OecdAPI(db_list, progress):
-
+def OecdAPI(db_list):
     OecdLogger = Log('Oecd_log')
     # Url for data structure schema with families key.
     OecdStructureUrl = 'http://stats.oecd.org/RESTSDMX/sdmx.ashx/GetDataStructure/ALL/'
@@ -421,8 +423,8 @@ def OecdAPI(db_list, progress):
     OecdLogger.info('json_Key_File as succeeded')
     dataset_ids = OECD_dataset_name(keynames, OecdLogger, db_list)
     time.sleep(0.1)
-    progress.progress(40)
-    st.text('Getting Datasets..')
+    # progress.progress(40)
+    # st.text('Getting Datasets..')
 
     try:
         full_datasets = OECD_dataset(dataset_ids, OecdLogger)
@@ -430,8 +432,8 @@ def OecdAPI(db_list, progress):
         OecdLogger.debug(f"Not all of the Datasets got response, we get this error {err}")
         print(f"Not all of the Datasets got response, we get this error {err}")
         pass
-
     sector_dfs = OECD_get_id_df(dataset_ids, OecdLogger)
+    print(sector_dfs)
 
     print("completed ...")
     OecdLogger.debug("OECD API ended at:  %s", str(datetime.datetime.now()))

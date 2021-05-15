@@ -2,7 +2,6 @@ import sys
 import os
 import pandas as pd
 import time
-import streamlit as st
 
 cwd = os.getcwd()
 sys.path.append(f'{cwd}\DataFrames')
@@ -83,10 +82,10 @@ def Clean_DataFrames(full_datasets, CleanLogger):
             df2 = full_datasets[dataset]
             # ----------------------------drop------------------------------- #
             df2.dropna(axis=0, inplace=True)
-            for c in ['OECD', 'EUN', 'NOA', 'EUR', 'OCD', 'AFR', 'LAC', 'WLD', 'BRICS']:
+            for c in ['OECD', 'EUN', 'NOA', 'EUR', 'OCD', 'AFR', 'LAC', 'WLD', 'BRICS', 'DVD', 'DVG']:
                 df2.drop(df2[df2.LOCATION == c].index, axis=0, inplace=True)
             CleanLogger.debug("drop rows that not contains 'OECD', 'EUN', 'NOA', \
-             'EUR', 'OCD', 'AFR', 'LAC', 'WLD', 'BRICS' in column: LOCATION")
+             'EUR', 'OCD', 'AFR', 'LAC', 'WLD', 'BRICS', 'DVD', 'DVG' in column: LOCATION")
             # ------------------------rename & replace----------------------------- #
             # Rename different columns in more suitable name.
             df2.rename(columns={"LOCATION": "COUNTRY", "Date": "YEAR",
@@ -230,7 +229,6 @@ def df2USA_currency(df, ExcRate, Logger):
     Logger.debug(f"There were problems with this country's: {count_country}")
     new_df = pd.DataFrame(new_set, columns=['COUNTRY', 'SEO', 'YEAR', 'GBARD_Values'])
 
-    st.write(new_df)
     # new_df.reset_index(inplace=True, drop=True)
     new_df.sort_values(by=['COUNTRY', 'YEAR'], inplace=True)
     return new_df
@@ -261,7 +259,7 @@ def checkIfnull(df_dict, Logger):
 
 
 # def adjusted_DataFrames(df1, df2, df3):
-def adjusted_DataFrames(full_datasets, progress):
+def adjusted_DataFrames(full_datasets):
     CleanLogger = Log('Clean_log')
 
     CleanLogger.info('Starting DataFrames Cleaning...')
@@ -269,8 +267,8 @@ def adjusted_DataFrames(full_datasets, progress):
     CleanLogger.debug('Going to Clean_DataFrames function')
     # full_datasets: [gbard, agricultural, currncy]
     time.sleep(0.1)
-    progress.progress(60)
-    st.text('Cleaning Datasets..')
+    # progress.progress(60)
+    # st.text('Cleaning Datasets..')
     clean_full_datasets = Clean_DataFrames(full_datasets, CleanLogger)
     # clean_full_datasets: [slim_gbard, slim_agricultural, slim_currncy]
 
@@ -281,23 +279,22 @@ def adjusted_DataFrames(full_datasets, progress):
     checkIfnull(df_dict=sort_full_datasets,
                 Logger=CleanLogger)
 
+    finit_datasets = {}
+
     for ds in sort_full_datasets:
         if ds == 'sort_gbard':
             CleanLogger.debug('Going to df2USA_currency function')
             G2usd_df = df2USA_currency(df=sort_full_datasets['sort_gbard'],
                                        ExcRate=clean_full_datasets['slim_currncy'],
                                        Logger=CleanLogger)
-    finit_datasets = {}
-
-    if not G2usd_df.empty:
-        finit_datasets['GBARD_final'] = G2usd_df
+            if not G2usd_df.empty:
+                finit_datasets['GBARD_final'] = G2usd_df
 
     for fds in sort_full_datasets:
         if fds == 'sort_agricultural':
             finit_datasets['agricultural_final'] = sort_full_datasets['sort_agricultural']
 
-    time.sleep(0.1)
-    progress.progress(80)
-    st.text('Datasets are all Done')
+    # progress.progress(80)
+    # st.text('Datasets are all Done')
 
     return finit_datasets
