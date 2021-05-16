@@ -216,6 +216,9 @@ app = Dash(__name__, external_stylesheets=external_stylesheets)
 app.title = "Fuel Vs.Food Dashboard"
 # -------------------------------------------app & app layout $$end
 
+# start$$ server initial----------------------------------------#
+server = app.server
+# ------------------------------------------- server initial$$end
 
 # start$$ Main dropdowns layout------------------------------------------#
 country_dropdowns_items = dcc.Dropdown(id='country_dropdowns', multi=True,
