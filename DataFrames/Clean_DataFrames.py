@@ -15,8 +15,10 @@ def sorted_dfs(dfs, CleanLogger):
     CleanLogger.info('Starting 2 sort dfs by values...')
 
     seo = ['NABS06', 'NABS08', 'NABS124', 'NABS134']
+
     variable = ['QP', 'EX', 'IM', 'QC', 'ST', 'FE', 'BF',
                 'FO', 'OU', 'QP__MA', 'QP__SCA', 'QP__VL']
+
     commodity = ['WT', 'MA', 'BD', 'ET', 'VL', 'OCG', 'MOL', 'SBE', 'SCA']
 
     sort_dfs = {}
@@ -90,7 +92,7 @@ def Clean_DataFrames(full_datasets, CleanLogger):
             # Rename different columns in more suitable name.
             df2.rename(columns={"LOCATION": "COUNTRY", "Date": "YEAR",
                                 "Value": "Agri_Values"}, inplace=True)
-
+            print(df2)
             LT_index = df2.index[df2.COMMODITY.isin(['BD', 'ET'])].tolist()
             df2.loc[LT_index, 'Agri_Values'] = df2.Agri_Values / (1143.25)
             df2['YEAR'] = [pd.to_datetime(year).year for year in df2['YEAR']]

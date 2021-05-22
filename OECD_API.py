@@ -277,6 +277,7 @@ def OECD_get_id_df(dataset_ids, Logger):
     variable_id = []
     variable_full_name = []
     print(dataset_ids)
+
     with req.Session() as reqSe:
         for keyname in dataset_ids:
             try:
@@ -384,7 +385,6 @@ def OECD_get_id_df(dataset_ids, Logger):
                                                         "country_full_name": G_country_full_name})
             sector_dfs['seo'] = pd.DataFrame({"seo_id": seo_id,
                                               "seo_full_name": seo_full_name})
-
 
     for c in ['OECD', 'EUN', 'NOA', 'EUR', 'OCD', 'AFR', 'LAC', 'WLD', 'BRICS', 'DVD', 'DVG']:
         index = (sector_dfs['Agri_country'][sector_dfs['Agri_country'].country_id == c]).index

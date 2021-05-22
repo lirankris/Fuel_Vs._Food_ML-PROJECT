@@ -11,6 +11,7 @@ import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 from NavBar import navgationbar
 from Tables import table_Agricultural, table_GBARD
+from FVF_Predictions import LinearRegModule
 
 
 # ** need to add debug **
@@ -164,6 +165,7 @@ def get_data_full_name_G(G_country, country_col, G_country_list,
 
 
 # start$$ Load Agricultural data------------------------------------------------------#
+check_if_DB_exist()
 
 A_datasets = load_data_A()
 Agri_data = A_datasets['Agri_data']
@@ -203,6 +205,7 @@ full_name_country_col_G, \
 full_name_seo_col = get_data_full_name_G(G_country, G_country_col,
                                          G_country_list, G_seo, seo_col,
                                          seo_list)
+
 # -----------------------------------------------------Load Agricultural data $$end
 
 
@@ -430,6 +433,24 @@ globe = dbc.Container(
     ]
 )
 
+predict_Production = html.Div(children=dcc.Graph(
+    id='pred_QP',
+    figure={},
+    config={"displayModeBar": False,
+            'responsive': True}))
+
+predict_Imports = html.Div(children=dcc.Graph(
+    id='pred_IM',
+    figure={},
+    config={"displayModeBar": False,
+            'responsive': True}))
+
+predict_Consumption = html.Div(children=dcc.Graph(
+    id='pred_QC',
+    figure={},
+    config={"displayModeBar": False,
+            'responsive': True}))
+
 top_card_1 = dbc.Card("1", body=True, outline=False,
                       style={'height': '100px', 'width': '300px'})
 top_card_2 = dbc.Card("2", body=True, outline=False,
@@ -506,6 +527,22 @@ analyze_page = html.Div(
                                    ])
                                ])
                  )])
+
+predictions_page = html.Div(
+    children=[
+        html.Div(
+            dbc.Container(className='container',
+                          children=[
+                              html.Div(
+                                  children=[
+                                      dbc.Row([predict_Production]),
+                                      dbc.Row([predict_Imports]),
+                                      dbc.Row([predict_Consumption])
+                                  ])
+                          ])
+        )
+    ]
+)
 
 # --------------------------------------pages setup $$end
 
@@ -665,27 +702,6 @@ def update_graph(input1):
 
 
 @app.callback(
-    Output("page-content", "children"),
-    [Input("url", "pathname")])
-def page_content(pathname):
-    if pathname == "/":
-        return Home_page
-    elif pathname == "/page-1":
-        return analyze_page
-    elif pathname == "/page-2":
-        return html.P("this is predictions page!")
-    # If the user tries to reach a different page, return a 404 message
-    return dbc.Jumbotron(
-        [
-            html.H1("404: Not found",
-                    className="text-danger"),
-            html.Hr(),
-            html.P(f"The pathname {pathname} was not recognised..."),
-        ]
-    )
-
-
-@app.callback(
     [Output("globe", "figure"),
      Output("globe_bar", "figure")],
     Input("url", "pathname"))
@@ -742,11 +758,65 @@ def globe_show(input):
     return fig, fig2
 
 
+# @app.callback(
+#     Output("check_bd", "children"),
+#     [Input("url", "pathname")])
+# def page_content(input):
+#     return check_if_DB_exist()
+
+
 @app.callback(
-    Output("check_bd", "children"),
-    [Input("url", "pathname")])
-def page_content(input):
-    return check_if_DB_exist()
+    Output("page-content", "children"),
+    Input("url", "pathname"))
+def page_content(pathname):
+    if pathname == "/":
+        return Home_page
+    elif pathname == "/page-1":
+        return analyze_page
+    elif pathname == "/page-2":
+        return predictions_page
+    # If the user tries to reach a different page, return a 404 message
+    return dbc.Jumbotron(
+        [
+            html.H1("404: Not found",
+                    className="text-danger"),
+            html.Hr(),
+            html.P(f"The pathname {pathname} was not recognised..."),
+        ]
+    )
+
+
+@app.callback(
+    [Output("Agri_Values-chart", "figure"),
+     Output("Agri_Values-chart", "figure"),
+     Output("Agri_Values-chart", "figure")]
+    [Input("Agricultural_table", "data"),
+     Input("Agricultural_table", "data"),
+     Input("Agricultural_table", "data")])
+def update_linear_predictions(input1, input2, input3):
+    df = continents
+    predicts_dfs = LinearRegModule(df)
+    fig = go.Figure()
+    # got dfs start callback and plot!!!!
+
+    # for con in countries:
+    #     fig.add_trace(go.Scatter(x=df[df.COUNTRY == con].YEAR,
+    #                              y=df[df.COUNTRY == con].Agri_Values,
+    #                              mode='lines',
+    #                              name=con))
+    #     fig.update_layout(showlegend=True)
+    #     fig.update_layout(legend={'title': 'countries'})
+    #     fig.update_layout(paper_bgcolor='#F8F8F8',
+    #                       plot_bgcolor='#F8F8F8',
+    #                       clickmode='event+select')
+    #     fig.update_layout(autosize=False,
+    #                       width=630,
+    #                       height=455)
+    #     fig.update_traces(marker_size=20)
+    #     fig.update_traces(text=con,
+    #                       hovertemplate='<br><br>'
+    #                                     ' year: %{x} <br>value: %{y}')
+    return fig
 
 
 # @app.callback(

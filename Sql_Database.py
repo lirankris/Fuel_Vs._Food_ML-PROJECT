@@ -122,65 +122,75 @@ def Read_init_sql(databases: list):
     for db in databases:
         if db == 'Agricultural':
             connection = sq3.connect('DB_initialize\OECD_db_Agri_init.db')
-            Agri_data = pd.read_sql('SELECT * FROM OECD_db_Agri', con=connection)
+            Agri_data = pd.read_sql('SELECT * FROM OECD_db_Agri', con=connection,
+                                    index_col='index')
             dfs.append(Agri_data)
             dbLogger.debug('Read_init_sql: append Agricultural df to dfs')
 
         elif db == 'GBARD':
             connection = sq3.connect('DB_initialize\OECD_db_GBARD_init.db')
-            GBARD_data = pd.read_sql('SELECT * FROM OECD_db_GBARD', con=connection)
+            GBARD_data = pd.read_sql('SELECT * FROM OECD_db_GBARD', con=connection,
+                                     index_col='index')
             dfs.append(GBARD_data)
             dbLogger.debug('Read_init_sql: append GBARD df to dfs')
 
         elif db == 'Agri_country':
             connection = sq3.connect('DB_initialize\Agri_country.db')
-            Agri_country = pd.read_sql('SELECT * FROM Agri_country', con=connection)
+            Agri_country = pd.read_sql('SELECT * FROM Agri_country', con=connection,
+                                       index_col='index')
             dfs.append(Agri_country)
             dbLogger.debug('Read_init_sql: append Agri_country df to dfs')
 
         elif db == 'commodity':
             connection = sq3.connect('DB_initialize\commodity.db')
-            commodity = pd.read_sql('SELECT * FROM commodity', con=connection)
+            commodity = pd.read_sql('SELECT * FROM commodity', con=connection,
+                                    index_col='index')
             dfs.append(commodity)
             dbLogger.debug('Read_init_sql: append commodity df to dfs')
 
         elif db == 'Agri_variable':
             connection = sq3.connect('DB_initialize\Agri_variable.db')
-            Agri_variable = pd.read_sql('SELECT * FROM Agri_variable', con=connection)
+            Agri_variable = pd.read_sql('SELECT * FROM Agri_variable', con=connection,
+                                        index_col='index')
             dfs.append(Agri_variable)
             dbLogger.debug('Read_init_sql: append Agri_variable df to dfs')
 
         elif db == 'GBARD_country':
             connection = sq3.connect('DB_initialize\GBARD_country.db')
-            GBARD_country = pd.read_sql('SELECT * FROM GBARD_country', con=connection)
+            GBARD_country = pd.read_sql('SELECT * FROM GBARD_country', con=connection,
+                                        index_col='index')
             dfs.append(GBARD_country)
             dbLogger.debug('Read_init_sql: append GBARD_country df to dfs')
 
         elif db == 'seo':
             connection = sq3.connect('DB_initialize\seo.db')
-            seo = pd.read_sql('SELECT * FROM seo', con=connection)
+            seo = pd.read_sql('SELECT * FROM seo', con=connection,
+                              index_col='index')
             dfs.append(seo)
             dbLogger.debug('Read_init_sql: append seo df to dfs')
 
         elif db == 'continents':
             connection = sq3.connect('DB_initialize\OECD_db_Agri_continents.db')
-            seo = pd.read_sql('SELECT * FROM OECD_db_Agri_continents',
-                              con=connection)
-            dfs.append(seo)
+            continents = pd.read_sql('SELECT * FROM OECD_db_Agri_continents',
+                                     con=connection,
+                                     index_col='index')
+            dfs.append(continents)
             dbLogger.debug('Read_init_sql: append continents df to dfs')
 
         elif db == 'continents_1990':
             connection = sq3.connect('DB_initialize\OECD_db_Agri_continents_1990.db')
-            seo = pd.read_sql('SELECT * FROM OECD_db_Agri_continents_1990',
-                              con=connection)
-            dfs.append(seo)
+            continents_1990 = pd.read_sql('SELECT * FROM OECD_db_Agri_continents_1990',
+                                          con=connection,
+                                          index_col='index')
+            dfs.append(continents_1990)
             dbLogger.debug('Read_init_sql: append continents_1990 df to dfs')
 
         elif db == 'continents_2020':
             connection = sq3.connect('DB_initialize\OECD_db_Agri_continents_2020.db')
-            seo = pd.read_sql('SELECT * FROM OECD_db_Agri_continents_2020',
-                              con=connection)
-            dfs.append(seo)
+            continents_2020 = pd.read_sql('SELECT * FROM OECD_db_Agri_continents_2020',
+                                          con=connection,
+                                          index_col='index')
+            dfs.append(continents_2020)
             dbLogger.debug('Read_init_sql: append continents_2020 df to dfs')
 
     return dfs
